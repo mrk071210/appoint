@@ -5,7 +5,7 @@
   <div class="margin-b-15">【用法】 需要在使用图表组件的模块引入图表资源。 </div>
 <pre>
 <code class="language-javascript" kyeeCodeHighLight>
-import &#123; ChartsWidgetsModule &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+import &#123; ChartsWidgetModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的ChartsWidgetModule
 </code>
 </pre>
 </section>
@@ -53,7 +53,7 @@ update(event: Event) &#123;
 
 <section>
   <h2>图表类型</h2>
-  <span>【说明】使用type属性定义图表类型。 框架目前支持3个选项： bar、line、pie。</span>
+  <span>【说明】使用type属性定义图表类型。 框架目前支持： bar、line、pie、doughnut、radar、polar-area。</span>
 </section>
 
 <section>
@@ -93,7 +93,7 @@ update(event: Event) &#123;
   <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight>
-&lt;p-chart type="line" [data]="data" &gt; &lt;/p-chart&gt;
+&lt;p-chart type="line" [data]="data" (onDataSelect)="selectData($event) &gt; &lt;/p-chart&gt;
 </code>
 </pre>
   <h5>TS代码示例</h5>

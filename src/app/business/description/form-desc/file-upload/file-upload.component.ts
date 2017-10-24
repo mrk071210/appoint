@@ -13,6 +13,8 @@ export class FileUploadComponent implements OnInit {
   functionsList: any[];
   styleList: any[];
   tsDemo1: string;
+  tsDemo2: string;
+  tsDemo3: string;
   constructor() {
     this.attributes = [
       {
@@ -43,7 +45,7 @@ export class FileUploadComponent implements OnInit {
         'name': 'accept',
         'type': 'string',
         'default': 'false',
-        'description': '限制允许的文件类型，如“image / *”。'
+        'description': '限制允许的文件类型，如“image / *”'
       },
       {
         'name': 'disabled',
@@ -67,7 +69,7 @@ export class FileUploadComponent implements OnInit {
         'name': 'invalidFileSizeMessageSummary',
         'type': 'string',
         'default': '{0}: Invalid file size',
-        'description': '无效fize大小的摘要消息。'
+        'description': '无效fize大小的摘要消息'
       },
       {
         'name': 'invalidFileSizeMessageDetail',
@@ -79,7 +81,7 @@ export class FileUploadComponent implements OnInit {
         'name': 'invalidFileTypeMessageSummary',
         'type': 'string',
         'default': '"{0}: Invalid file type, "',
-        'description': '无效的fize类型的摘要消息。'
+        'description': '无效的fize类型的摘要消息'
       },
       {
         'name': 'invalidFileTypeMessageDetail',
@@ -249,18 +251,50 @@ export class FileUploadComponent implements OnInit {
   ngOnInit() {
 this.tsDemo1 = `
 export class FileUploadComponent implements OnInit {
-msgs;
-uploadedFiles: any[] = [];
-constructor() { }
-onUpload(event) {
-  for (let file of event.files) {
-      this.uploadedFiles.push(file);
+  msgs;
+  uploadedFiles: any[] = [];
+  constructor() { }
+  onUpload(event) {
+    for (let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+    this.msgs = [];
+    this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
-  this.msgs = [];
-  this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
-}
-ngOnInit() {
-}
+  ngOnInit() {
+  }
+
+}`;
+this.tsDemo2 = `
+export class FileUploadComponent implements OnInit {
+  msgs;
+  uploadedFiles: any[] = [];
+  constructor() { }
+  onBasicUpload(event) {
+    for (let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+    this.msgs = [];
+    this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
+  }
+  ngOnInit() {
+  }
+
+}`;
+this.tsDemo3 = `
+export class FileUploadComponent implements OnInit {
+  msgs;
+  uploadedFiles: any[] = [];
+  constructor() { }
+  onBasicUploadAuto(event) {
+    for (let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+    this.msgs = [];
+    this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
+  }
+  ngOnInit() {
+  }
 
 }`;
   }

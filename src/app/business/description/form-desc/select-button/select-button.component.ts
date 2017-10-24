@@ -40,15 +40,15 @@ export class SelectButtonComponent implements OnInit {
       },
       {
         'name': 'style',
-        'type': 'string',
+        'type': 'object',
         'default': 'null',
         'description': '组件的内联样式'
       },
       {
-        'name': 'styleClass',
-        'type': 'string',
+        'name': 'itemStyle',
+        'type': 'object',
         'default': 'null',
-        'description': '组件的样式类'
+        'description': '组件内每个按钮的内联样式'
       },
       {
         'name': 'disabled',
@@ -62,6 +62,11 @@ export class SelectButtonComponent implements OnInit {
         'name': 'onChange',
         'parameters': 'event.originalEvent: 浏览器事件' + '；' + 'event.value: 单值或所选值的数组',
         'description': '值更改时调用'
+      },
+      {
+        'name': 'onOptionClick',
+        'parameters': 'event.originalEvent: 浏览器事件' + '；' + 'event.option: 点击按钮的选中实例' + '；' + 'event.option: 点击按钮的索引',
+        'description': '点击按钮时调用'
       }
     ];
    }

@@ -23,7 +23,32 @@ export class DoughnutComponent implements OnInit {
                         '#FFCE56'
                     ]
                 }]
-        };
+    };
+    //设置悬浮样式的环形图数据
+    doughnutHoverData: any = {
+         labels: ['A', 'B', 'C'],
+            datasets: [
+                {
+                    data: [300, 50, 100],
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ],
+                    hoverBackgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ],
+                    borderWidth: 0,
+                    hoverBorderColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ],
+                    hoverBorderWidth: 4
+                }]
+    };
   doughnutDemoCode: any = `
 import { Component, OnInit } from '@angular/core';
 
@@ -50,7 +75,31 @@ export class DoughnutComponent implements OnInit {
                         '#FFCE56'
                     ]
                 }]
-        };
+    };
+    doughnutHoverData: any = {
+        labels: ['A', 'B', 'C'],
+            datasets: [
+                {
+                    data: [300, 50, 100],
+                    backgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ],
+                    hoverBackgroundColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ],
+                    borderWidth: 0,
+                    hoverBorderColor: [
+                        '#FF6384',
+                        '#36A2EB',
+                        '#FFCE56'
+                    ],
+                    hoverBorderWidth: 4
+                }]
+    };
 
     constructor() { }
 

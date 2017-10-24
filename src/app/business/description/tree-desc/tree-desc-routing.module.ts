@@ -8,6 +8,8 @@ import { MultipleComponent } from './multiple';
 import { CheckboxComponent } from './checkbox';
 import { ContextComponent } from './context';
 import { ExpansionComponent } from './expansion';
+import { DropdownComponent } from './dropdown';
+
 
 @NgModule({
    imports: [
@@ -15,6 +17,7 @@ import { ExpansionComponent } from './expansion';
             {path: '', redirectTo: 'tree', pathMatch: 'full'},
             {path: 'tree', component: TreeDescComponent},
             {path: 'basic', component: BasicComponent},
+            {path: 'dropdown', component: DropdownComponent},
             {path: 'single', component: SingleComponent},
             {path: 'multiple', component: MultipleComponent},
             {path: 'checkbox', component: CheckboxComponent},

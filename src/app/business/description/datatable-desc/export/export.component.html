@@ -1,23 +1,23 @@
 <h3 class="component-title icon_resource"><span>数据导出</span></h3>
 <p class="margin-10">【简介】可以将表格数据导出成CSV文件。</p>
 <p-tabView>
-  <p-tabPanel header="效果示例" leftIcon="icon_example">
-<div class="content-section implementation">
-    
-    <p-dataTable #dt [value]="cars" exportFilename="cars">
-        <p-header>
-            <div class="ui-helper-clearfix">
-                <button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="float:left"></button>
-            </div>
-        </p-header>
-        <p-column field="vin" header="Vin"></p-column>
-        <p-column field="year" header="Year"></p-column>
-        <p-column field="brand" header="Brand"></p-column>
-        <p-column field="color" header="Color"></p-column>
-    </p-dataTable>    
-    
-</div>
-  </p-tabPanel>
+<p-tabPanel header="效果示例" leftIcon="icon_example">
+    <div class="content-section implementation">
+        <p-dataTable #dt [value]="cars" exportFilename="cars" [(selection)]="selectedCars" selectionMode="multiple" [metaKeySelection]="false">
+            <p-header>
+                <div class="ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-file-o" iconPos="left" label="All Data" (click)="dt.exportCSV()" style="float:left"></button>
+                    <button type="button" pButton icon="fa-file" iconPos="left" label="Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
+                </div>
+            </p-header>
+            <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
+            <p-column field="vin" header="Vin"></p-column>
+            <p-column field="year" header="Year"></p-column>
+            <p-column field="brand" header="Brand"></p-column>
+            <p-column field="color" header="Color"></p-column>
+        </p-dataTable>
+    </div>
+</p-tabPanel>
 
   <p-tabPanel header="组件源码" leftIcon="icon_code">
     <section>
@@ -27,9 +27,11 @@
 &lt;p-dataTable #dt [value]="cars" exportFilename="cars"&gt;
     &lt;p-header&gt;
         &lt;div class="ui-helper-clearfix"&gt;
-            &lt;button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()" style="float:left"&gt;&lt;/button&gt;
+            &lt;button type="button" pButton icon="fa-file-o" iconPos="left" label="All Data" (click)="dt.exportCSV()" style="float:left"&gt;&lt;/button&gt;
+            &lt;button type="button" pButton icon="fa-file" iconPos="left" label="Selection Only" (click)="dt.exportCSV(&#123;selectionOnly:true&#125;)" style="float:right"&gt;&lt;/button&gt;
         &lt;/div&gt;
     &lt;/p-header&gt;
+    &lt;p-column [style]="&#123;'width':'38px'&#125;" selectionMode="multiple"&gt;&lt;/p-column&gt;
     &lt;p-column field="vin" header="Vin"&gt;&lt;/p-column&gt;
     &lt;p-column field="year" header="Year"&gt;&lt;/p-column&gt;
     &lt;p-column field="brand" header="Brand"&gt;&lt;/p-column&gt;
@@ -46,6 +48,8 @@
 export class DataTableExportDemo implements OnInit &#123;
 
     cars: Car[];
+
+    selectedCars: Car[];
 
     constructor(private carService: CarService) &#123; &#125;
 

@@ -17,6 +17,7 @@ import { ProgressBarComponent } from './progress-bar';
 import { SplitButtonComponent } from './split-button';
 import { TabViewComponent } from './tab-view';
 import { TooltipComponent } from './tooltip';
+import { ConfirmDialogComponent } from './confirm-dialog';
 
 @NgModule({
     imports: [
@@ -37,7 +38,8 @@ import { TooltipComponent } from './tooltip';
         ProgressBarComponent,
         SplitButtonComponent,
         TabViewComponent,
-        TooltipComponent
+        TooltipComponent,
+        ConfirmDialogComponent
     ]
 })
 export class CommonDescModule { }

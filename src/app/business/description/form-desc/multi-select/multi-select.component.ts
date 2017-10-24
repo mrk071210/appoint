@@ -69,6 +69,12 @@ export class MultiSelectComponent implements OnInit {
         'description': '元素的class样式'
       },
       {
+        'name': 'panelStyle',
+        'type': 'object',
+        'default': 'null',
+        'description': '叠加面板的内联样式'
+      },
+      {
         'name': 'scrollHeight',
         'type': 'string',
         'default': '200px',
@@ -115,6 +121,18 @@ export class MultiSelectComponent implements OnInit {
         'type': 'string',
         'default': '{0} items selected',
         'description': '超过最大选定标签后显示的label'
+      },
+      {
+        'name': 'showToggleAll',
+        'type': 'boolean',
+        'default': 'true',
+        'description': '是否显示头部复选框以一次切换所有项目'
+      },
+      {
+        'name': 'resetFilterOnHide',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '超过最大选定标签后显示的label'
       }
     ];
      this.eventsList = [
@@ -127,6 +145,16 @@ export class MultiSelectComponent implements OnInit {
         'name': 'onBlur',
         'parameters': 'event.originalEvent: 浏览器事件' + 'event.value: 点击所选项',
         'description': '当多重选择失去焦点时调用'
+      },
+      {
+        'name': 'onPanelShow',
+        'parameters': '-',
+        'description': '叠加面板显示时调用'
+      },
+      {
+        'name': 'onPanelHide',
+        'parameters': '-',
+        'description': '叠加面板隐藏时调用'
       }
     ];
     this.styleList = [

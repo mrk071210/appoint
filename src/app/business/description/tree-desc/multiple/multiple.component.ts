@@ -61,7 +61,7 @@ export class MultipleComponent implements OnInit {
   // TS示例代码
   multipleDemoCode: any = `
 import { Component, OnInit } from '@angular/core';
-import { TreeWidgetModule, TreeNode } from 'widgets';
+import { TreeWidgetModule, TreeNode } from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的TreeWidgetModule,TreeNode
 
 @Component({
   selector: 'kyee-multiple-desc',

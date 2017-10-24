@@ -8,7 +8,7 @@
         <div class="ui-g">
           <div class="ui-inputgroup">
             <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-            <input type="text" pInputText placeholder="Username"/>
+            <input type="text" pInputText placeholder="Username" [useClear]="true" class="kyee-input-clear"/>
           </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
       <div class="example">
         <div class="ui-g">
           <div class="ui-inputgroup">
-            <input type="text" pInputText placeholder="Keyword">
+            <input type="text" pInputText placeholder="Keyword" [useClear]="true"/>
             <button pButton type="button" icon="fa-search" class="ui-button-secondary"></button>
           </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="ui-g">
           <div class="ui-inputgroup">
             <span class="ui-inputgroup-addon"><p-checkbox></p-checkbox></span>
-            <input type="text" pInputText placeholder="Username">
+            <input type="text" pInputText placeholder="Username"/>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
 &lt;div class="ui-g"&gt;
   &lt;div class="ui-inputgroup"&gt;
     &lt;span class="ui-inputgroup-addon"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;input type="text" pInputText placeholder="Username"&gt;
+    &lt;input type="text" pInputText placeholder="Username" [useClear]="true" class="kyee-input-clear"&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code>
@@ -56,13 +56,13 @@
 </pre>
     </section>
 <section>
-      <h2>按钮-输入组</h2>
+      <h2>按钮-输入</h2>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight>
 &lt;div class="ui-g"&gt;
   &lt;div class="ui-inputgroup"&gt;
-    &lt;input type="text" pInputText placeholder="Keyword"&gt;
+    &lt;input type="text" pInputText placeholder="Keyword" [useClear]="true"&gt;
     &lt;button pButton type="button" icon="fa-search" class="ui-button-secondary"&gt;&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -74,7 +74,7 @@
 </pre>
     </section>
     <section>
-      <h2>多选-输入组</h2>
+      <h2>多选-输入</h2>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight>
@@ -97,7 +97,7 @@
       <h2>【Step1】引入资源文件</h2>
       <pre>
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight>
-  import &#123;FormWidgetsModule&#125; from '../../../widgets';
+import &#123; FormWidgetsModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule
 </code>
 </pre>
     </section>

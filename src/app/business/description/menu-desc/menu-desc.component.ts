@@ -107,7 +107,7 @@ export class MenuDescComponent implements OnInit {
   ];
 
   html1 = `
-import {MenuWidgetsModule, MenuItem} from 'widgets'; // widgets 为根目录widgets文件夹
+import { MenuWidgetsModule, MenuItem } from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的MenuWidgetsModule, MenuItem
 
 export class MenuDemo {
     

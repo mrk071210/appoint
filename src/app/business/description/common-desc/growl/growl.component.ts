@@ -9,6 +9,7 @@ import { Message } from '../../../../widgets';
 export class GrowlComponent implements OnInit {
     properties: any[];
     events: any[];
+    Styling: any[];
     msgs: Message[] = [];
 
     constructor() { }
@@ -25,7 +26,18 @@ export class GrowlComponent implements OnInit {
 
         this.events = [
             {name: 'onClose', param: `message：已删除信息`, description: '回调在消息关闭时调用。'},
-            {name: 'onClick',param: `message：点击的消息`, description: '单击消息时调用回调。'}
+            {name: 'onClick', param: `message：点击的消息`, description: '单击消息时调用回调。'},
+            {name: 'onHover', param: `message：鼠标进入的消息`, description: '鼠标进入消息时调用回调。'}
+        ];
+
+        this.Styling = [
+            {name: 'ui-growl', element: `主容器元素。`},
+            {name: 'ui-growl-container', element: `一个消息项的容器。`},
+            {name: 'ui-growl-item', element: `消息元素。`},
+            {name: 'ui-growl-icon-close', element: `消息的关闭图标。`},
+            {name: 'ui-growl-image', element: `严格的图标。`},
+            {name: 'ui-growl-message', element: `消息文本容器。`},
+            {name: 'ui-growl-title', element: `消息摘要。`}
         ];
     }
 

@@ -89,7 +89,7 @@
             <h2>资源文件引入</h2>
 <pre>
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight>
-import &#123;FormWidgetsModule&#125; from '../../../widgets';
+import &#123; FormWidgetsModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule
 </code>
 </pre>
         </section>
@@ -174,7 +174,7 @@ import &#123;FormWidgetsModule&#125; from '../../../widgets';
         </section>
         <section>
             <h2>样式</h2>
-            <p>以下是结构样式类的列表，针对主题样式的样式类</p>
+            <p>以下是结构样式类的列表，针对主题样式的样式类。</p>
             <p-dataTable [value]="styleList">
                 <p-column field="name" header="名称"></p-column>
                 <p-column field="element" header="元素"></p-column>

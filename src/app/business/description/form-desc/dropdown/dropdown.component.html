@@ -1,5 +1,5 @@
 <h3 class="component-title icon_resource"><span>下拉选择框</span></h3>
-<p class="margin-10">下拉菜单用于从一组选项中选择一个项目。 自定义内容支持和过滤是显着的功能。</p>
+<p class="margin-10">下拉菜单用于从一组选项中选择一个项目。 自定义内容支持和过滤是显著的功能。</p>
 <p-tabView>
   <p-tabPanel header="效果示例" leftIcon="icon_example">
     <section>
@@ -87,14 +87,14 @@
       <h2>资源文件引入</h2>
       <pre>
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight>
-import &#123;FormWidgetsModule&#125; from '../../../widgets';
+import &#123; FormWidgetsModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule
 </code>
 </pre>
     </section>
     <section>
       <h2>使用</h2>
       <h3>1. 双向绑定</h3>
-      <p>使用ngModel定义双向值绑定，下拉列表需要一组选项，每个选项应遵循定义标签值属性的SelectItem接口</p>
+      <p>使用ngModel定义双向值绑定，下拉列表需要一组选项，每个选项应遵循定义标签值属性的SelectItem接口。</p>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
@@ -166,6 +166,17 @@ import &#123;FormWidgetsModule&#125; from '../../../widgets';
         <p-column field="parameters" header="参数"></p-column>
         <p-column field="description" header="描述"></p-column>
       </p-dataTable>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-dropdown #dd [options]="cars" [(ngModel)]="selectedCar" filter="true"&gt;&lt;/p-dropdown&gt;
+&lt;button type="button" pButton label="Clear" (click)="clearFilter(dd)"&gt;&lt;/p-dropdown&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo4"></code>
+</pre>
     </section>
     <section>
       <h2>样式</h2>

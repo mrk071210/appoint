@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CodeHighLightModule } from '../code-high-light';
 import { CommonWidgetsModule, DatatableWidgetModule, FormWidgetsModule} from '../../../widgets';
 
-import { DatatableDescComponent } from './datatable-desc.component';
 import { DatatableDescRoutingModule } from './datatable-desc-routing.module';
 
 import { GetDummyDataService } from './get-dummy-data-service';
@@ -21,7 +20,8 @@ import {
   LazyLoadComponent,
   CrudComponent,
   ExportComponent,
-  SelectionComponent
+  SelectionComponent,
+  ScrollComponent
  } from '../datatable-desc';
 
 @NgModule({
@@ -34,7 +34,6 @@ import {
     DatatableDescRoutingModule
   ],
   declarations: [
-    DatatableDescComponent,
     BasicComponent,
     TemplatingComponent,
     ColGroupComponent,
@@ -48,7 +47,8 @@ import {
     LazyLoadComponent,
     CrudComponent,
     ExportComponent,
-    SelectionComponent
+    SelectionComponent,
+    ScrollComponent
   ],
   providers: [GetDummyDataService]
 })

@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Injectable()
 export class RouterService {
     // 用于权限验证路由跳转路由跳转
-    private verifyCB: Function = () => true;
+    private verifyCallback: Function = () => true;
 
     constructor(
         public router: Router,
@@ -15,7 +15,7 @@ export class RouterService {
 
     /**
      * 获得当前路由
-    */
+     */
     public get url(): string {
         return this.router.url;
     }
@@ -26,7 +26,7 @@ export class RouterService {
      * @param params 需要传递的参数
      */
     public gotoPage(url: string, params: Object = {}): void {
-        if(this.verifyCB()) {
+        if(this.verifyCallback()) {
             this.router.navigate([url], { queryParams: params });
         }
     }
@@ -35,7 +35,7 @@ export class RouterService {
      * 页面后退
      */
     public goBack(): void {
-        if(this.verifyCB()) {
+        if(this.verifyCallback()) {
             this._location.back();
         }
     }
@@ -61,6 +61,6 @@ export class RouterService {
      * 设置路由跳转时，权限验证函数，回调函数默认以及允许返回true，禁止跳转返回false
      */
     public setVerifyCallback(cb: Function):void {
-        this.verifyCB = cb;
+        this.verifyCallback = cb;
     }
 }

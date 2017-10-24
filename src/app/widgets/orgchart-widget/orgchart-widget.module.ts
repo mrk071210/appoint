@@ -2,9 +2,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import {
-    OrganizationChartModule
-} from 'primeng/primeng';
+import { OrganizationChartModule } from './organizationchart/organizationchart';
 
 const WIDGETS_MODULES = [
     OrganizationChartModule

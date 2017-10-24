@@ -18,6 +18,11 @@ export class FormDescComponent implements OnInit {
               'desc': ''
             },
             {
+              'name': 'textarea',
+              'target': '<textarea pInputTextarea></textarea>',
+              'desc': ''
+            },
+            {
               'name': '输入自动填充',
               'target': '<p-autoComplete></p-autoComplete>',
               'desc': ''
@@ -62,11 +67,16 @@ export class FormDescComponent implements OnInit {
               'target': '<p-spinner></p-spinner>',
               'desc': ''
           },
-            {
+          {
               'name': 'tab选择按钮列表',
               'target': '<p-selectButton></p-selectButton>',
               'desc': ''
-            }
+          },
+          {
+              'name': '文件上传',
+              'target': '<p-fileUpload name="myfile[]" url="./upload.php"></p-fileUpload>',
+              'desc': ''
+          }
         ];
   }
 

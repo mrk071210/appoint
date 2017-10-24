@@ -9,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class ExportComponent implements OnInit {
 
   cars: any[];
+
+  selectedCars: any[];
+  
   constructor(private getDummyDataService: GetDummyDataService) { }
 
   ngOnInit() {
     this.getDummyDataService.getCarsSmall().then(cars => this.cars = cars);
   }
-
+  
 }

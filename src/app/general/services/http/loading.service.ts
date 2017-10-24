@@ -8,7 +8,6 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class LoadingService {
     private loadingSubject = new Subject<boolean>();
-
     constructor() { }
 
     /**

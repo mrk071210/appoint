@@ -102,6 +102,12 @@ export class SpinnerComponent implements OnInit {
         'type': 'string',
         'default': 'text',
         'description': '输入字段的类型'
+      },
+      {
+        'name': 'required',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '输入字段是否必填'
       }
     ];
      this.eventsList = [
@@ -113,7 +119,12 @@ export class SpinnerComponent implements OnInit {
       {
         'name': 'onBlur',
         'parameters': 'event: 失焦事件',
-        'description': '自动完成失败时调用'
+        'description': '自动完成失焦时调用'
+      },
+      {
+        'name': 'onFocus',
+        'parameters': 'event: 获取焦点事件',
+        'description': '自动完成获取焦点时调用'
       }
     ];
     this.styleList = [

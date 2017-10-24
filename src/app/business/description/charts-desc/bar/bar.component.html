@@ -5,7 +5,7 @@
         <section>
             <h2>常规柱状图</h2>
             <div class="chart-demo">
-                <p-chart type="bar" [data]="barData"></p-chart>
+                <p-chart type="bar" [data]="barData" [options]="barOptions"></p-chart>
             </div>
         </section>
          
@@ -15,19 +15,32 @@
             <p-chart type="horizontalBar" [data]="barData"></p-chart>
           </div>
         </section>
+
+        <section>
+            <h2>常规柱状图（隐藏图例）</h2>
+            <div class="chart-demo">
+              <p-chart type="bar" [data]="hideLegendBarData" [options]="hideLegendOptions"></p-chart>
+            </div>
+        </section>
     </p-tabPanel>
     <p-tabPanel header="组件源码" leftIcon="icon_code">
         <section>
           <h5>常规柱状图HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight>
-&lt;p-chart type="bar" [data]="barData" &gt; &lt;/p-chart&gt;
+&lt;p-chart type="bar" [data]="barData" [options]="barOptions" &gt; &lt;/p-chart&gt;
 </code>
 </pre>
           <h5>横向柱状图HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight>
 &lt;p-chart type="horizontalBar" [data]="barData" &gt; &lt;/p-chart&gt;
+</code>
+</pre>
+        <h5>常规柱状图（隐藏图例）HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="bar" [data]="hideLegendBarData" [options]="hideLegendOptions" &gt; &lt;/p-chart&gt;
 </code>
 </pre>
           <h5>TS代码示例</h5>
@@ -41,7 +54,7 @@
             <h4>Step 1  TS文件中引入组件所需资源，如下: </h4>    
 <pre>
 <code class="language-javascript" kyeeCodeHighLight>
-import &#123; ChartsWidgetsModule &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+import &#123; ChartsWidgetModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的ChartsWidgetModule
 </code>
 </pre>
             <h4>Step 2  HTML文件中使用图表指令<span class="padding-lr-10 high-light">p-chart</span>，如下:</h4>   

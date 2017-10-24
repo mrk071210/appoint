@@ -118,4 +118,12 @@
         <p-column field="description" header="描述"></p-column>
       </p-dataTable>
     </section>
+    <section>
+        <h2>样式</h2>
+        <p>以下是结构样式类的列表。</p>
+        <p-dataTable [value]="styling">
+          <p-column field="name" header="名称" [style]="{'width': '40%'}"></p-column>
+          <p-column field="element" header="参数"></p-column>
+        </p-dataTable>
+      </section>
   </p-tabPanel>

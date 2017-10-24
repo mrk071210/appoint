@@ -9,6 +9,7 @@ import { MenuItem } from '../../../../widgets';
 export class PanelComponent implements OnInit {
     properties: any[];
     events: any[];
+    styling: any[];
     items: MenuItem[];
     msgs = [];
 
@@ -22,14 +23,23 @@ export class PanelComponent implements OnInit {
             {name:'style', type:'string', default:'null', description:'组件的内联样式。'},
             {name:'styleClass', type:'string', default:'null', description:'组件的样式类。'},
             {name:'expandIcon', type:'string', default:'fa-plus', description:'展开切换按钮的图标。'},
-            {name:'collapseIcon', type:'string', default:'fa-minus', description:'切换按钮的折叠图标。'}
+            {name:'collapseIcon', type:'string', default:'fa-minus', description:'切换按钮的折叠图标。'},
+            {name:'showHeader', type:'boolean', default:'true', description:'指定面板的标题是否可显示。'}
         ];
 
         this.events = [
             {name: 'onBeforeToggle', param: `event.originalEvent：浏览器事件;
                 event.collapsed：state作为boolean`, description: '在内容切换之前调用的回调。'},
-            {name: 'onAfterToggle',param: `event.originalEvent：浏览器事件;   
+            {name: 'onAfterToggle', param: `event.originalEvent：浏览器事件;   
                 event.collapsed：state作为boolean`, description: '在内容切换之后调用的回调。'}
+        ];
+
+        this.styling = [
+            {name: 'ui-panel', element: `容器元素。`},
+            {name: 'ui-panel-titlebar', element: `标题部分。`},
+            {name: 'ui-panel-title', element: `面板标题文字。`},
+            {name: 'ui-panel-titlebar-toggler', element: `切换图标。`},
+            {name: 'ui-panel-content', element: `面板内容。`}
         ];
 
         this.items = [

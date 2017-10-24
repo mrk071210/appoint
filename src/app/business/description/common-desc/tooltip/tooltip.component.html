@@ -7,16 +7,16 @@
     <div class="common-demo">
     <div class="ui-g ui-fluid">
         <div class="ui-g-12 ui-md-3">
-            <input type="text" pInputText pTooltip="请输入工号" placeholder="右">                
+            <input type="text" pInputText pTooltip="请输入工号" placeholder="右" class="ui-inputtext">                
         </div>
         <div class="ui-g-12 ui-md-3">
-            <input type="text" pInputText pTooltip="请输入工号" tooltipPosition="top" placeholder="上">
+            <input type="text" pInputText pTooltip="请输入工号" tooltipPosition="top" placeholder="上" class="ui-inputtext">
         </div>
         <div class="ui-g-12 ui-md-3">
-            <input type="text" pInputText pTooltip="请输入工号" tooltipPosition="bottom" placeholder="下">
+            <input type="text" pInputText pTooltip="请输入工号" tooltipPosition="bottom" placeholder="下" class="ui-inputtext">
         </div>
         <div class="ui-g-12 ui-md-3">
-            <input type="text" pInputText pTooltip="请输入工号" tooltipPosition="left" placeholder="左">
+            <input type="text" pInputText pTooltip="请输入工号" tooltipPosition="left" placeholder="左" class="ui-inputtext">
         </div>
     </div>
     </div>
@@ -25,7 +25,7 @@
     <section>    
     <h2>伴随焦点</h2>
     <div class="common-demo">
-    <input type="text" pInputText pTooltip="请输入工号" placeholder="焦点" tooltipEvent="focus" style="margin-left:.5em">
+    <input type="text" pInputText pTooltip="请输入工号" placeholder="焦点" tooltipEvent="focus" style="margin-left:.5em" class="ui-inputtext">
     </div>
     </section> 
 </p-tabPanel>
@@ -36,21 +36,21 @@
 &lt;h2&gt;位置&lt;/h2&gt;
 &lt;div class="ui-g ui-fluid"&gt;
     &lt;div class="ui-g-12 ui-md-3"&gt;
-        &lt;input type="text" pInputText pTooltip="请输入工号" placeholder="右"&gt;                
+        &lt;input type="text" pInputText pTooltip="请输入工号" placeholder="右" class="ui-inputtext"&gt;                
     &lt;/div&gt;
     &lt;div class="ui-g-12 ui-md-3"&gt;
-        &lt;input type="text" pInputText pTooltip="请输入工号" tooltipPosition="top" placeholder="上"&gt;
+        &lt;input type="text" pInputText pTooltip="请输入工号" tooltipPosition="top" placeholder="上" class="ui-inputtext"&gt;
     &lt;/div&gt;
     &lt;div class="ui-g-12 ui-md-3"&gt;
-        &lt;input type="text" pInputText pTooltip="请输入工号" tooltipPosition="bottom" placeholder="下"&gt;
+        &lt;input type="text" pInputText pTooltip="请输入工号" tooltipPosition="bottom" placeholder="下" class="ui-inputtext"&gt;
     &lt;/div&gt;
     &lt;div class="ui-g-12 ui-md-3"&gt;
-        &lt;input type="text" pInputText pTooltip="请输入工号" tooltipPosition="left" placeholder="左"&gt;
+        &lt;input type="text" pInputText pTooltip="请输入工号" tooltipPosition="left" placeholder="左" class="ui-inputtext"&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;h2&gt;伴随焦点&lt;/h2&gt;
-&lt;input type="text" pInputText pTooltip="请输入工号" placeholder="焦点" tooltipEvent="focus" style="margin-left:.5em"&gt;
+&lt;input type="text" pInputText pTooltip="请输入工号" placeholder="焦点" tooltipEvent="focus" style="margin-left:.5em" class="ui-inputtext"&gt;
 </code>
 </pre>
     </section>
@@ -112,6 +112,14 @@
         <p-column field="description" header="描述"></p-column>
       </p-dataTable>
     </section>
+    <section>
+        <h2>样式</h2>
+        <p>以下是结构样式类的列表。</p>
+        <p-dataTable [value]="styling">
+          <p-column field="name" header="名称" [style]="{'width': '40%'}"></p-column>
+          <p-column field="element" header="参数"></p-column>
+        </p-dataTable>
+      </section>
   </p-tabPanel>
 
 

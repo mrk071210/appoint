@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TreeNode } from 'primeng/primeng';
-
+import { TreeNode } from '../../../widgets';
 import { DemoDataService } from '../data';
 
 @Component({

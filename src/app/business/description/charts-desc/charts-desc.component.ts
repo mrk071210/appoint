@@ -54,7 +54,13 @@ export class ChartsDescComponent implements OnInit {
           'type': 'function',
           'defaultValue': 'null',
           'description': '单击图表上的元素时，执行回调函数'
-      }
+      },
+      {
+          'name': 'onDoubleClick',
+          'type': 'function',
+          'defaultValue': 'null',
+          'description': '双击图表上的元素时，执行回调函数'
+    }
   ];
 
 /**

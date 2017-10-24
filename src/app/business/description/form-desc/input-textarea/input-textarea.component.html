@@ -1,0 +1,112 @@
+<h3 class="component-title icon_resource"><span>textarea</span></h3>
+<p class="margin-10">Inputtextarea将样式和autoResize功能添加到标准的textare元素。</p>
+<p-tabView>
+  <p-tabPanel header="效果示例" leftIcon="icon_example">
+    <section>
+      <h2>默认</h2>
+      <div class="example">
+        <textarea rows="5" cols="30" pInputTextarea></textarea> 
+      </div>
+    </section>
+    <section>
+      <h2>自动调整</h2>
+      <div class="example">
+        <textarea rows="5" cols="30" pInputTextarea [autoResize]="true"></textarea> 
+      </div>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <h2>默认</h2>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;textarea rows="5" cols="30" pInputTextarea&gt;&lt;/textarea&gt;
+</code>
+</pre>
+    <h5>TS代码示例</h5>
+    <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
+</pre>
+    </section>
+    <section>
+      <h2>自动调整</h2>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+  &lt;textarea rows="5" cols="30" pInputTextarea [autoResize]="true"&gt;&lt;/textarea&gt;
+</code>
+</pre>
+    <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
+</pre>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+    <section>
+      <h2>资源文件引入</h2>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+import &#123; FormWidgetsModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>使用</h2>
+      <p>InputTextarea应用于具有pInputTextarea指令的输入字段。</p>
+      <h3 class="margin-t-40">1. 默认使用</h3>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;textarea pInputTextarea&gt;&lt;/textarea&gt;
+</code>
+</pre>
+      <h3 class="margin-t-40">2. 双向绑定</h3>
+      <p>可以使用标准的ngModel指令绑定模型。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;textarea pInputTextarea [(ngModel)]="property"/&gt;&lt;/textarea&gt;
+</code>
+</pre>
+      <h3 class="margin-t-40">3. 自动调整</h3>
+      <p>在自动调整大小模式下，textarea会增加，而不是显示一个滚动条。 启用此功能时，需要定义行和列属性。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;textarea [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"/&gt;&lt;/textarea&gt;
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>属性</h2>
+      <p-dataTable [value]="attributes">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="type" header="类型"></p-column>
+        <p-column field="default" header="默认值"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>事件</h2>
+      <p-dataTable [value]="eventsList">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="parameters" header="参数"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>样式</h2>
+      <p>以下是结构样式类的列表，针对主题样式的样式类。</p>
+      <p-dataTable [value]="styleList">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="element" header="元素"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>依赖</h2>
+      <p>无</p>
+    </section>
+  </p-tabPanel>
+</p-tabView>

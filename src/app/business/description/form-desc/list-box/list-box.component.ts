@@ -63,6 +63,18 @@ export class ListBoxComponent implements OnInit {
         'description': '指定时，在头部显示过滤器输入'
       },
       {
+        'name': 'filterMode',
+        'type': 'string',
+        'default': 'contains',
+        'description': '过滤模式，可选值为："contains"(默认) 和 "startsWith"'
+      },
+      {
+        'name': 'readonly',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '是否为只读模式'
+      },
+      {
         'name': 'disabled',
         'type': 'boolean',
         'default': 'false',
@@ -91,6 +103,12 @@ export class ListBoxComponent implements OnInit {
         'type': 'string',
         'default': 'null',
         'description': '唯一标识选项中的值的属性'
+      },
+      {
+        'name': 'showToggleAll',
+        'type': 'boolean',
+        'default': 'true',
+        'description': '多选模式下是否显示头部复选框以全部切换所有项目'
       }
     ];
      this.eventsList = [

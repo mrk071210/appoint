@@ -77,6 +77,18 @@ export class CalendarComponent implements OnInit {
       {
         'type': '@',
         'description': 'Unix时间戳（自01/01/1970以来的ms）'
+      },
+      {
+        'type': '!',
+        'description': 'Windows计时（100ns自01 /01/0001）'
+      },
+      {
+        'type': '...',
+        'description': '文字的文本'
+      },
+      {
+        'type': "''",
+        'description': '单引号'
       }
     ];
     this.attributes = [
@@ -109,6 +121,12 @@ export class CalendarComponent implements OnInit {
         'type': 'string',
         'default': 'null',
         'description': 'input输入框的class样式'
+      },
+      {
+        'name': 'datepickerStyle',
+        'type': 'string',
+        'default': 'null',
+        'description': '直接作用于日历组件上的样式，例如控制日历组件弹出框的宽度，使其与 input 框一致。'
       },
       {
         'name': 'inputId',
@@ -295,6 +313,36 @@ export class CalendarComponent implements OnInit {
         'type': 'boolean',
         'default': '	false',
         'description': '是否将选择日期转换为UTC'
+      },
+      {
+        'name': 'showLanguage',
+        'type': 'string',
+        'default': 'null',
+        'description': '设置显示语言，默认显示英文，若需显示成中文，请将其设置为"ch"'
+      },
+      {
+        'name': 'maxDateCount',
+        'type': 'number',
+        'default': 'null',
+        'description': '在多种模式下可选择的最大数量'
+      },
+      {
+        'name': 'showButtonBar',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '今天是否显示，在页脚清晰按钮'
+      },
+      {
+        'name': 'todayButtonStyleClass',
+        'type': 'string',
+        'default': 'ui-secondary-button',
+        'description': '今天按钮的样式类'
+      },
+      {
+        'name': 'clearButtonStyleClass',
+        'type': 'string',
+        'default': 'ui-secondary-button',
+        'description': 'clear按钮的样式类'
       }
     ];
     this.eventsList = [
@@ -322,16 +370,31 @@ export class CalendarComponent implements OnInit {
         'name': 'onInput',
         'parameters': '	event: 输入事件',
         'description': '当输入字段正在键入时调用'
+      },
+      {
+        'name': 'onTodayClick',
+        'parameters': '	event: 输入事件',
+        'description': '当单击today按钮时调用回调'
+      },
+      {
+        'name': 'onClearClick',
+        'parameters': '	event.month: New month',
+        'description': '在单击clear按钮时调用回调'
+      },
+      {
+        'name': 'onMonthChange',
+        'parameters': '	event.year: New year',
+        'description': '在使用导航器更改一个月时调用回调函数'
       }
     ];
     this.styleList = [
       {
         'name': 'ui-calendar',
-        'description': '包装输入元素的容器的样式'
+        'element': '包装输入元素的容器的样式'
       },
       {
         'name': 'ui-inputtext',
-        'description': '输入元素的样式'
+        'element': '输入元素的样式'
       }
     ];
   }

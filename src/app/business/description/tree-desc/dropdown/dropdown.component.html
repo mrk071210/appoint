@@ -1,0 +1,41 @@
+<h3 class="component-title icon_resource"><span>下拉树</span></h3>
+<p class="margin-10">该组件是基于树组件和下拉组件封装的下拉树组件（非primeng原生）。</p>
+<p-tabView>
+  <p-tabPanel header="效果示例" leftIcon="icon_example">
+    <div class="tree-demo margin-t-40">
+      <p-droptree [value]="dropdownTree"></p-droptree>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <h5>HTML代码示例</h5>
+      <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-droptree [value]="dropdownTree"&gt;&lt;/p-droptree&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+      <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="basicDemoCode" ></code>
+</pre>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+    <section>
+      <h4>Step 1 TS文件中引入组件所需资源，如下: </h4>
+      <pre>
+<code class="language-javascript" kyeeCodeHighLight>
+import &#123; TreeWidgetModule, TreeNode &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的TreeWidgetModule,TreeNode
+</code>
+</pre>
+      <h4>Step 2 HTML文件中使用基础树指令<span class="padding-lr-10 high-light">p-droptree</span>，属性<span class="padding-lr-10 high-light">value</span>的值<span class="padding-lr-10 high-light">dropdownTree</span>作为本示例的树节点，如下:
+      </h4>
+      <pre>
+<code class="language-javascript" kyeeCodeHighLight>
+&lt;p-droptree [value]="dropdownTree"&gt;&lt;/p-droptree&gt;
+</code>
+</pre>
+      <h4>Step 3 具体数据见<span class="padding-lr-10 high-light">TS</span>示例文件。其中节点数据的属性说明见简介部分。</h4>
+    </section>
+  </p-tabPanel>
+</p-tabView>

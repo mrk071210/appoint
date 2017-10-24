@@ -22,6 +22,9 @@ export class InputAutoCompleteComponent implements OnInit {
   tsDemo2: string;
   tsDemo3: string;
   explainTSDemo1: string;
+  explainTSDemo2: string;
+  explainTSDemo3: string;
+  explainTSDemo4: string;
   constructor(private httpService: HttpService) {
     this.attributes = [
       {
@@ -155,6 +158,24 @@ export class InputAutoCompleteComponent implements OnInit {
         'type': 'boolean',
         'default': 'true',
         'description': '定义如何操纵选项数据'
+      },
+      {
+        'name': 'required',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '当出现时，它指定在提交表单之前必须填写输入字段。'
+      },
+      {
+        'name': 'forceSelection',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '当存在时，自动完成清除手动输入，如果不匹配的建议，只强制接受来自建议的值。'
+      },
+      {
+        'name': 'dropdownMode',
+        'type': 'string',
+        'default': 'blank',
+        'description': '指定行为下拉按钮。默认“空白”模式发送一个空字符串，“当前”模式发送输入值。'
       }
   ];
     this.eventsList = [
@@ -222,6 +243,10 @@ export class InputAutoCompleteComponent implements OnInit {
       {
         'name': 'ui-autocomplete-token-label',
         'element': '多种模式下所选项目的标签'
+      },
+      {
+        'name': 'ui-autocomplete-loader',
+        'element': '加载程序图标'
       }
     ];
   }
@@ -343,10 +368,43 @@ export class InputAutoCompleteComponent implements OnInit {
     text: string;
     results: string[];
     search(event) {
-		this.httpService.get('assets/dummy-data/countries.json', null, data => {
-		  this.results = data;
-		});
+        this.httpService.get('assets/dummy-data/countries.json', null, data => {
+            this.results = data;
+        });
     }
+}`;
+this.explainTSDemo2 = `
+export class InputAutoCompleteComponent implements OnInit {
+  text: string;
+  results: string[];
+  search(event) {
+      this.httpService.get('assets/dummy-data/countries.json', null, data => {
+          this.results = data;
+      });
+  }
+  handleDropdown(event) {
+      //event.query = current value in input field
+  }
+}`;
+this.explainTSDemo3 = `
+export class InputAutoCompleteComponent implements OnInit {
+  text: string[];
+  results: string[];
+  search(event) {
+      this.httpService.get('assets/dummy-data/countries.json', null, data => {
+          this.results = data;
+      });
+  }
+}`;
+this.explainTSDemo4 = `
+export class InputAutoCompleteComponent implements OnInit {
+  val: country;
+  results: string[];
+  search(event) {
+      this.httpService.get('assets/dummy-data/countries.json', null, data => {
+          this.results = data;
+      });
+  }
 }`;
   }
 

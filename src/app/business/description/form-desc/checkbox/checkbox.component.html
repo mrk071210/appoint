@@ -20,7 +20,7 @@
       </div>
     </section>
     <section>
-      <h2>【示例2】checkbox列表(默认有选中项)</h2>
+      <h2>checkbox列表(默认有选中项)</h2>
       <div class="example">
         <div class="ui-g" style="width:250px;margin-bottom:10px">
           <div class="ui-g-12">
@@ -90,7 +90,7 @@ Selected Categories: &lt;span *ngFor="let cat of selectedCategories" style="marg
       <h2>资源文件引入</h2>
       <pre>
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight>
-import &#123;FormWidgetsModule&#125; from '../../../widgets';
+import &#123; FormWidgetsModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule
 </code>
 </pre>
     </section>
@@ -127,7 +127,7 @@ export class ModelComponent &#123;
 </code>
 </pre>
       <h3 class="margin-t-40">2. Label标签</h3>
-      <p>标签属性为复选框提供标签文本。 此标签也可点击并切换检查状态</p>
+      <p>标签属性为复选框提供标签文本。 此标签也可点击并切换检查状态。</p>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>

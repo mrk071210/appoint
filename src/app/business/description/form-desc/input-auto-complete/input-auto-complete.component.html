@@ -14,7 +14,7 @@
       <h2>输入（下拉选择）检索</h2>
       <div class="example">  
         <p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="30" [minLength]="1"
-          placeholder="Hint: type 'v' or 'f'" [dropdown]="true" (onDropdownClick)="handleDropdownClick()">
+          placeholder="Hint: type 'v' or 'f'" [dropdown]="true">
           <ng-template let-brand pTemplate="item">
             <div class="ui-helper-clearfix">
               <img class="ui-img" src="assets/dummy-data/car/{{brand}}.png" />
@@ -99,14 +99,14 @@ placeholder="Countries" [minLength]="1"&gt;&lt;/p-autoComplete&gt;
       <h2>资源文件引入</h2>
       <pre>
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight>
-import &#123;FormWidgetsModule&#125; from '../../../widgets';
+import &#123; FormWidgetsModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule
 </code>
 </pre>
     </section>
     <section>
       <h2>使用</h2>
       <h3>1. 双向绑定</h3>
-      <p>AutoComplete使用ngModel进行双向绑定，由一个数据列表和一个自动检索方法来查询结果。 completeMethod获取查询文本作为event.query属性，并使用搜索结果更新到对应变量值</p>
+      <p>AutoComplete使用ngModel进行双向绑定，由一个数据列表和一个自动检索方法来查询结果。 completeMethod获取查询文本作为event.query属性，并使用搜索结果更新到对应变量值。</p>
       <h5>HTML代码示例</h5>
     <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
@@ -117,12 +117,88 @@ import &#123;FormWidgetsModule&#125; from '../../../widgets';
 <pre>
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="explainTSDemo1"></code>
 </pre>
-      <h3 class="margin-t-40">2. 模型驱动形式</h3>
+      <h3 class="margin-t-40">2. 变化检测</h3>
+      <p>AutoComplete要么使用基于setter的检查，要么使用ngDoCheck来实现对UI的更新。这是使用不可变属性配置的，当启用(默认)基于setter的检测时，
+      例如添加或删除一个记录时，应该总是创建一个新的数组引用，而不是使用现有的数组作为角度，如果引用没有改变，就不会触发setter。
+      例如，在删除项目或使用扩展操作符时，使用slice而不是splice，而不是在添加项目时使用push方法。另一方面，
+      将不可变属性设置为false则通过使用IterableDiffers的ngDoCheck来删除此限制，而不需要创建数据的新引用。基于Setter的方法更快，但是这两种方法都可以根据您的偏好使用。</p>
+      <h3 class="margin-t-40">3. 模型驱动形式</h3>
       <p>AutoComplete也可以用于模型驱动的形式</p>
       <h5>HTML代码示例</h5>
     <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
 &lt;p-autoComplete formControlName="city" [suggestions]="results" (completeMethod)="search($event)"&gt;&lt;/p-autoComplete&gt;
+</code>
+</pre>
+      <h3 class="margin-t-40">4. 下拉</h3>
+      <p>允许下拉属性在输入字段旁边显示一个按钮，该按钮的点击行为是使用dropdownMode属性定义的，该属性以“空白”或“当前”为可能值。“空”是用空字符串发送查询的默认模式，
+      而“当前”设置则通过输入的当前值发送查询。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)" [dropdown]="true"&gt;&lt;/p-autoComplete&gt;
+</code>
+</pre>
+        <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="explainTSDemo2"></code>
+</pre>
+      <h3 class="margin-t-40">5. 多个选择</h3>
+      <p>多模式用于从自动完成中选择多个值。在这种情况下，模型引用应该是一个数组。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)" [multiple]="true"&gt;&lt;/p-autoComplete&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="explainTSDemo3"></code>
+</pre>
+      <h3 class="margin-t-40">6. 对象</h3>
+      <p>AutoComplete还可以使用字段属性来处理对象，该属性将标签定义为一个建议。传递给模型的值仍然是一个建议的对象实例。这里有一个国家对象的例子，它有名称和代码字段，比如&#123;name:" United States "，code:" USA "&#125;。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)" field="name"&gt;&lt;/p-autoComplete&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="explainTSDemo4"></code>
+</pre>
+      <h3 class="margin-t-40">7. 强制选择</h3>
+      <p>ForceSelection模式验证手动输入是否在建议列表存在，如果不清除输入值，以确保传递给模型的值始终是一个建议。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="val" [suggestions]="results" (completeMethod)="search($event)" forceSelection="true"&gt;&lt;/p-autoComplete&gt;
+</code>
+</pre>
+      <h3 class="margin-t-40">8. 模板</h3>
+      <p>项目ng模板允许在建议面板中显示自定义内容。传递给ng - template的本地ng模板变量是建议数组中的一个对象。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)"&gt;
+    &lt;ng-template let-brand pTemplate="item"&gt;
+        &lt;div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5"&gt;
+            &lt;img src="assets/showcase/images/demo/car/{{brand}}.png" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/&gt;
+            &lt;div style="font-size:18px;float:right;margin:10px 10px 0 0"&gt;{{brand}}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/ng-template&gt;
+&lt;/p-autoComplete&gt;
+</code>
+</pre>
+      <p>在多模式下，选择的项目可以使用selectedItem ng- template进行自定义。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)" [multiple]="true"&gt;
+    &lt;ng-template let-value pTemplate="selectedItem"&gt;
+        &lt;span style="font-size:18px"&gt;{{value}}&lt;/span&gt;
+    &lt;/ng-template&gt;
+&lt;/p-autoComplete&gt;
 </code>
 </pre>
     </section>
@@ -156,4 +232,3 @@ import &#123;FormWidgetsModule&#125; from '../../../widgets';
     </section>
   </p-tabPanel>
 </p-tabView>
-

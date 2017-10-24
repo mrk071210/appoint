@@ -14,6 +14,7 @@ import { RadioButtonComponent } from './radio-button';
 import { SpinnerComponent } from './spinner';
 import { SelectButtonComponent } from './select-button';
 import { FileUploadComponent } from './file-upload';
+import { InputTextareaComponent } from './input-textarea';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { FileUploadComponent } from './file-upload';
             {path: 'spinner', component: SpinnerComponent},
             {path: 'select-button', component: SelectButtonComponent},
             {path: 'file-upload', component: FileUploadComponent},
+            {path: 'input-textarea', component: InputTextareaComponent},
         ])
     ],
     exports: [

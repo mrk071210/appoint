@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CodeHighLightModule } from '../code-high-light';
 import {
     CommonWidgetsModule,
-    EchartWidgetsModule,
+    EchartsWidgetModule,
     DatatableWidgetModule
 } from '../../../widgets';
 
@@ -17,7 +17,7 @@ import { EchartsDemoComponent } from './echarts-demo/echarts-demo.component';
     imports: [
         CommonModule,
         CommonWidgetsModule,
-        EchartWidgetsModule,
+        EchartsWidgetModule,
         DatatableWidgetModule,
         CodeHighLightModule,
         EchartsDescRoutingModule

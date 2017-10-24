@@ -1,7 +1,6 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatatableDescComponent } from './datatable-desc.component';
 import {
     BasicComponent,
     TemplatingComponent,
@@ -16,7 +15,8 @@ import {
     LazyLoadComponent,
     CrudComponent,
     ExportComponent,
-    SelectionComponent
+    SelectionComponent,
+    ScrollComponent
 } from '../datatable-desc';
 
 @NgModule({
@@ -37,6 +37,7 @@ import {
             { path: 'row-group', component: RowGroupComponent },
             { path: 'sort', component: SortComponent },
             { path: 'templating', component: TemplatingComponent },
+            { path: 'scroll', component: ScrollComponent },
             { path: '**', redirectTo: 'basic' }
         ])
     ],

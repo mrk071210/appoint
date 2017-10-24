@@ -18,7 +18,7 @@ export class TabmenuComponent implements OnInit {
   // TS示例代码
   tabmenuDemoCode = `
 import { Component, OnInit } from '@angular/core';
-import { MenuWidgetsModule, MenuItem } from 'widgets'; // widgets 为根目录widgets文件夹
+import { MenuWidgetsModule, MenuItem } from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的MenuWidgetsModule, MenuItem
 
 @Component({
   selector: 'kyee-tabmenu-desc',

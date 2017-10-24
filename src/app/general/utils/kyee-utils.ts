@@ -63,22 +63,22 @@ export class KyeeUtils {
         time.Millisecond = date.getMilliseconds();
 
         return sFormat.replace(/yyyy/ig, String(time.Year))
-        .replace(/yyy/ig, String(time.Year))
-        .replace(/yy/ig, time.TYear)
-        .replace(/y/ig, time.TYear)
-        .replace(/MM/g, time.TMonth)
-        .replace(/M/g, String(time.Month))
-        .replace(/dd/ig, time.TDay)
-        .replace(/d/ig, String(time.Day))
-        .replace(/HH/g, time.THour)
-        .replace(/H/g, String(time.Hour))
-        .replace(/hh/g, time.Thour)
-        .replace(/h/g, String(time.hour))
-        .replace(/mm/g, time.TMinute)
-        .replace(/m/g, String(time.Minute))
-        .replace(/ss/ig, time.TSecond)
-        .replace(/s/ig, String(time.Second))
-        .replace(/fff/ig, String(time.Millisecond));
+            .replace(/yyy/ig, String(time.Year))
+            .replace(/yy/ig, time.TYear)
+            .replace(/y/ig, time.TYear)
+            .replace(/MM/g, time.TMonth)
+            .replace(/M/g, String(time.Month))
+            .replace(/dd/ig, time.TDay)
+            .replace(/d/ig, String(time.Day))
+            .replace(/HH/g, time.THour)
+            .replace(/H/g, String(time.Hour))
+            .replace(/hh/g, time.Thour)
+            .replace(/h/g, String(time.hour))
+            .replace(/mm/g, time.TMinute)
+            .replace(/m/g, String(time.Minute))
+            .replace(/ss/ig, time.TSecond)
+            .replace(/s/ig, String(time.Second))
+            .replace(/fff/ig, String(time.Millisecond));
     }
   
     /**

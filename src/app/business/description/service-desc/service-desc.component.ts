@@ -13,7 +13,7 @@ export class ServiceDescComponent implements OnInit {
         this.properties = [
             {name: 'HttpService', description: 'HttpService用于处理http请求。'},
             {name: 'RouterService', description: 'RouterService用于控制页面间的路由跳转。'},
-            {name: 'StorageCacheService', description: 'StorageCacheService用于处理本地存储相关操作。'},
+            {name: 'StorageCacheService', description: 'StorageCacheService用于处理本地存储相关操作，包括对localstorage和sessionstorage的封装。'},
             {name: 'KyeeUtils', description: 'KyeeUtils提供常用公共方法。'}
         ]
     }

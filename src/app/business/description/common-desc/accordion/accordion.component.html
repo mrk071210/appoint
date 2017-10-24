@@ -32,6 +32,33 @@
     </section>
 
     <section>
+    <h2>控制某一标签点击的时候是否可以展开（区别 disabled 属性），第一个标签点击不会展开，却有选中的效果。</h2>
+    <div class="common-demo">
+    <p-accordion>
+        <p-accordionTab header="教父 I" [canExpanded]="false" >
+          这个故事开始于纽约黑手党家庭负责人Don Vito Corleone，负责监督女儿的婚礼。
+          他所爱的儿子呃已经从战争中回来了，但不打算成为他父亲生意的一部分。
+          通过迈克尔的生活，家族企业的本质就变得清晰了。 家庭的事业就像是家庭的领导，
+          对那些给予尊重的人，仁慈和仁慈，只要任何东西与家庭的利益相抗衡，就会得到无情的暴力。
+        </p-accordionTab>
+        <p-accordionTab header="教父 II" [selected]="true">
+          弗朗西斯·福特·科波拉（Francis Ford Coppola）的传奇延续，并延续了他1972年的地标，
+          The_教父与他的儿子迈克尔的精神秋天相比，是年轻的维托·科莱奥内（Vito Corleone）的崛起，
+          深化了The_教父对美国梦的黑暗面的描绘。 二十世纪初，当地黑手党杀害家属后，
+          维托儿童逃离了西西里的美国村庄。 维托努力为他的妻子谋生，合法或非法，在小意大利成长，
+          在当地的黑手范库奇（Black Hand Fanucci）要求他的习惯裁员之后， 随着Fanucci走了，
+          维托的公共地位一直在增长。
+        </p-accordionTab>
+        <p-accordionTab header="教父 III">
+          经过15年的休息，导演弗朗西斯·福特·科波拉和作家马里奥·普佐（Mario Puzo）
+          回到了这个虚构的科莱昂犯罪家族的第三个也是最后的故事。 二十年过去了，
+          犯罪嫌疑人迈克尔·科莱昂（Michael Corleone）现在与妻子凯离婚了几乎成功地保证了他的家人有一天完全合法。  
+        </p-accordionTab>
+    </p-accordion>
+    </div>
+    </section>
+    
+    <section>
     <h2>多标签展示</h2>
     <div class="common-demo">
     <p-accordion [multiple]="true">
@@ -138,6 +165,19 @@
           这个故事开始于···
         &lt;/p-accordionTab&gt;
         &lt;p-accordionTab header="教父 II"&gt;
+          弗朗西斯·福特·科波拉（Francis Ford Coppola）的传奇延续，并延续···
+        &lt;/p-accordionTab&gt;
+        &lt;p-accordionTab header="教父 III"&gt;
+          经过15年的休息···
+        &lt;/p-accordionTab&gt;
+    &lt;/p-accordion&gt;
+
+    &lt;h2 class="first"&gt;控制某一标签点击的时候是否可以展开（区别 disabled 属性），第一个标签点击不会展开，却有选中的效果。&lt;/h2&gt;
+    &lt;p-accordion&gt;
+        &lt;p-accordionTab header="教父 I" [canExpanded]="false"&gt;
+          这个故事开始于···
+        &lt;/p-accordionTab&gt;
+        &lt;p-accordionTab header="教父 II" [selected]="true"&gt;
           弗朗西斯·福特·科波拉（Francis Ford Coppola）的传奇延续，并延续···
         &lt;/p-accordionTab&gt;
         &lt;p-accordionTab header="教父 III"&gt;
@@ -279,6 +319,25 @@ export class AccordionComponent &#123;
     &lt;p-accordionTab header="Header 3"&gt;
         Content 3    
     &lt;/p-accordionTab&gt;
+&lt;/p-accordion&gt;
+</code>
+</pre>
+
+<h2>不可展开</h2>
+<p>可以通过将 canExpanded 属性设置为 false 来禁用选项卡展开效果，选中效果仍然存在。</p>
+
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-accordion&gt;
+&lt;p-accordionTab header="Header 1" [canExpanded]="false"&gt;
+Content 1
+&lt;/p-accordionTab&gt;
+&lt;p-accordionTab header="Header 2"&gt;
+Content 2
+&lt;/p-accordionTab&gt;
+&lt;p-accordionTab header="Header 3"&gt;
+Content 3    
+&lt;/p-accordionTab&gt;
 &lt;/p-accordion&gt;
 </code>
 </pre>

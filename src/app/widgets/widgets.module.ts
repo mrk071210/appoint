@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { EchartWidgetsModule } from './echart-widgets';
-import { ChartsWidgetsModule } from './charts-widgets';
+import { EchartsWidgetModule } from './echarts-widget';
+import { ChartsWidgetModule } from './charts-widget';
 import { CommonWidgetsModule } from './common-widgets';
 import { DatalistWidgetModule } from './datalist-widget';
 import { DatascrollerWidgetModule } from './datascroller-widget';
@@ -13,8 +13,8 @@ import { OrgchartWidgetModule } from './orgchart-widget';
 import { TreeWidgetModule } from './tree-widget';
 
 const WIDGETS_MODULES = [
-    EchartWidgetsModule,
-    ChartsWidgetsModule,
+    EchartsWidgetModule,
+    ChartsWidgetModule,
     CommonWidgetsModule,
     DatalistWidgetModule,
     DatascrollerWidgetModule,

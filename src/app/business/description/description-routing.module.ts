@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
     imports: [
         RouterModule.forChild([
-            {path: '', redirectTo: 'common-desc', pathMatch: 'full' },
+            {path: '', redirectTo: 'development-criterion', pathMatch: 'full' },
             {
                 path: 'development-criterion',
                 loadChildren: './development-criterion/development-criterion.module#DevelopmentCriterionModule'

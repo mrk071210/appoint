@@ -16,6 +16,7 @@ import { RadioButtonComponent } from './radio-button';
 import { SpinnerComponent } from './spinner';
 import { SelectButtonComponent } from './select-button';
 import { FileUploadComponent } from './file-upload';
+import { InputTextareaComponent } from './input-textarea';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { FileUploadComponent } from './file-upload';
     RadioButtonComponent,
     SpinnerComponent,
     SelectButtonComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    InputTextareaComponent
   ]
 })
 export class FormDescModule { }

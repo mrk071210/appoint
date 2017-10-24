@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputComponent implements OnInit {
   text: string;
+  text2: string;
   disabled: boolean;
   attributes: any[];
   styleList: any[];
@@ -20,6 +21,12 @@ export class InputComponent implements OnInit {
         'type': 'boolean',
         'default': 'false',
         'description': '禁用该元素'
+      },
+      {
+        'name': 'useClear',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '是否启用清除功能，注意：在"ui-inputgroup"指定的输入框组中使用时，需要给对应的input元素添加额外的样式类"kyee-input-clear"'
       }
     ];
     this.styleList = [

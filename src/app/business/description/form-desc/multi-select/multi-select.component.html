@@ -32,14 +32,14 @@
             <h2>资源文件引入</h2>
 <pre>
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight>
-import &#123;FormWidgetsModule&#125; from '../../../widgets';
+import &#123; FormWidgetsModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule
 </code>
 </pre>
         </section>
         <section>
             <h2>使用</h2>
             <h3>1. 双向绑定</h3>
-            <p>使用ng Model定义双向值绑定，多选择需要一组选项，每个选项应遵循示例中的cities定义标签值属性。</p>
+            <p>使用ngModel定义双向值绑定，多选择需要一组选项，每个选项应遵循示例中的cities定义标签值属性。</p>
             <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
@@ -56,6 +56,21 @@ import &#123;FormWidgetsModule&#125; from '../../../widgets';
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
 &lt;p-multiSelect [options]="cities" formControlName="selectedCities"&gt;&lt;/p-multiSelect&gt;
+</code>
+</pre>
+            <h2 class="margin-t-40">3. 模板形式</h2>
+            <p>MultiSelect也可以使用模板自定义内容。以下为带图标文本列表的多选</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-multiSelect [options]="cars" [(ngModel)]="selectedCars2" [panelStyle]="&#123;minWidth:'12em'&#125;"&gt;
+    &lt;ng-template let-car let-i="index" pTemplate="item"&gt;
+        &#123;&#123;i&#125;&#125;
+        &lt;img src="assets/showcase/images/demo/car/&#123;&#123;car.label&#125;&#125;.png" style="width:24px;display:inline-block;vertical-align:middle"/&gt;
+        &lt;div style="font-size:14px;float:right;margin-top:4px">&#123;&#123;car.label&#125;&#125;&lt;/div&gt;
+        &lt;/ng-template&gt;
+        &lt;/p-multiSelect&gt;
+&lt;p&gt;Selected Cars: &#123;&#123;selectedCars2&#125;&#125;&lt;/p&gt;
 </code>
 </pre>
         </section>

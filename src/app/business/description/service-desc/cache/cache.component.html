@@ -1,9 +1,8 @@
 <h3 class="component-title icon_resource"><span>StorageCacheService</span></h3>
-<p>【说明】StorageCacheService用于管理本地存储localStorage，管理页面缓存。</p>
+<p>【说明】StorageCacheService用于管理本地存储（localStorage,sessionStorage）,包含两个对象：localStorageCache和sessionStorageCache。两个对象拥有的方法完全相同，分别操作localStorage和sessionStorage。下面以localStorageCache为例进行讲解。</p>
 
 <section>
-  <div>RouterService提供接口方法包括：set()、apply()、get()、getObj()、remove()、clear()。</div>
-  <div>详情如下：</div>
+  <div>localStorageCache提供接口方法包括：set()、apply()、get()、getObj()、remove()、clear()。</div>
   <h2>set()</h2>
   <p>用于向localStorage存入数据。方法入参如下：</p>
 <pre>
@@ -22,7 +21,7 @@ set(
   <div>返回值为空。</div>
 
   <h2>apply()</h2>
-  <p>用于改变对应数据的某个属性。方法入参如下：</p>
+  <p>用于改变对应数据的某个属性，仅在value为json对象时可用。方法入参如下：</p>
 <pre>
 <code class="language-typescript" ngNonBindable kyeeCodeHighLight>
 apply(

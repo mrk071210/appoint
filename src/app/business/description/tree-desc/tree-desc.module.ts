@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CodeHighLightModule } from '../code-high-light';
-import { DataTableModule } from 'primeng/primeng';
 
-import { CommonWidgetsModule, TreeWidgetModule } from '../../../widgets';
+import { CommonWidgetsModule, TreeWidgetModule, DatatableWidgetModule } from '../../../widgets';
 import { TreeDescRoutingModule } from './tree-desc-routing.module';
 
 import { TreeDescComponent } from './tree-desc.component';
@@ -14,12 +13,13 @@ import { MultipleComponent } from './multiple';
 import { CheckboxComponent } from './checkbox';
 import { ContextComponent } from './context';
 import { ExpansionComponent } from './expansion';
+import { DropdownComponent } from './dropdown';
 
 @NgModule({
   imports: [
     CommonModule,
     CodeHighLightModule,
-    DataTableModule,
+    DatatableWidgetModule,
     CommonWidgetsModule,
     TreeWidgetModule,
     TreeDescRoutingModule
@@ -31,7 +31,8 @@ import { ExpansionComponent } from './expansion';
     MultipleComponent,
     CheckboxComponent,
     ContextComponent,
-    ExpansionComponent
+    ExpansionComponent,
+    DropdownComponent
     ]
 })
 export class TreeDescModule { }

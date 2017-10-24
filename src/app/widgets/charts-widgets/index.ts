@@ -1,1 +1,0 @@
-export { ChartsWidgetsModule } from './charts-widgets.module';

@@ -54,7 +54,7 @@
       <h2>导入相关模块</h2>
 <pre>
 <code class="language-typescript" ngNonBindable kyeeCodeHighLight>
-import &#123;DataTableModule,SharedModule&#125; from 'primeng/primeng';
+import &#123;DataTableWidgetModule&#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的DataTableWidgetModule
 </code>
 </pre>
     </section>
@@ -230,8 +230,7 @@ export class DataTableDemo implements OnInit &#123;
       <p>通过配置表格的头部和底部（Header、Footer）可以显示自定义的内容（需要在组件头部导入相应的依赖包）</p>
 <pre>
 <code class="language-typescript" kyeeCodeHighLight ngNonBindable>
-import &#123;Header&#125; from 'primeng/primeng';
-import &#123;Footer&#125; from 'primeng/primeng';
+import &#123;Header, Footer&#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的 Header 和 Footer 组件
 </code>
 </pre>
 <pre>
@@ -357,7 +356,7 @@ import &#123;Footer&#125; from 'primeng/primeng';
       <h2>分页（Paginator）</h2>
       <p>通过将 paginator 属性设置为‘true’可以实现表格的分页效果。
       </p>  
-      <p>rows 属性表示每页可以展示的数据条数;pageLinks 属性定义分页区域展示多少个可见页面链接。</p>
+      <p>rows 属性表示每页可以展示的数据条数；pageLinks 属性定义分页区域展示多少个可见页面链接。</p>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
 &lt;p-dataTable [value]="cars" [rows]="10" [paginator]="true"&gt;
@@ -682,6 +681,12 @@ export class DataTableDemo implements OnInit &#123;
 &lt;button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV()"&gt;&lt;/button&gt;
 </code>
 </pre>
+<p>默认情况下会导出这个表格的所有数据，如果只想导出用户选中的数据，只需像下面例子那样，在 exportCSV 方法中添加参数即可，设置 selectionOnly 属性为 true。</p>
+<pre>
+<code class="language-markup" pCode ngNonBindable>
+    &lt;button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV" (click)="dt.exportCSV(&#123;selectionOnly:true&#125;)"&gt;&lt;/button&gt;
+</code>
+</pre>
     </section>
 
     <section>
@@ -755,6 +760,24 @@ loadData(event: LazyLoadEvent) &#123;
         &lt;p-dropdown&gt;&lt;/p-dropdown&gt;
     &lt;/ng-template&gt;
 &lt;/p-column&gt;
+</code>
+</pre>
+    </section>
+
+    <section>
+        <h2>空数据状态（EmptyMessage）</h2>
+        <p>当表格因为请求异常或者其他原因导致没有数据的时候，通过设置 emptyMessage 属性的值可以展示给用户一条信息。也可以如下例一样支持自定义。</p>
+<pre>
+<code class="language-markup" pCode ngNonBindable>
+&lt;p-dataTable [value]="cars" [responsive]="true"&gt;
+    &lt;p-column field="vin" header="Vin"&gt;&lt;/p-column&gt;
+    &lt;p-column field="year" header="Year"&gt;&lt;/p-column&gt;
+    &lt;p-column field="brand" header="Brand"&gt;&lt;/p-column&gt;
+    &lt;p-column field="color" header="Color"&gt;&lt;/p-column&gt;
+    &lt;ng-template pTemplate="emptymessage"&gt;
+        Custom content goes here
+    &lt;/ng-template&gt;
+&lt;/p-dataTable&gt;
 </code>
 </pre>
     </section>
@@ -936,6 +959,11 @@ export class DataTableDemo implements OnInit &#123;
               <td>onRowGroupCollapse</td>
               <td>event.originalEvent: Browser event<br> group: Value of the group.</td>
               <td>行分组数据折叠时触发的事件。</td>
+            </tr>
+            <tr>
+              <td>onValueChange</td>
+              <td>evalue: New value.</td>
+              <td>表格数据改变时触发的事件。</td>
             </tr>
           </tbody>
         </table>

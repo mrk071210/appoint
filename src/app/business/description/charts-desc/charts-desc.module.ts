@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CodeHighLightModule } from '../code-high-light';
-import { DataTableModule } from 'primeng/primeng';
-import { CommonWidgetsModule, ChartsWidgetsModule} from '../../../widgets';
+import {
+    CommonWidgetsModule,
+    ChartsWidgetModule,
+    DatatableWidgetModule
+} from '../../../widgets';
 import { ChartsDescRoutingModule } from './charts-desc-routing.module';
 import { ChartsDescComponent } from './charts-desc.component';
 import { BarComponent } from './bar';
@@ -16,9 +19,9 @@ import { PolarAreaComponent } from './polar-area';
   imports: [
     CommonModule,
     CodeHighLightModule,
-    DataTableModule,
+    DatatableWidgetModule,
     CommonWidgetsModule,
-    ChartsWidgetsModule,
+    ChartsWidgetModule,
     ChartsDescRoutingModule
   ],
   declarations: [

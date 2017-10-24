@@ -12,3 +12,4 @@ export { ResizeComponent } from './resize/resize.component';
 export { RowGroupComponent } from './row-group/row-group.component';
 export { SortComponent } from './sort/sort.component';
 export { TemplatingComponent } from './templating/templating.component';
+export { ScrollComponent } from './scroll/scroll.component';

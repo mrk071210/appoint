@@ -25,7 +25,8 @@ export class AccordionComponent implements OnInit {
         this.tabProperties = [
             {name:'header', type:'string', default:'null', description:'标签的标题 '},
             {name:'selected', type:'boolean', default:'false', description:'定义选项卡是否处于活动状态。'},
-            {name:'disabled', type:'boolean', default:'false', description:'定义是否可以选择选项卡。'}
+            {name:'disabled', type:'boolean', default:'false', description:'定义是否可以选择选项卡。'},
+            {name:'canExpanded', type:'boolean', default:'true', description:'定义点击选项卡后是否展开，默认为有展开效果。'}
         ];
 
         this.events = [

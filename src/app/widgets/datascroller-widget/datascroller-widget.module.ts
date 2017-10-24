@@ -2,9 +2,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import {
-    DataScrollerModule
-} from 'primeng/primeng';
+import { DataScrollerModule } from './datascroller/datascroller';
 
 const WIDGETS_MODULES = [
     DataScrollerModule

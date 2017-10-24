@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CodeHighLightModule } from '../code-high-light';
-import { DataTableModule } from 'primeng/primeng';
+import { DatatableWidgetModule } from '../../../widgets';
 
 import { CommonWidgetsModule, MenuWidgetsModule } from '../../../widgets';
 import { MenuDescRoutingModule } from './menu-desc-routing.module';
@@ -17,7 +17,7 @@ import { TieredmenuComponent } from './tieredmenu';
   imports: [
     CommonModule,
     CodeHighLightModule,
-    DataTableModule,
+    DatatableWidgetModule,
     CommonWidgetsModule,
     MenuWidgetsModule,
     MenuDescRoutingModule

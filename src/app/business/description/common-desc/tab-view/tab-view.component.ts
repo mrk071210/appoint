@@ -9,6 +9,7 @@ export class TabViewComponent implements OnInit {
     tabViewProperties: any[];
     tabPanelProperties: any[];
     events: any[];
+    styling: any[];
     msgs = [];
     constructor() { }
 
@@ -28,20 +29,28 @@ export class TabViewComponent implements OnInit {
             {name:'headerStyle', type:'string', default:'null', description:'标签页的内联样式。'},
             {name:'headerStyleClass', type:'string', default:'null', description:'标签页的样式类。'},
             {name:'controlClose', type:'boolean', default:'false', description:'标签关闭是否被控制在onClose事件。'},
-            {name:'lazy', type:'boolean', default:'false', description:'定义当面板被选中时，是否在加载或按需创建非活动面板的元素。'}
+            {name:'cache', type:'boolean', default:'true', description:'延迟加载的面板是否应避免重新加载。'}
         ];
 
         this.events = [
             {name: 'onChange', param: `event.originalEvent：点击事件
-              event.index：所选选项卡的索引`, description: '在标签更改时调用的回调。'},
+                event.index：所选选项卡的索引`, description: '在标签更改时调用的回调。'},
             {name: 'onClose',param: `event.originalEvent：点击事件
                 event.index：关闭选项卡的索引
                 event.close：回调以实际关闭选项卡，仅在启用了controlClose时可用。
-              `, description: '在标签关闭时调用的回调。'}
+            `, description: '在标签关闭时调用的回调。'}
+        ];
+
+        this.styling = [
+            {name: 'ui-tabview', element: `容器元素。`},
+            {name: 'ui-tabview-nav', element: `标签容器。`},
+            {name: 'ui-tabview-selected', element: `选中的标签。`},
+            {name: 'ui-tabview-panels', element: `面板容器。`},
+            {name: 'ui-tabview-panel', element: `标签内容。`}
         ];
     }
 
-    onTabChange(event) {
+    onTabChange(event): void {
         this.msgs = [];
         this.msgs.push({severity:'info', summary:'Tab Expanded', detail: 'Index: ' + event.index});
     }

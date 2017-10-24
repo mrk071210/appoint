@@ -1,2 +1,2 @@
 export { DatatableWidgetModule } from './datatable-widget.module';
-export { LazyLoadEvent } from 'primeng/primeng';
+export { LazyLoadEvent } from '../commons/lazyloadevent';

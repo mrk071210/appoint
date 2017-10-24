@@ -2,16 +2,31 @@
 <p class="margin-10">环形图是饼图的变体，空白中心允许包含整个数据的其他信息。</p>
 <p-tabView>
     <p-tabPanel header="效果示例" leftIcon="icon_example">
-         <div class="chart-demo-pie margin-t-40">
-            <p-chart type="doughnut" [data]="doughnutData"></p-chart>
-         </div>
+        <section>
+            <h2>常规环形图</h2>
+            <div class="chart-demo-pie">
+                <p-chart type="doughnut" [data]="doughnutData"></p-chart>
+             </div>
+        </section>
+        <section>
+            <h2>环形图（设置悬浮效果）</h2>
+            <div class="chart-demo-pie">
+                <p-chart type="doughnut" [data]="doughnutHoverData"></p-chart>
+             </div>
+        </section>
     </p-tabPanel>
     <p-tabPanel header="组件源码" leftIcon="icon_code">
         <section>
-          <h5>HTML代码示例</h5>
+          <h5>常规环形图HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight>
 &lt;p-chart type="doughnut" [data]="doughnutData" &gt; &lt;/p-chart&gt;
+</code>
+</pre>
+          <h5>环形图（设置悬浮效果）HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="doughnut" [data]="doughnutHoverData" &gt; &lt;/p-chart&gt;
 </code>
 </pre>
           <h5>TS代码示例</h5>
@@ -25,7 +40,7 @@
             <h4>Step 1  TS文件中引入组件所需资源，如下: </h4>    
 <pre>
 <code class="language-javascript" kyeeCodeHighLight>
-import &#123; ChartsWidgetsModule &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+import &#123; ChartsWidgetModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的ChartsWidgetModule
 </code>
 </pre>
             <h4>Step 2  HTML文件中使用图表指令<span class="padding-lr-10 high-light">p-chart</span>，

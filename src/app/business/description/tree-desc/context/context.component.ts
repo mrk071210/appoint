@@ -62,7 +62,7 @@ export class ContextComponent implements OnInit {
   // TS示例代码
   contextDemoCode: any = `
 import { Component, OnInit } from '@angular/core';
-import { TreeWidgetModule, TreeNode, MenuItem } from 'widgets';
+import { TreeWidgetModule, TreeNode, MenuItem } from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的TreeWidgetModule,TreeNode,MenuItem
 
 @Component({
   selector: 'kyee-context-desc',

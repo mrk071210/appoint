@@ -1,5 +1,5 @@
 <h3 class="component-title icon_resource"><span>多选节点</span></h3>
-<p class="margin-10">该组件的树节点可以被多个选中，配合电脑系统的shift键实现多选效果。</p>
+<p class="margin-10">该组件的树节点可以被多个选中，配合电脑系统的metaKey键实现多选效果。【注意】metaKey是和系统有关的，在Windows键盘中是Windows键，在mac键盘中是Cmd键。</p>
 <p-tabView>
   <p-tabPanel header="效果示例" leftIcon="icon_example">
     <div class="tree-demo margin-t-40">
@@ -31,7 +31,7 @@
       <h4>Step 1 TS文件中引入组件所需资源，如下: </h4>
       <pre>
 <code class="language-javascript" kyeeCodeHighLight>
-import &#123; TreeWidgetModule, TreeNode &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+import &#123; TreeWidgetModule, TreeNode &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的TreeWidgetModule,TreeNode
 </code>
 </pre>
       <h4>Step 2 HTML文件中使用基础树指令<span class="padding-lr-10 high-light">p-tree</span>，属性<span class="padding-lr-10 high-light">value</span>的值<span class="padding-lr-10 high-light">multipleTree</span>作为本示例的树节点，如下:

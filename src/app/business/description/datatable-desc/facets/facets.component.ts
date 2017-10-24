@@ -11,7 +11,7 @@ export class FacetsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.cars = [{ 'brand': 'VW', 'year': 2012, 'color': 'Orange', 'vin': 'dsad231ff' },
+    this.cars = [{ 'brand': 'VW', 'year': 2012, 'color': 'Orange', 'vin': 'dsad231ffdsad231ffdsad231ffdsad231ffdsad231ff' },
     { 'brand': 'Audi', 'year': 2011, 'color': 'Black', 'vin': 'gwregre345' },
     { 'brand': 'Renault', 'year': 2005, 'color': 'Gray', 'vin': 'h354htr' },
     { 'brand': 'BMW', 'year': 2003, 'color': 'Blue', 'vin': 'j6w54qgh' },

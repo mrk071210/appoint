@@ -62,7 +62,7 @@ export class ExpansionComponent implements OnInit {
   // TS示例代码
   expansionDemoCode: any = `
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { TreeWidgetModule, TreeNode, Tree } from 'widgets';
+import { TreeWidgetModule, TreeNode, Tree } from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的TreeWidgetModule,TreeNode,Tree
 @Component({
   selector: 'kyee-expansion-desc',
   templateUrl: './expansion.component.html',

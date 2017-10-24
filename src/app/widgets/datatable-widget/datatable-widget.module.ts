@@ -2,10 +2,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import {
-    DataTableModule,
-    SharedModule
-} from 'primeng/primeng';
+import { DataTableModule } from './datatable/datatable';
+import { SharedModule } from '../commons/shared'
 
 const WIDGETS_MODULES = [
     DataTableModule,

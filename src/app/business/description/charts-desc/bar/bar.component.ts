@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarComponent implements OnInit {
 
+    barOptions: any = {
+        legend: {
+            position: 'top'
+        }
+    };
+    hideLegendOptions: any = {
+        legend: {
+            display: false
+        }
+    };
    // 柱状图示例数据
     barData: any = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -24,7 +34,25 @@ export class BarComponent implements OnInit {
                     data: [28, 48, 40, 19, 86, 27, 90]
                 }
             ]
-        };
+    };
+    //隐藏图例的柱状图示例数据
+    hideLegendBarData: any = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: '',
+                backgroundColor: '#42A5F5',
+                borderColor: '#1E88E5',
+                data: [65, 59, 80, 81, 56, 55, 40]
+            },
+            {
+                label: '',
+                backgroundColor: '#9CCC65',
+                borderColor: '#7CB342',
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    };
 
     // 柱状图TS示例代码
     barDemoCode: any = `
@@ -37,6 +65,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarComponent implements OnInit {
 
+    barOptions: any = {
+        legend: {
+            position: 'top'
+        }
+    };
+    hideLegendOptions: any = {
+        legend: {
+            display: false
+        }
+    };
     barData: any = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
@@ -53,7 +91,24 @@ export class BarComponent implements OnInit {
                     data: [28, 48, 40, 19, 86, 27, 90]
                 }
             ]
-        };
+    };
+    hideLegendBarData: any = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: '',
+                backgroundColor: '#42A5F5',
+                borderColor: '#1E88E5',
+                data: [65, 59, 80, 81, 56, 55, 40]
+            },
+            {
+                label: '',
+                backgroundColor: '#9CCC65',
+                borderColor: '#7CB342',
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    };
 
     constructor() { }
 

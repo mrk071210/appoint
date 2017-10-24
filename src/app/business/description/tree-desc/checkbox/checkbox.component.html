@@ -2,13 +2,23 @@
 <p class="margin-10">该组件的树节点具有复选框特性，可以选中多个。</p>
 <p-tabView>
   <p-tabPanel header="效果示例" leftIcon="icon_example">
-    <div class="tree-demo margin-t-40">
-      <p-tree [value]="checkboxTree" selectionMode="checkbox" [(selection)]="selectedFiles"></p-tree>
-      <div class="margin-t-15">Selected Nodes: <span *ngFor="let file of selectedFiles">{{file.label}} </span></div>
-    </div>
+    <section><h2>普通的树组件</h2>
+      <div class="tree-demo margin-t-40">
+          <p-tree [value]="treeData" selectionMode="checkbox" [(selection)]="selectedFiles"></p-tree>
+          <div class="margin-t-15">Selected Nodes: <span *ngFor="let file of selectedFiles">{{file.label}} </span></div>
+        </div>
+    </section>
+    <section>
+      <h2>初始化自动选中树节点</h2>
+      <div class="tree-demo margin-t-40">
+          <p-tree [value]="checkboxTree" selectionMode="checkbox" [autoSelected]="true"></p-tree>
+        </div>
+    </section>
+
   </p-tabPanel>
   <p-tabPanel header="组件源码" leftIcon="icon_code">
     <section>
+      <h2>普通的树组件示例代码</h2>
       <h5>HTML代码示例</h5>
       <pre>
 <code class="language-markup" ngNonBindable kyeeCodeHighLight>
@@ -23,13 +33,26 @@
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="checkboxDemoCode" ></code>
 </pre>
     </section>
+    <section>
+      <h2>初始化自动选中树节点示例代码</h2>
+      <h5>HTML代码示例</h5>
+      <pre>
+<code class="language-markup" ngNonBindable kyeeCodeHighLight>
+&lt;p-tree [value]="checkboxTree" selectionMode="checkbox" [autoSelected]="true"&gt;&lt;/p-tree&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+      <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="autoSelectedDemoCode" ></code>
+</pre>
+    </section>
   </p-tabPanel>
   <p-tabPanel header="使用说明" leftIcon="icon_explorer">
     <section>
       <h4>Step 1 TS文件中引入组件所需资源，如下: </h4>
       <pre>
 <code class="language-javascript" kyeeCodeHighLight>
-import &#123; TreeWidgetModule, TreeNode &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+import &#123; TreeWidgetModule, TreeNode &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule以及TreeNode
 </code>
 </pre>
       <h4>Step 2 HTML文件中使用基础树指令<span class="padding-lr-10 high-light">p-tree</span>，属性<span class="padding-lr-10 high-light">value</span>的值<span class="padding-lr-10 high-light">checkboxTree</span>作为本示例的树节点，如下:
@@ -43,6 +66,12 @@ import &#123; TreeWidgetModule, TreeNode &#125; from 'widgets'; // widgets 为�
 </code>
 </pre>
       <h4>Step 3 具体数据见<span class="padding-lr-10 high-light">TS</span>示例文件。其中具体属性以及方法说明见简介部分。</h4>
+    </section>
+    <section>
+        <h2>初始化树节点自动选中使用说明</h2>
+        <p>1、指定 p-tree 标签的 [autoSelected] 属性为"true"。</p>
+        <p>2、后台请求的树节点数据，选中节点的 checked 属性值为 true 。</p>
+        <p>3、使用 autoSelected 属性时，开发人员不必指定 p-tree 标签的 selection 属性的值，确保上一步 checked 属性赋值正确即可，其他的框架中已做处理。</p>
     </section>
   </p-tabPanel>
 </p-tabView>

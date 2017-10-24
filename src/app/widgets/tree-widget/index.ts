@@ -1,2 +1,3 @@
 export { TreeWidgetModule } from './tree-widget.module';
-export { TreeNode,Tree } from 'primeng/primeng';
+export { TreeNode } from '../commons/treenode';
+export { Tree } from './tree/tree';

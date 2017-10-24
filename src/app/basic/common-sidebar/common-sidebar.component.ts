@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { RouterService } from './../../general/services/router/router.service';
 import { HttpService } from './../../general';
-import { MenuItem } from 'primeng/primeng';
+import { MenuItem } from '../../widgets';
 
 @Component({
     selector: 'kyee-common-sidebar',

@@ -2,42 +2,47 @@
 <p class="margin-10">FileUpload是一个具有拖放支持，多文件上传，自动上传，进度跟踪和验证的高级上传器。</p>
 <p-tabView>
   <p-tabPanel header="效果示例" leftIcon="icon_example">
-    <div>
-      <h4>【示例1】上传文件（默认）</h4>
-      <p-growl [value]="msgs"></p-growl>
-      <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
-        <ng-template pTemplate type="content">
-          <ul *ngIf="uploadedFiles.length">
-            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-          </ul>
-        </ng-template>
-      </p-fileUpload>
-    </div>
-    <div>
-      <h4>【示例2】上传文件（无详细信息）</h4>
-      <p-growl [value]="msgs"></p-growl>
-      <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
-    </div>
-    <div>
-      <h4>【示例3】上传文件（自动上传）</h4>
-      <p-growl [value]="msgs"></p-growl>
-      <p-fileUpload #fubauto mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUploadAuto($event)" auto="true" chooseLabel="Browse"></p-fileUpload>
-    </div>
+    <section>
+      <h2>上传文件（默认）</h2>
+      <div class="example">
+        <p-growl [value]="msgs"></p-growl>
+        <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
+          <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+              <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+            </ul>
+          </ng-template>
+        </p-fileUpload>
+      </div>
+    </section>
+    <!-- <section>
+      <h2>上传文件（无详细信息）</h2>
+      <div class="example">
+        <p-growl [value]="msgs"></p-growl>
+        <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
+      </div>
+    </section> -->
+    <!-- <section>
+      <h2>上传文件（自动上传）</h2>
+      <div class="example">
+        <p-growl [value]="msgs"></p-growl>
+        <p-fileUpload #fubauto mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUploadAuto($event)" auto="true" chooseLabel="Browse"></p-fileUpload>
+      </div>
+    </section> -->
   </p-tabPanel>
   <p-tabPanel header="组件源码" leftIcon="icon_code">
     <section>
-      <h4>【示例1】上传文件（默认）</h4>
+      <h2>【示例1】上传文件（默认）</h2>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
-&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;
-&lt;p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" 
-multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;
-&lt;ng-template pTemplate type="content"&gt;
-&lt;ul *ngIf="uploadedFiles.length"&gt;
-&lt;li *ngFor="let file of uploadedFiles"&gt;&#123;&#123;file.name&#125;&#125; - &#123;&#123;file.size&#125;&#125; bytes&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/ng-template&gt;        
+&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;
+&lt;p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;
+    &lt;ng-template pTemplate type="content"&gt;
+        &lt;ul *ngIf="uploadedFiles.length"&gt;
+            &lt;li *ngFor="let file of uploadedFiles"&gt;&#123;&#123;file.name&#125;&#125; - &#123;&#123;file.size&#125;&#125; bytes&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/ng-template&gt;        
 &lt;/p-fileUpload&gt;
 </code>
 </pre>
@@ -46,38 +51,46 @@ multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;
 <code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
 </pre>
     </section>
-    <section>
-      <h4>【示例2】上传文件（无详细信息）</h4>
+    <!-- <section>
+      <h2>【示例2】上传文件（无详细信息）</h2>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
-&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;
+&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;
 &lt;p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"&gt;&lt;/p-fileUpload&gt;
 </code>
 </pre>
 <h5>TS代码示例</h5>
 <pre>
-<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo2"></code>
 </pre>
     </section>
     <section>
-      <h4>【示例3】上传文件（自动上传）</h4>
+      <h2>【示例3】上传文件（自动上传）</h2>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
-&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;
+&lt;p-growl [value]="msgs"&gt;&lt;/p-growl&gt;&lt;
 &lt;p-fileUpload #fubauto mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUploadAuto($event)" auto="true" chooseLabel="Browse"&gt;&lt;/p-fileUpload&gt;
 </code>
 </pre>
 <h5>TS代码示例</h5>
 <pre>
-<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo3"></code>
 </pre>
-    </section>
+    </section> -->
   </p-tabPanel>
   <p-tabPanel header="使用说明" leftIcon="icon_explorer">
       <section>
-      <h2>1. 说明</h2>
+        <h2>资源文件引入</h2>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+import &#123; FormWidgetsModule &#125; from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的FormWidgetsModule
+</code>
+</pre>
+      </section>
+      <section>
+      <h2>使用</h2>
       <p>FileUpload需要一个url属性作为上传目标，并在后端标识文件的名称。</p>
       <h5>HTML代码示例</h5>
 <pre>
@@ -87,7 +100,7 @@ multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;
 </pre>
     </section>
     <section>
-      <h2>2. 多个文件上传</h2>
+      <h2>多个文件上传</h2>
       <p>一次只能选择一个文件，以允许选择多个启用多个选项。</p>
       <h5>HTML代码示例</h5>
 <pre>
@@ -97,39 +110,36 @@ multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;
 </pre>
     </section>
     <section>
-      <h2>3. 拖放文件</h2>
+      <h2>拖放文件</h2>
       <p>还可以通过将一个或多个拖放到组件的内容部分来完成文件选择。</p>
     </section>
     <section>
-      <h2>4. 自动上传</h2>
+      <h2>自动上传</h2>
       <p>启用自动属性后，一旦文件选择完成或文件丢弃在放置区域，上传即开始。</p>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
-&lt;p-fileUpload name="myfile[]" url="./upload.php" multiple="multiple"
-        accept="image/*" auto="auto"&gt;&lt;/p-fileUpload&gt;
+&lt;p-fileUpload name="myfile[]" url="./upload.php" multiple="multiple" accept="image/*" auto="auto"&gt;&lt;/p-fileUpload&gt;
 </code>
 </pre>
     </section>
     <section>
-      <h2>5. 文件类型</h2>
+      <h2>文件类型</h2>
       <p>可选择的文件类型可以用accept属性限制，下面的示例只允许上传图像。</p>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
-&lt;p-fileUpload name="myfile[]" url="./upload.php" multiple="multiple"
-        accept="image/*"&gt;&lt;/p-fileUpload&gt;
+&lt;p-fileUpload name="myfile[]" url="./upload.php" multiple="multiple" accept="image/*"&gt;&lt;/p-fileUpload&gt;
 </code>
 </pre>
     </section>
     <section>
-      <h2>6. 文件大小</h2>
+      <h2>文件大小</h2>
       <p>可以使用以字节定义的maxFileSize属性来限制最大文件大小。</p>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
-&lt;p-fileUpload name="myfile[]" url="./upload.php" multiple="multiple"
-        accept="image/*" maxFileSize="1000000"&gt;&lt;/p-fileUpload&gt;
+&lt;p-fileUpload name="myfile[]" url="./upload.php" multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;&lt;/p-fileUpload&gt;
 </code>
 </pre>
     <p>为了自定义默认消息，使用invalidFileSizeMessageSummary和invalidFileSizeMessageDetail选项。 总而言之，&#123;0&#125;占位符是指文件名，详细的文件大小。</p>
@@ -139,32 +149,31 @@ multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;
     </ul>
     </section>
     <section>
-      <h2>7. 模板</h2>
+      <h2>模板</h2>
       <p>文件列表UI可以使用名为“file”的ng模板进行自定义，该文件将File实例作为隐式变量。名为“内容”的第二级ng-template可用于将自定义内容放置在内容区域中，这将有助于实现用户界面来管理上传的文件，例如删除它们。第三个和最后一个ng-template选项是在工具栏上显示自定义内容的“工具栏”。</p>
       <h5>HTML代码示例</h5>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
-&lt;p-fileUpload name="myfile[]" url="./upload.php" multiple="multiple"
-        accept="image/*" maxFileSize="1000000"&gt;
-        &lt;ng-template pTemplate="toolbar"&gt;
-            &lt;div&gt;Upload 3 Files&lt;/div&gt;
-        &lt;/ng-template&gt;  
-        &lt;ng-template let-file pTemplate="file"&gt;
-            &lt;div&gt;Custom UI to display a file&lt;/div&gt;
-        &lt;/ng-template&gt; 
-        &lt;ng-template pTemplate="content"&gt;
-            &lt;div&gt;Custom UI to manage uploaded files&lt;/div&gt;
-        &lt;/ng-template&gt;  
+&lt;p-fileUpload name="myfile[]" url="./upload.php" multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;
+    &lt;ng-template pTemplate="toolbar"&gt;
+        &lt;div&gt;Upload 3 Files&lt;/div&gt;
+    &lt;/ng-template&gt;  
+    &lt;ng-template let-file pTemplate="file"&gt;
+        &lt;div&gt;Custom UI to display a file&lt;/div&gt;
+    &lt;/ng-template&gt; 
+    &lt;ng-template pTemplate="content"&gt;
+        &lt;div&gt;Custom UI to manage uploaded files&lt;/div&gt;
+    &lt;/ng-template&gt;  
 &lt;/p-fileUpload&gt;
 </code>
 </pre>
     </section>
     <section>
-      <h2>8. 自定义请求</h2>
+      <h2>自定义请求</h2>
       <p>可以使用传递xhr实例和FormData对象作为事件参数的onBeforeUpload回调来自定义XHR上传文件的请求。</p>
     </section>
     <section>
-      <h2>9. 基本UI</h2>
+      <h2>基本UI</h2>
       <p>FileUpload基本模式提供了一个更简单的UI作为高级模式的替代方案。</p>
       <h5>HTML代码示例</h5>
 <pre>
@@ -174,7 +183,7 @@ multiple="multiple" accept="image/*" maxFileSize="1000000"&gt;
 </pre>
     </section>
     <section>
-      <h2>10. 自定义上传</h2>
+      <h2>自定义上传</h2>
       <p>可以通过启用customMode属性和定义自定义上传处理程序事件来覆盖上传实现。</p>
       <h5>HTML代码示例</h5>
 <pre>
@@ -192,7 +201,7 @@ myUploader(event) &#123;
 </pre>
     </section>
     <section>
-      <h2>11. 属性</h2>
+      <h2>属性</h2>
       <p-dataTable [value]="attributes">
         <p-column field="name" header="名称"></p-column>
         <p-column field="type" header="类型"></p-column>
@@ -201,7 +210,7 @@ myUploader(event) &#123;
       </p-dataTable>
     </section>
     <section>
-      <h2>12. 事件</h2>
+      <h2>事件</h2>
       <p-dataTable [value]="eventsList">
         <p-column field="name" header="名称"></p-column>
         <p-column field="parameters" header="参数"></p-column>
@@ -209,7 +218,7 @@ myUploader(event) &#123;
       </p-dataTable>
     </section>
     <section>
-      <h2>13. 方法</h2>
+      <h2>方法</h2>
       <p-dataTable [value]="functionsList">
         <p-column field="name" header="名称"></p-column>
         <p-column field="parameters" header="参数"></p-column>
@@ -217,14 +226,14 @@ myUploader(event) &#123;
       </p-dataTable>
     </section>
     <section>
-      <h2>14. 样式</h2>
+      <h2>样式</h2>
       <p-dataTable [value]="styleList">
         <p-column field="name" header="名称"></p-column>
         <p-column field="element" header="元素"></p-column>
       </p-dataTable>
     </section>
     <section>
-      <h2>15. 依赖</h2>
+      <h2>依赖</h2>
       <p>无</p>
     </section>
   </p-tabPanel>

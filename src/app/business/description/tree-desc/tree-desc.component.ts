@@ -289,7 +289,25 @@ treeProperties = [
       'type': 'boolean',
       'default': 'true',
       'description': '复选框的选择状态是否传播到子类节点'
-    } 
+    },
+    {
+      'name': 'autoSelected',
+      'type': 'boolean',
+      'default': 'false',
+      'description': '复选框初始化时自动选中属性'
+    },
+    {
+      'name': 'loading',
+      'type': 'boolean',
+      'default': 'false',
+      'description': '显示加载器以指示数据负载正在进行中'
+    },
+    {
+      'name': 'loadingIcon',
+      'type': 'string',
+      'default': 'fa-circle-o-notch',
+      'description': '显示数据加载时显示的图标。'
+    }
   ];
   treeEvents=[
     {
@@ -359,6 +377,10 @@ treeProperties = [
     {
       'name': 'ui-treenode-children',
       'element': '子节点元素容器'
+    },
+    {
+      'name': 'ui-treenode-content-selected',
+      'element': '选定节点'
     }
   ]
   constructor() { }

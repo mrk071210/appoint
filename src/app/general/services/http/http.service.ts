@@ -21,10 +21,10 @@ export class HttpService {
         opVersion: DeploymentConfig.VERSION,
         serverUrl: DeploymentConfig.SERVER_URL
     };
-    private verifyCB: Function = () => true;
+    private verifyCallback: Function = () => true;
     constructor(
         private _http: Http,
-        private loadingService: LoadingService,
+        private loadingService: LoadingService
     ) { }
 
     /**
@@ -33,14 +33,18 @@ export class HttpService {
      * @param paramMap 请求的参数
      * @param success 成功回调
      * @param error 失败回调
+     * @param extraConfig 请求的额外配置信息
      */
-    public get(url: string, paramMap: any = null, success: Function = (data) => {},
-        error: Function = (msg) => {}
+    public get(url: string, paramMap: any = null,
+        success: Function = (data) => {},
+        error: Function = (msg) => {},
+        extraConfig: any = null
     ): Subscription {
         return this.request(url, new RequestOptions({
             method: RequestMethod.Get,
+            withCredentials: true,
             search: this.buildURLSearchParams(paramMap)
-        }), success, error);
+        }), extraConfig, success, error);
     }
 
     /**
@@ -49,17 +53,21 @@ export class HttpService {
      * @param body 数据体
      * @param success 成功回调
      * @param error 失败回调
+     * @param extraConfig 请求的额外配置信息
      */
-    public post(url: string, paramMap: any = null, success: Function = (data) => {},
-        error: Function = (msg) => {}
+    public post(url: string, paramMap: any = null,
+        success: Function = (data) => {},
+        error: Function = (msg) => {},
+        extraConfig: any = null
     ): Subscription {
         return this.request(url, new RequestOptions({
             method: RequestMethod.Post,
-            body: paramMap,
+            body: this.buildURLSearchParams(paramMap).toString(),
+            withCredentials: true,            
             headers: new Headers({
-                'Content-Type': 'application/json; charset=UTF-8'
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             })
-        }), success, error);
+        }), extraConfig, success, error);
     }
 
     /**
@@ -68,17 +76,21 @@ export class HttpService {
      * @param formData 表单数据
      * @param success 成功回调
      * @param error 失败回调
+     * @param extraConfig 请求的额外配置信息
      */
-    public postFormData(url: string, paramMap: any = null, success: Function = (data) => {},
-        error: Function = (msg) => {}
+    public postFormData(url: string, paramMap: any = null,
+        success: Function = (data) => {},
+        error: Function = (msg) => {},
+        extraConfig: any = null
     ): Subscription {
         return this.request(url, new RequestOptions({
             method: RequestMethod.Post,
+            withCredentials: true,            
             search: this.buildURLSearchParams(paramMap),
             headers: new Headers({
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             })
-        }), success, error);
+        }), extraConfig, success, error);
     }
 
     /**
@@ -86,7 +98,7 @@ export class HttpService {
      * @param cb 
      */
     public setVerify(cb: Function): void {
-        this.verifyCB = cb;
+        this.verifyCallback = cb;
     }
 
     /**
@@ -97,15 +109,15 @@ export class HttpService {
     private buildURLSearchParams(paramMap): URLSearchParams {
         let params = new URLSearchParams();
 
-        if (!paramMap) {
+        if(!paramMap) {
             return params;
         }
 
-        for (let key in paramMap) {
-            if (paramMap.hasOwnProperty(key)) {
+        for(let key in paramMap) {
+            if(paramMap.hasOwnProperty(key)) {
                 let val = paramMap[key];
 
-                if (val instanceof Date) {
+                if(val instanceof Date) {
                     val = KyeeUtils.dateFormat(val, 'yyyy-MM-dd hh:mm:ss')
                 }
 
@@ -113,8 +125,8 @@ export class HttpService {
             }
         }
 
-        for (let key in this.defaultParams) {
-            if (this.defaultParams.hasOwnProperty(key)) {
+        for(let key in this.defaultParams) {
+            if(this.defaultParams.hasOwnProperty(key)) {
                 let val = this.defaultParams[key];
                 params.set(key, val);
             }
@@ -134,13 +146,13 @@ export class HttpService {
     private requestFailed(url: string, options: RequestOptionsArgs, err): string {
         let msg = '请求发生异常', status = err.status;
 
-        if (status === 0) {
+        if(status === 0) {
             msg = '请求失败，请求响应出错';
-        } else if (status === 404) {
+        } else if(status === 404) {
             msg = '请求失败，未找到请求地址';
-        } else if (status === 500) {
+        } else if(status === 500) {
             msg = '请求失败，服务器出错，请稍后再试';
-        } else {
+        } else{
             msg = '未知错误，请检查网络';
         }
 
@@ -151,20 +163,32 @@ export class HttpService {
      * 所有请求（get、post、put、delete、options、head、patch）的统一出口
      * @param url 请求的url
      * @param options 请求的标准参数
+     * @param extraConfig 请求的额外配置信息
      * @param success 成功回调
      * @param error 失败回调
      */
-    private request(url: string, options: RequestOptionsArgs, success: Function, error: Function): Subscription {
-        this.loadingService.loading(true);
+    private request(url: string, options: RequestOptionsArgs, extraConfig:any,
+        success: Function,
+        error: Function
+    ): Subscription {
+        let showLoading :boolean = extraConfig ? (extraConfig.showLoading===undefined ? true : extraConfig.showLoading): true;
+        if(showLoading) {
+            this.loadingService.loading(true);
+        }
 
         return this._http.request(url, options).subscribe(res => {
-            this.loadingService.loading(false);
+            if(showLoading) {
+                this.loadingService.loading(false);
+            }
             let data = res.json();
-            if(this.verifyCB(data)) {
+
+            if(this.verifyCallback(data)) {
                 success(data);
             }
         }, err => {
-            this.loadingService.loading(false);
+            if(showLoading) {
+                this.loadingService.loading(false);
+            }
             // 处理请求失败
             let msg = this.requestFailed(url, options, err);
             error(msg);

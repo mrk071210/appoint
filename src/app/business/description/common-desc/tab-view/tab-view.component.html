@@ -196,12 +196,12 @@ export class TabViewDemo &#123;
   <p-tabPanel header="使用说明" leftIcon="icon_explorer">
     <section>
       <h2>使用</h2>
-      <p>Tabview元素由一个或多个p-tabPanel元素组成。 标签的标题是使用header属性定义的。</p>
+      <p>Tabview元素由一个或多个p-tabPanel元素组成。标签的标题是使用header属性定义的。</p>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
 &lt;p-tabView&gt;
     &lt;p-tabPanel header="Header 1"&gt;
-       Content 1
+        Content 1
     &lt;/p-tabPanel&gt;
     &lt;p-tabPanel header="Header 2"&gt;
         Content 2
@@ -218,7 +218,7 @@ export class TabViewDemo &#123;
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
 &lt;p-tabView&gt;
     &lt;p-tabPanel header="Header 1"&gt;
-       Content 1
+        Content 1
     &lt;/p-tabPanel&gt;
     &lt;p-tabPanel header="Header 2" [selected]="true"&gt;
         Content 2
@@ -281,7 +281,7 @@ handleClose(e) &#123;
 </pre>
 
             <h2>布局</h2>
-            <p>TabView有四个不同的方向;  "top", "bottom", "left"和"right"。 Top是默认值，可以使用orientation属性更改。</p>
+            <p>TabView有四个不同的方向： "top", "bottom", "left"和"right"。 Top是默认值，可以使用orientation属性更改。</p>
 <pre>
 <code class="language-markup" kyeeCodeHighLight ngNonBindable>
 &lt;p-tabView orientation="left"&gt;
@@ -327,6 +327,27 @@ export class TabViewDemo &#123;
 &#125;
 </code>
 </pre>
+       <h2>懒加载</h2>
+       <p>只有通过初始化活动选项卡，延迟加载才有助于初始加载性能，未激活的选项卡在被选中之前不会初始化。默认情况下缓存加载的标签页内容，以便在重新选择时不会再次创建。您可以使用TabPanel上的缓存属性来配置此行为。 当具有pTemplate =“content”的ngTemplate时，TabPanel被指定为懒惰。</p>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-tabView&gt;
+    &lt;p-tabPanel header="Header 1"&gt;
+        Content 1
+    &lt;/p-tabPanel&gt;
+    &lt;p-tabPanel header="Header 2" [selected]="true"&gt;
+        &lt;ng-template pTemplate="content"&gt;
+            Complex Content to Lazy Load
+        &lt;/ng-template&gt;
+    &lt;/p-tabPanel&gt;
+    &lt;p-tabPanel header="Header 3"&gt;
+        &lt;ng-template pTemplate="content"&gt;
+            Complex Content to Lazy Load
+        &lt;/ng-template&gt;    
+    &lt;/p-tabPanel&gt;
+&lt;/p-tabView&gt;
+</code>
+</pre>
     </section>
     <section>
       <h2>TabView属性</h2>
@@ -352,6 +373,26 @@ export class TabViewDemo &#123;
         <p-column field="name" header="名称" [style]="{'width': '20%'}"></p-column>
         <p-column field="param" header="参数"></p-column>
         <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+  &lt;p-tabView (onChange)="handleChange($event)"&gt;
+</code>
+</pre>
+<pre>
+<code class="language-typescript" kyeeCodeHighLight ngNonBindable>
+  handleChange(e) &#123;
+      var index = e.index;
+  &#125;
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>样式</h2>
+      <p>以下是结构样式类的列表。</p>
+      <p-dataTable [value]="styling">
+        <p-column field="name" header="名称" [style]="{'width': '40%'}"></p-column>
+        <p-column field="element" header="参数"></p-column>
       </p-dataTable>
     </section>
   </p-tabPanel>

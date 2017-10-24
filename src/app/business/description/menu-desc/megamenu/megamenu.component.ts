@@ -8,7 +8,7 @@ import { MenuItem } from '../../../../widgets';
 })
 export class MegamenuComponent implements OnInit {
   // 二级菜单示例数据
-  megamenuData: MenuItem[] = [
+  megamenuData = [
     {
       label: 'TV', icon: 'fa-check',
       items: [
@@ -124,7 +124,7 @@ export class MegamenuComponent implements OnInit {
   // TS示例代码
   megamenuDemoCode: any = `
 import { Component, OnInit } from '@angular/core';
-import { MenuWidgetsModule, MenuItem } from 'widgets'; // widgets 为根目录widgets文件夹
+import { MenuWidgetsModule, MenuItem } from 'portalface/widgets'; //注：引用portalface库中的widgets模块下的MenuWidgetsModule, MenuItem
 
 @Component({
   selector: 'kyee-megamenu-desc',
@@ -132,7 +132,7 @@ import { MenuWidgetsModule, MenuItem } from 'widgets'; // widgets 为根目录wi
   styleUrls: ['./megamenu.component.scss']
 })
 export class MegamenuComponent implements OnInit {
-  megamenuData:MenuItem[] = [
+  megamenuData = [
       {
         label: 'TV', icon: 'fa-check',
         items: [

@@ -5,20 +5,19 @@ import {
     ReactiveFormsModule
 } from '@angular/forms';
 
-import {
-    InputTextModule,
-    AutoCompleteModule,
-    CalendarModule,
-    CheckboxModule,
-    DropdownModule,
-    EditorModule,
-    ListboxModule,
-    MultiSelectModule,
-    RadioButtonModule,
-    SpinnerModule,
-    SelectButtonModule,
-    FileUploadModule
-} from 'primeng/primeng';
+import { InputTextModule } from './inputtext/inputtext';
+import { AutoCompleteModule } from './autocomplete/autocomplete';
+import { CalendarModule } from './calendar/calendar';
+import { CheckboxModule } from './checkbox/checkbox';
+import { DropdownModule } from './dropdown/dropdown';
+import { EditorModule } from './editor/editor';
+import { ListboxModule } from './listbox/listbox';
+import { MultiSelectModule } from './multiselect/multiselect';
+import { RadioButtonModule } from './radiobutton/radiobutton';
+import { SpinnerModule } from './spinner/spinner';
+import { SelectButtonModule } from './selectbutton/selectbutton';
+import { FileUploadModule } from './fileupload/fileupload';
+import { InputTextareaModule } from './inputtextarea/inputtextarea';
 
 const WIDGETS_MODULES = [
     InputTextModule,
@@ -32,7 +31,8 @@ const WIDGETS_MODULES = [
     RadioButtonModule,
     SpinnerModule,
     SelectButtonModule,
-    FileUploadModule
+    FileUploadModule,
+    InputTextareaModule
 ];
 
 @NgModule({

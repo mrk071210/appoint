@@ -6,10 +6,11 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "kyee_nextframework_portalface_quickstart",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "upload.php"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -18,9 +19,7 @@
       "prefix": "kyee",
       "styles": [
         "../node_modules/font-awesome/css/font-awesome.min.css",
-        "../node_modules/primeng/resources/primeng.min.css",
-        "assets/frame/fonticon/fonticon.css",
-        "styles.css"
+        "assets/font-icon/font-icon.css"
       ],
       "scripts": [
         "../node_modules/chart.js/dist/Chart.js"

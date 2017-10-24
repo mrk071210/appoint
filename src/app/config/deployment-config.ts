@@ -16,6 +16,6 @@ export const DeploymentConfig = {
      * ECharts地图数据
      */
     ECHARTS_MAPS: [
-        {name: 'china', url: 'assets/map/china.json'}
+        {name: 'china', url: 'assets/echarts-map/china.json'}
     ]
 };

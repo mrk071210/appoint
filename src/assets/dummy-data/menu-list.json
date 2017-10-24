@@ -80,6 +80,14 @@
                     "items": []
                 },
                 {
+                    "label": "确认弹出框",
+                    "icon": "",
+                    "url": "",
+                    "routerLink": "/business/description/common-desc/confirm-dialog",
+                    "expanded": false,
+                    "items": []
+                },
+                {
                     "label": "弹出消息",
                     "icon": "",
                     "url": "",
@@ -169,6 +177,14 @@
                     "items": []
                 },
                 {
+                    "label": "textarea",
+                    "icon": "",
+                    "url": "",
+                    "routerLink": "/business/description/form-desc/input-textarea",
+                    "expanded": false,
+                    "items": []
+                },
+                {
                     "label": "列表选择框",
                     "icon": "",
                     "url": "",
@@ -205,6 +221,14 @@
                     "icon": "",
                     "url": "",
                     "routerLink": "/business/description/form-desc/select-button",
+                    "expanded": false,
+                    "items": []
+                },
+                {
+                    "label": "文件上传",
+                    "icon": "",
+                    "url": "",
+                    "routerLink": "/business/description/form-desc/file-upload",
                     "expanded": false,
                     "items": []
                 }
@@ -310,6 +334,14 @@
                             "icon": "",
                             "url": "",
                             "routerLink": "/business/description/datatable-desc/row-group",
+                            "expanded": false,
+                            "items": []
+                        },
+                        {
+                            "label": "横向滚动条",
+                            "icon": "",
+                            "url": "",
+                            "routerLink": "/business/description/datatable-desc/scroll",
                             "expanded": false,
                             "items": []
                         },
@@ -508,6 +540,14 @@
                     "icon": "",
                     "url": "",
                     "routerLink": "/business/description/tree-desc/basic",
+                    "expanded": false,
+                    "items": []
+                },
+                {
+                    "label": "下拉树",
+                    "icon": "",
+                    "url": "",
+                    "routerLink": "/business/description/tree-desc/dropdown",
                     "expanded": false,
                     "items": []
                 },

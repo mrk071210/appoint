@@ -2,11 +2,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import {
-    TreeModule,
-    TreeNode,
-    ContextMenuModule
-} from 'primeng/primeng';
+import { TreeModule, Tree } from './tree/tree';
+import { ContextMenuModule } from './contextmenu/contextmenu';
+import { TreeNode } from '../commons/treenode';
 
 const WIDGETS_MODULES = [
     TreeModule,

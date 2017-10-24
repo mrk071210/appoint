@@ -18,6 +18,7 @@ export class DropdownComponent implements OnInit {
   tsDemo1: string;
   tsDemo2: string;
   tsDemo3: string;
+  tsDemo4: string;
   constructor() {
     this.cities = [];
     this.cities.push({label: 'New York', value: { id: 1, name: 'New York', code: 'NY'}});
@@ -67,7 +68,7 @@ export class DropdownComponent implements OnInit {
         'name': 'style',
         'type': 'string',
         'default': 'null',
-        'description': '元素的内联样式'
+        'description': '元素的内联样式。（注：如果自定义下拉选择框的高度，不可编辑类型的 dropdown 组件直接设置 line-height 属性即可；可编辑类型组件需同时设置 height 和 line-height 属性为相同值）'
       },
       {
         'name': 'panelStyle',
@@ -164,6 +165,20 @@ export class DropdownComponent implements OnInit {
         'type': 'boolean',
         'default': 'true',
         'description': '启用时，当覆盖面板可见时，创建选项的dom'
+      }
+      ,
+      {
+        'name': 'autofocus',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '当出现时，它指定组件应该自动地集中在负载上。'
+      }
+      ,
+      {
+        'name': 'resetFilterOnHide',
+        'type': 'boolean',
+        'default': 'false',
+        'description': '在隐藏下拉菜单时清除过滤器值。'
       }
     ];
     this.eventsList = [
@@ -294,6 +309,10 @@ export class DropdownComponent implements OnInit {
   ngOnInit() {
     this.selectedCar2 = 'BMW';
   }
+}`;
+    this.tsDemo4 = `
+clearFilter(dropdown: Dropdown) {
+  dropdown.resetFilter();
 }`;
   }
 }
