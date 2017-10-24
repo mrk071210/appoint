@@ -1,0 +1,102 @@
+<div class="main-background ui-g ui-g-nopad">
+  <div class="ui-g-2">
+    <p-panel header="Views" [style]="{'height': '100%'}">
+      <div class="ui-g-12">
+        <h1 class="no-margins">386,200</h1>
+      </div>
+      <div class="ui-g-12">
+        <div class="stat-percent font-bold text-success" style="color: #0275D8">98% <i class="fa fa-bolt"></i></div>
+        <small>Total views</small>
+      </div>
+    </p-panel>
+  </div>
+  <div class="ui-g-2">
+    <p-panel header="Orders" [style]="{'height': '100%'}">
+      <div class="ui-g-12">
+        <h1 class="no-margins">80,800</h1>
+      </div>
+      <div class="ui-g-12">
+        <div class="stat-percent font-bold text-info"  style="color: #5CB85C">20% <i class="fa fa-level-up"></i></div>
+        <small>New orders</small>
+      </div>
+    </p-panel>
+  </div>
+  <div class="ui-g-4">
+    <p-panel header="Visits" [style]="{'height': '100%'}">
+      <div class="ui-g-6">
+        <div class="ui-g-12">
+          <h1 class="no-margins">406,42</h1>
+        </div>
+        <div class="ui-g-12">
+          <div style="color: #f8ac59">44% <i class="fa fa-level-up"></i> <small>Rapid Pace</small></div>
+        </div>
+      </div>
+      <div class="ui-g-6">
+        <div class="ui-g-12">
+          <h1 class="no-margins">206,12</h1>
+        </div>
+        <div class="ui-g-12">
+          <div style="color: #f8ac59">22% <i class="fa fa-level-up"></i> <small>Slow Pace</small></div>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+  <div class="ui-g-4">
+    <p-panel header="Monthly Income">
+        <p-chart type="line" [data]="data" height="104px"></p-chart>
+    </p-panel>
+  </div>
+  <div class="ui-g-8">
+      <p-panel header="Half-year Revenue Margin">
+          <p-chart type="bar" [data]="dataBar" ></p-chart>
+      </p-panel>
+  </div>
+  <div class="ui-g-4">
+      <p-panel header="Monthly Income" [style]="{'height': '100%'}">
+          <p-chart type="pie" [data]="dataPie" ></p-chart>
+      </p-panel>
+  </div>
+  <div class="ui-g-12">
+      <p-panel header="Custom Responsive Table" [toggleable]="true">
+        <p-dataTable [value]="cars"
+                    [paginator]="true"
+                    [rows]="10" 
+                    [pageLinks]="3"
+                    [rowsPerPageOptions]="[5,10,20]"
+                    
+                    [scrollable]="true"
+                    scrollHeight="350px"
+                    
+                    [globalFilter]="gb" #dt>
+                    <p-header>
+                      <div style="text-align:left; width: 100%">
+                        <!-- <button type="button" pButton icon="fa-plus"
+                          (click)="showDialogToAdd()" class="ui-button-success"
+                          label="增加"></button>
+                        <button type="button" pButton icon="fa-trash"
+                          (click)="showDialogToDelete()" class="ui-button-danger"
+                          label="删除"></button>
+                        <button type="button" pButton icon="fa-edit"
+                          (click)="onRowSelect()" 
+                          [disabled]="!selectedCars3 || selectedCars3.length != 1"  label="编辑"></button> -->
+
+                        <p-selectButton [options]="[
+                          {label: 'Apartment', value: 'Apartment'},
+                          {label: 'House', value: 'House'}, 
+                          {label: 'Studio', value: 'Studio'}
+                          ]"></p-selectButton>
+                        <div style="float: right">
+                          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                          <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+                        </div>
+                      </div>
+                    </p-header>
+                    <!-- <p-column [style]="{'width':'38px'}" selectionMode="multiple"  [frozen]="true"></p-column> -->
+                    <p-column field="vin" header="Vin" [style]="{'width':'80px'}" [sortable]="true"></p-column>
+                    <p-column field="year" header="Year"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="brand" header="Brand"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="color" header="Color"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                </p-dataTable>
+      </p-panel>
+  </div>
+</div>

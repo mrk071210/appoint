@@ -1,0 +1,147 @@
+<h3 class="component-title icon_resource"><span>单选按钮</span></h3>
+<p class="margin-10">RadioButton是具有选择状态皮肤功能的标准单选按钮元素的扩展。</p>
+<p-tabView>
+    <p-tabPanel header="效果示例" leftIcon="icon_example">
+        <section>
+            <h2>单选按钮（默认不选中）</h2>
+            <div class="example">
+                <div class="ui-g" style="width:250px;margin-bottom:10px">
+                    <div class="ui-g-12">
+                        <p-radioButton name="group1" value="Option 1" label="Option 1" [(ngModel)]="val1"></p-radioButton>
+                    </div>
+                    <div class="ui-g-12">
+                        <p-radioButton name="group1" value="Option 2" label="Option 2" [(ngModel)]="val1"></p-radioButton>
+                    </div>
+                    <div class="ui-g-12">
+                        <p-radioButton name="group1" value="Option 3" label="Option 3" [(ngModel)]="val1"></p-radioButton>
+                    </div>
+                </div>
+                Selected Value = {{val1||'none'}}
+            </div>
+        </section>  
+        <section>
+            <h2>单选按钮（默认选中）</h2>
+            <div class="example"> 
+                <div class="ui-g" style="width:250px;margin-bottom:10px">
+                    <div class="ui-g-12"><p-radioButton name="group2" value="Option 1" label="Option 1" [(ngModel)]="val2"></p-radioButton></div>
+                    <div class="ui-g-12"><p-radioButton name="group2" value="Option 2" label="Option 2" [(ngModel)]="val2"></p-radioButton></div>
+                    <div class="ui-g-12"><p-radioButton name="group2" value="Option 3" label="Option 3" [(ngModel)]="val2"></p-radioButton></div>
+                </div>
+                Selected Value = {{val2||'none'}}
+            </div> 
+        </section>   
+    </p-tabPanel>
+    <p-tabPanel header="组件源码" leftIcon="icon_code">
+        <section>
+            <h2>单选按钮（默认不选中）</h2>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;div class="ui-g" style="width:250px;margin-bottom:10px"&gt;
+	&lt;div class="ui-g-12"&gt;&lt;p-radioButton name="group1" value="Option 1" label="Option 1" [(ngModel)]="val1"&gt;&lt;/p-radioButton&gt;&lt;/div&gt;
+	&lt;div class="ui-g-12"&gt;&lt;p-radioButton name="group1" value="Option 2" label="Option 2" [(ngModel)]="val1"&gt;&lt;/p-radioButton&gt;&lt;/div&gt;
+	&lt;div class="ui-g-12"&gt;&lt;p-radioButton name="group1" value="Option 3" label="Option 3" [(ngModel)]="val1"&gt;&lt;/p-radioButton&gt;&lt;/div&gt;
+&lt;/div&gt;
+Selected Value = &#123;&#123;val1||'none'&#125;&#125;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
+</pre>
+        </section>
+        <section>
+            <h2>单选按钮（默认选中）</h2>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;div class="ui-g" style="width:250px;margin-bottom:10px"&gt;
+    &lt;div class="ui-g-12"&gt;&lt;p-radioButton name="group2" value="Option 1" label="Option 1" [(ngModel)]="val2"&gt;&lt;/p-radioButton&gt;&lt;/div&gt;
+    &lt;div class="ui-g-12"&gt;&lt;p-radioButton name="group2" value="Option 2" label="Option 2" [(ngModel)]="val2"&gt;&lt;/p-radioButton&gt;&lt;/div&gt;
+    &lt;div class="ui-g-12"&gt;&lt;p-radioButton name="group2" value="Option 3" label="Option 3" [(ngModel)]="val2"&gt;&lt;/p-radioButton&gt;&lt;/div&gt;
+&lt;/div&gt;
+Selected Value = &#123;&#123;val2||'none'&#125;&#125;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo2"></code>
+</pre>
+        </section>
+    </p-tabPanel>
+    <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+        <section>
+            <h2>资源文件引入</h2>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+import &#123;FormWidgetsModule&#125; from '../../../widgets';
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>使用</h2>
+            <h3>1. 双向绑定</h3>
+            <p>双向值绑定是使用标准的ngModel指令定义的</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-radioButton name="groupname" value="val1" [(ngModel)]="selectedValue"&gt;&lt;/p-radioButton&gt;
+&lt;p-radioButton name="groupname" value="val2" [(ngModel)]="selectedValue"&gt;&lt;/p-radioButton&gt;
+</code>
+</pre>
+            <h5>默认不选中TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code> 
+</pre>
+            <h5>默认选中TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo2"></code> 
+</pre>
+            <h3 class="margin-t-40">2. 模型驱动形式</h3>
+            <p>单选按钮也可以用于模型驱动形式。</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-radioButton name="groupname" value="ps4" formControlName="console"&gt;&lt;/p-radioButton&gt;
+</code>
+</pre>
+            <h3 class="margin-t-40">3. label标签</h3>
+            <p>label属性为单选按钮提供标签文本。 此标签也可点击并选择值。</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-radioButton name="groupname" value="val1" label="Option 2" [(ngModel)]="selectedValue"&gt;&lt;/p-radioButton&gt;
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>属性</h2>
+            <p-dataTable [value]="attributes">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="type" header="类型"></p-column>
+                <p-column field="default" header="默认值"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>事件</h2>
+            <p-dataTable [value]="eventsList">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="parameters" header="参数"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>样式</h2>
+            <p>以下是结构样式类的列表，针对主题样式的样式类</p>
+            <p-dataTable [value]="styleList">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="element" header="元素"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>依赖</h2>
+            <p>无</p>
+        </section>
+    </p-tabPanel>
+</p-tabView>

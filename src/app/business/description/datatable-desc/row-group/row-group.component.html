@@ -1,0 +1,135 @@
+<h3 class="component-title icon_resource"><span>合并行元素</span></h3>
+<p class="margin-10">【简介】表格提供了三种不同形式的行合并效果。</p>
+<p-tabView>
+  <p-tabPanel class="demo" header="效果示例" leftIcon="icon_example">
+    <!-- <div class="content-section implementation"> -->
+    <section>
+      <h2>方式一：分组的头部是单独的一行，数据是可以折叠、展开的。（默认折叠状态）</h2>
+      <p-dataTable [value]="cars1" sortField="brand" rowGroupMode="subheader" groupField="brand" expandableRowGroups="true" [sortableRowGroup]="false">
+        <p-header>Toggleable Row Groups with Footers</p-header>
+        <ng-template pTemplate="rowgroupheader" let-rowData>{{rowData['brand']}}</ng-template>
+        <p-column field="color" header="Color"></p-column>
+        <p-column field="year" header="Year"></p-column>
+        <p-column field="vin" header="Vin"></p-column>
+        <p-column field="price" header="Price">
+          <ng-template let-col let-car="rowData" pTemplate="body">
+            <span>{{car[col.field] | currency:'USD':true:'.0-0'}}</span>
+          </ng-template>
+        </p-column>
+        <ng-template pTemplate="rowgroupfooter" let-car>
+          <td colspan="3" style="text-align:right">Total Price</td>
+          <td>{{calculateGroupTotal(car['brand']) | currency:'USD':true:'.0-0' }}</td>
+        </ng-template>
+      </p-dataTable>
+    </section>
+
+    <section>
+      <h2>方式二：分组的头部是单独的一行，数据时不可被折叠的状态。</h2>
+      <p-dataTable [value]="cars2" sortField="brand" rowGroupMode="subheader" groupField="brand">
+        <p-header>Subheader</p-header>
+        <ng-template pTemplate="rowgroupheader" let-rowData>{{rowData['brand']}}</ng-template>
+        <p-column field="color" header="Color" sortable="true"></p-column>
+        <p-column field="year" header="Year" sortable="true"></p-column>
+        <p-column field="vin" header="Vin" sortable="true"></p-column>
+      </p-dataTable>
+    </section>
+
+    <section>
+      <h2>方式三：区别方式一和二，没有多余的一列标识分组的头部信息。</h2>
+      <p-dataTable [value]="cars3" sortField="brand" rowGroupMode="rowspan">
+        <p-header>RowSpan</p-header>
+        <p-column field="brand" header="Brand" sortable="true"></p-column>
+        <p-column field="color" header="Color" sortable="true"></p-column>
+        <p-column field="year" header="Year" sortable="true"></p-column>
+        <p-column field="vin" header="Vin" sortable="true"></p-column>
+      </p-dataTable>
+    </section>
+
+    <!-- </div> -->
+  </p-tabPanel>
+
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-dataTable [value]="cars1" sortField="brand" rowGroupMode="subheader" groupField="brand" expandableRowGroups="true"
+        [sortableRowGroup]="false"&gt;
+    &lt;p-header&gt;Toggleable Row Groups with Footers&lt;/p-header&gt;
+    &lt;ng-template pTemplate="rowgroupheader" let-rowData&gt;&#123;&#123;rowData['brand']&#125;&#125;&lt;/ng-template&gt;
+    &lt;p-column field="color" header="Color"&gt;&lt;/p-column&gt;
+    &lt;p-column field="year" header="Year"&gt;&lt;/p-column&gt;
+    &lt;p-column field="vin" header="Vin"&gt;&lt;/p-column&gt;
+    &lt;p-column field="price" header="Price"&gt;
+        &lt;ng-template let-col let-car="rowData" pTemplate="body"&gt;
+            &lt;span&gt;&#123;&#123;car[col.field] | currency:'USD':true:'.0-0'&#125;&#125;&lt;/span&gt;
+        &lt;/ng-template&gt;
+    &lt;/p-column&gt;
+    &lt;ng-template pTemplate="rowgroupfooter" let-car&gt;
+        &lt;td colspan="3" style="text-align:right"&gt;Total Price&lt;/td&gt;
+        &lt;td&gt;&#123;&#123;calculateGroupTotal(car['brand']) | currency:'USD':true:'.0-0' &#125;&#125;&lt;/td&gt;
+    &lt;/ng-template&gt;
+&lt;/p-dataTable&gt;
+
+&lt;p-dataTable [value]="cars2" sortField="brand" rowGroupMode="subheader" groupField="brand" [style]="&#123;'margin-top':'50px'&#125;"&gt;
+    &lt;p-header&gt;Subheader&lt;/p-header&gt;
+    &lt;ng-template pTemplate="rowgroupheader" let-rowData&gt;&#123;&#123;rowData['brand']&#125;&#125;&lt;/ng-template&gt;
+    &lt;p-column field="color" header="Color" sortable="true"&gt;&lt;/p-column&gt;
+    &lt;p-column field="year" header="Year" sortable="true"&gt;&lt;/p-column&gt;
+    &lt;p-column field="vin" header="Vin" sortable="true"&gt;&lt;/p-column&gt;
+&lt;/p-dataTable&gt;
+
+&lt;p-dataTable [value]="cars3" sortField="brand" rowGroupMode="rowspan" [style]="&#123;'margin-top':'50px'&#125;"&gt;
+    &lt;p-header&gt;RowSpan&lt;/p-header&gt;
+    &lt;p-column field="brand" header="Brand" sortable="true"&gt;&lt;/p-column&gt;
+    &lt;p-column field="color" header="Color" sortable="true"&gt;&lt;/p-column&gt;
+    &lt;p-column field="year" header="Year" sortable="true"&gt;&lt;/p-column&gt;
+    &lt;p-column field="vin" header="Vin" sortable="true"&gt;&lt;/p-column&gt;
+&lt;/p-dataTable&gt;
+</code>
+</pre>
+    </section>
+
+    <section>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-typescript" kyeeCodeHighLight ngNonBindable>
+export class DataTableRowGroupDemo implements OnInit &#123;
+
+    cars1: Car[];
+    
+    cars2: Car[];
+    
+    cars3: Car[];
+    
+    constructor(private carService: CarService) &#123;&#125;
+
+    ngOnInit() &#123;
+        this.carService.getCarsMedium().then(cars => this.cars1 = cars);
+        this.carService.getCarsMedium().then(cars => this.cars2 = cars);
+        this.carService.getCarsMedium().then(cars => this.cars3 = cars);
+    &#125;
+    
+    calculateGroupTotal(brand: string) &#123;
+        let total = 0;
+        
+        if(this.cars1) &#123;
+            for(let car of this.cars1) &#123;
+                if(car.brand === brand) &#123;
+                    total += car.price;
+                &#125;
+            &#125;
+        &#125;
+
+        return total;
+    &#125;
+&#125;
+</code>
+</pre>
+    </section>
+  </p-tabPanel>
+
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+  
+  </p-tabPanel>
+</p-tabView>

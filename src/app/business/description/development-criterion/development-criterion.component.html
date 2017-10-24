@@ -1,0 +1,150 @@
+<div class='developement_criterion'>
+
+  <section>
+    <h2>编码规范</h2>
+    <div>
+      <p>【说明】编码规范较以前没有太大的变动，具体可参考<a href="https://w.kyeegroup.com">京颐集团知识共享平台</a>上的<a href="https://w.kyeegroup.com/#/doc/HTML规范?_k=ypsg0x">HTML规范</a>、<a href="https://w.kyeegroup.com/#/doc/CSS?_k=s0s2kh">CSS规范</a>以及<a href="https://w.kyeegroup.com/#/doc/es?_k=8d68oh">ES编码规范</a>。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>项目结构</h2>
+    <div>项目整体结构</div>
+    <div class="filetree">
+      <div class="file">kyee_nextframework_portalface_quickstart</div>
+      <div class="children">
+        <div class="file">node_modules<span>（<— npm根据 package.json 文件自动安装的依赖包。）</span></div>
+        <div class="file">src<span>（<— 项目代码及配置位于src文件夹中。）</span></div>
+        <div class="children">
+          <div class="file">app<span>（<— 项目代码位于src/app文件夹中。）</span></div>
+          <div class="children">
+            <div class="file">basic<span>（<— 应用的公共组件，如公共头部，侧边栏等。）</span></div>
+            <div class="file">business<span>（<— 项目业务代码。）</span></div>
+            <div class="file">config<span>（<— 项目配置文件。）</span></div>
+            <div class="file">general<span>（<— 框架封装的公共方法，服务等。）</span></div>
+            <div class="file">styles<span>（<— 项目样式文件。）</span></div>
+            <div class="file">widgets<span>（<— 框架封装的UI组件。）</span></div>
+            <div class="file">app-routing.module.ts<span>（<— 应用程序的根路由配置。）</span></div>
+            <div class="file">app.component.html<span>（<— 应用程序的根组件页面。）</span></div>
+            <div class="file">app.component.scss<span>（<— 应用程序的根组件样式。）</span></div>
+            <div class="file">app.component.ts<span>（<— 应用程序的根组件逻辑处理。）</span></div>
+            <div class="file">app.module.ts<span>（<— 应用程序的根模块。）</span></div>
+          </div>
+          <div class="file">assets<span>（<— 这个文件夹下可以放图片等任何东西，在构建应用时，它们全都会拷贝到发布包中。）</span></div>
+          <div class="file">environments<span>（<— 这个文件夹中包括为各个目标环境准备的文件，它们导出了一些应用中要用到的配置变量。）</span></div>
+          <div class="file">favicon.ico<span>（<— 收藏网址到书签栏中显示的图标。）</span></div>
+          <div class="file">index.html<span>（<— 主页面的入口HTML文件，大多数情况下你都不用编辑它。 在构建应用时，CLI会自动把所有js和css文件添加进去。）</span></div>
+          <div class="file">main.ts<span>（<— angular 应用的引导入口，大多数情况下你都不用编辑它。）</span></div>
+          <div class="file">polyfills.ts<span>（<— 浏览器兼容性设置，不同的浏览器对Web标准的支持程度也不同。 填充库（polyfill）能帮我们把这些不同点进行标准化。）</span></div>
+          <div class="file">styles.css<span>（<— 应用的全局样式。在组件中可以使用局部样式，以利于维护。那些会影响整个应用的样式需要集中存放在这里。）</span></div>
+          <div class="file">tsconfig.app.json<span>（<— TypeScript编译器的配置文件。）</span></div>
+          <div class="file">typings.d.ts</div>
+        </div>
+        <div class="file">.angular-cli.json<span>（<— Angular CLI的配置文件。 在这个文件中，我们可以设置一系列默认值，还可以配置项目编译时要包含的那些文件。）</span></div>
+        <div class="file">.editorconfig<span>（<— 编辑器的一个简单配置文件，它用来确保参与项目的每个人都具有基本的编辑器配置。）</span></div>
+        <div class="file">.gitignore<span>（<— Git的配置文件，用来确保某些自动生成的文件不会被提交到源码控制系统中。）</span></div>
+        <div class="file">package.json<span>（<— npm配置文件，其中列出了项目使用到的第三方依赖包。 你还可以在这里添加自己的自定义脚本。）</span></div>
+        <div class="file">README.md</div>
+        <div class="file">tsconfig.json<span>（<— TypeScript编译器的配置，你的IDE会借助它来给你提供更好的帮助。）</span></div>
+        <div class="file">tslint.json<span>（<— 给TSLint和Codelyzer用的配置信息，当运行“ng lint”时会用到。 Lint功能可以帮你保持代码风格的统一。）</span></div>
+      </div>
+    </div>
+
+    <div>模块（module）结构</div>
+    <div class="filetree">
+      <div class="file">XX模块名<span>（<— 模块命名：全部小写，中划线拼接。）</span></div>
+      <div class="children">
+        <div class="file">index.ts<span>（<— 模块的export文件。）</span></div>
+        <div class="file">XX.module.ts<span>（<— 模块的配置文件。）</span></div>
+        <div class="file">XX-routing.module.ts<span>（<— 模块的路由管理文件。）</span></div>
+        <div class="file">XX.component.ts</div>
+        <div class="file">XX.component.html</div>
+        <div class="file">XX.component.scss</div>
+      </div>
+    </div>
+
+    <div>组件（component）结构</div>
+    <div class="filetree">
+        <div class="file">XX组件名<span>（<— 模块命名：全部小写，中划线拼接。）</span></div>
+        <div class="children">
+          <div class="file">XX.component.ts<span>（<— 组件逻辑处理文件。）</span></div>
+          <div class="file">XX.component.html<span>（<— 组件html文件。）</span></div>
+          <div class="file">XX.component.scss<span>（<— 组件样式文件。）</span></div>
+        </div>
+      </div>
+  </section>
+
+  <section>
+    <h2>常用命令</h2>
+    <div>
+      <p>
+        【简介】angular-cli提供了一些便捷的命令，用于一键生成模块、组件、服务、指令等。（强烈推荐用命令行的方式生成模块、组件等，不推荐手动创建文件夹以及文件）
+        <a href="https://github.com/angular/angular-cli">详情参考</a>
+      </p>
+      <p-dataTable [value]="commands">
+          <p-column field="name" header="快捷生成"></p-column>
+          <p-column field="command" header="控制台/终端命令行"></p-column>
+      </p-dataTable>
+      <p>
+        【使用说明】“ng g” 是 “ng generate” 的简写形式，使用两者任意一种即可；命令中的第三个词是需要创建的类型，常见的类型如上表；第四个词是需要创建的命名。
+      </p>
+      <p>
+        【Demo】例如，我需要在 “src/app/business” 文件夹下生成一个名为 “component-a” 的组件。
+      </p>
+      <ul style="margin-left:10px">
+        <li>step1：cd到目标文件夹</li>
+        <li>step2：执行 “ng g component component-a” 命令</li>
+      </ul>
+      <div>
+        <span class="error">【注意】命名方式：小写、单词链接用中划线；禁止手动更改通过上述命令行生成的文件名。</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>项目配置文件（.angular-cli.json）</h2>
+    <div>
+      <p>【简介】Angular-CLI 是 Google Angular 核心团队提供的开发工具，集成了大量的 NodeJS 模块，例如：webpack，karma，asmine，typescript 编译器等。只要一条命令就能帮你自动创建项目的目录结构、自动帮你生成
+        Component 骨架代码并自动添加依赖、自动热加载代码等等。</p>
+    </div>
+<pre>
+<code class="language-json" ngNonBindable kyeeCodeHighLight [innerHtml] = "angularCLI"></code>
+</pre>
+  </section>
+
+  <section>
+    <h2>打包配置文件（package.json）</h2>
+    <div>
+      <p>【简介】npm配置为文件，其中列出了项目中使用到的第三方依赖包，也可以在这个文件中添加自己的自定义脚本。执行“npm serve”命令时，会自动下载该文件中配置的依赖包至 node_modules 文件夹下。</p>
+      <span class="warning">【特别说明】开发者并不需要关心这个文件里面的内容，唯一需要注意的是我们封装了一些 angular-cli 的命令，位于 scripts 对象中。</span>
+      <p>【Demo】以下两者是等价的：</p>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+// angular-cli 指令
+ng g module module-name
+</code>
+</pre>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+// npm 指令
+npm run create module module-name
+</code>
+</pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>学习资料</h2>
+    <div>
+      <ul>
+        <li>1、<a href="https://github.com/angular/angular-cli">Angular-CLI介绍</a></li>
+        <li>2、<a href="https://github.com/lizhonghui/blog/issues/14">半小时了解Angular</a></li>
+        <li>3、<a href="https://angular.cn">Angular中文网</a></li>
+        <li>4、<a href="https://angular.io">Angular英文官网</a></li>
+        <li>5、<a href="https://www.tslang.cn/index.html">TypeScript学习</a></li>
+        <li>6、<a href="http://es6.ruanyifeng.com">ECMAScript6入门</a></li>
+      </ul>
+    </div>
+  </section>
+
+</div>

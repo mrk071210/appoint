@@ -1,0 +1,194 @@
+<h3 class="component-title icon_resource"><span>复选框</span></h3>
+<p class="margin-10">复选框是具有选择并显示对应选中状态图标功能的标准复选框元素的扩展。</p>
+<p-tabView>
+  <p-tabPanel header="效果示例" leftIcon="icon_example">
+    <section>
+      <h2>checkbox列表(默认无选中)</h2>
+      <div class="example">
+        <div class="ui-g" style="width:250px;margin-bottom:10px">
+          <div class="ui-g-12">
+            <p-checkbox name="group1" value="New York" label="New York" [(ngModel)]="selectedCities"></p-checkbox>
+          </div>
+          <div class="ui-g-12">
+            <p-checkbox name="group1" value="San Francisco" label="San Francisco" [(ngModel)]="selectedCities"></p-checkbox>
+          </div>
+          <div class="ui-g-12">
+            <p-checkbox name="group1" value="Los Angeles" label="Los Angeles" [(ngModel)]="selectedCities"></p-checkbox>
+          </div>
+        </div>
+        Selected Cities: <span *ngFor="let city of selectedCities" style="margin-right:10px">{{city}}</span>
+      </div>
+    </section>
+    <section>
+      <h2>【示例2】checkbox列表(默认有选中项)</h2>
+      <div class="example">
+        <div class="ui-g" style="width:250px;margin-bottom:10px">
+          <div class="ui-g-12">
+            <p-checkbox name="group2" value="Technology" label="Technology" [(ngModel)]="selectedCategories"></p-checkbox>
+          </div>
+          <div class="ui-g-12">
+            <p-checkbox name="group2" value="Finance" label="Finance" [(ngModel)]="selectedCategories"></p-checkbox>
+          </div>
+          <div class="ui-g-12">
+            <p-checkbox name="group2" value="Sports" label="Sports" [(ngModel)]="selectedCategories"></p-checkbox>
+          </div>
+          <div class="ui-g-12">
+            <p-checkbox name="group2" value="Entertainment" label="Entertainment" [(ngModel)]="selectedCategories"></p-checkbox>
+          </div>
+        </div>
+        Selected Categories: <span *ngFor="let cat of selectedCategories" style="margin-right:10px">{{cat}} </span>
+      </div>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <h2>checkbox列表(默认无选中项)</h2>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;div class="ui-g" style="width:250px;margin-bottom:10px"&gt;
+  &lt;div class="ui-g-12"&gt;
+    &lt;p-checkbox name="group1" value="New York" label="New York" [(ngModel)]="selectedCities"&gt;&lt;/p-checkbox&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-g-12"&gt;
+    &lt;p-checkbox name="group1" value="San Francisco" label="San Francisco" [(ngModel)]="selectedCities"&gt;&lt;/p-checkbox&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-g-12"&gt;
+    &lt;p-checkbox name="group1" value="Los Angeles" label="Los Angeles" [(ngModel)]="selectedCities"&gt;&lt;/p-checkbox&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+Selected Cities: &lt;span *ngFor="let city of selectedCities" style="margin-right:10px"&gt;&#123;&#123;city&#125;&#125;&lt;/span&gt;
+</code>
+</pre>
+    <h5>TS代码示例</h5>
+    <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
+</pre>
+    </section>
+    <section>
+      <h2>checkbox列表(默认有选中项)</h2>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;div class="ui-g" style="width:250px;margin-bottom:10px"&gt;
+    &lt;div class="ui-g-12"&gt;&lt;p-checkbox name="group2" value="Technology" label="Technology" [(ngModel)]="selectedCategories"&gt;&lt;/p-checkbox&gt;&lt;/div&gt;
+    &lt;div class="ui-g-12"&gt;&lt;p-checkbox name="group2" value="Finance" label="Finance" [(ngModel)]="selectedCategories"&gt;&lt;/p-checkbox&gt;&lt;/div&gt;
+    &lt;div class="ui-g-12"&gt;&lt;p-checkbox name="group2" value="Sports" label="Sports" [(ngModel)]="selectedCategories"&gt;&lt;/p-checkbox&gt;&lt;/div&gt;
+    &lt;div class="ui-g-12"&gt;&lt;p-checkbox name="group2" value="Entertainment" label="Entertainment" [(ngModel)]="selectedCategories"&gt;&lt;/p-checkbox&gt;&lt;/div&gt;
+&lt;/div&gt;
+Selected Categories: &lt;span *ngFor="let cat of selectedCategories" style="margin-right:10px"&gt;&#123;&#123;cat&#125;&#125; &lt;/span&gt;
+</code>
+</pre>
+    <h5>TS代码示例</h5>
+    <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo2"></code>
+</pre>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+    <section>
+      <h2>资源文件引入</h2>
+      <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+import &#123;FormWidgetsModule&#125; from '../../../widgets';
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>使用</h2>
+      <p>复选框可以在其他复选框的多个选择中使用，也可以单个复选框来提供布尔值。</p>
+      <h3>1. 多值</h3>
+      <p>默认情况下启用多模式，ngModel属性指的是一个数组来绑定所选择的值。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-checkbox name="groupname" value="val1" [(ngModel)]="selectedValues"&gt;&lt;/p-checkbox&gt;
+&lt;p-checkbox name="groupname" value="val2" [(ngModel)]="selectedValues"&gt;&lt;/p-checkbox&gt;
+</code>
+</pre>
+        <h5>无默认值TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+export class ModelComponent &#123;
+
+    selectedValues: string[] = [];
+
+&#125;
+</code>
+</pre>
+      <h5>有默认值TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+export class ModelComponent &#123;
+
+    selectedValues: string[] = ['val1','val2'];
+
+&#125;
+</code>
+</pre>
+      <h3 class="margin-t-40">2. Label标签</h3>
+      <p>标签属性为复选框提供标签文本。 此标签也可点击并切换检查状态</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-checkbox name="groupname" value="val1" label="Value 1" [(ngModel)]="selectedValues"&gt;&lt;/p-checkbox&gt;
+&lt;p-checkbox name="groupname" value="val2" label="Value 2" [(ngModel)]="selectedValues"&gt;&lt;/p-checkbox&gt;
+</code>
+</pre>
+      <h3 class="margin-t-40">3. 布尔值</h3>
+      <p>可以使用ngModel属性绑定单个布尔值，方法是启用binary选项。</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-checkbox [(ngModel)]="value" binary="true"&gt;&lt;/p-checkbox&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+export class ModelComponent &#123;
+
+  value: boolean;
+
+&#125;
+  </code>
+</pre>
+      <h3 class="margin-t-40">4. 模型驱动形式</h3>
+      <p>复选框也可以用于模型驱动形式</p>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-checkbox formControlName="agreed"&gt;&lt;/p-checkbox&gt;
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>属性</h2>
+      <p-dataTable [value]="attributes">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="type" header="类型"></p-column>
+        <p-column field="default" header="默认值"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>事件</h2>
+      <p-dataTable [value]="eventsList">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="parameters" header="参数"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>样式</h2>
+      <p-dataTable [value]="styleList">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="element" header="元素"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>依赖</h2>
+      <p>无</p>
+    </section>
+  </p-tabPanel>
+</p-tabView>

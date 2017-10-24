@@ -1,0 +1,114 @@
+
+ <!-- <p-panel header="Title" [toggleable]="true">  -->
+   <!-- <p-spinner formControlName="age"></p-spinner>  -->
+  <!-- </p-panel>   -->
+<p-tabView [controlClose]="true" (onClose)="handleClose($event)">
+  <p-dialog [(visible)]="displayDialog" modal="modal" width="400" [header]="dialogName">
+      <div class="ui-g" *ngIf="car">
+        <div class="ui-g-12">
+            <div class="ui-g-4 right"><label for="vin">Vin</label></div>
+            <div class="ui-g-8"><input pInputText id="vin" [(ngModel)]="car.vin" /></div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4 right"><label for="year">Year</label></div>
+            <div class="ui-g-8"><input pInputText id="year" [(ngModel)]="car.year" /></div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4 right"><label for="brand">Brand</label></div>
+            <div class="ui-g-8"><input pInputText id="brand" [(ngModel)]="car.brand" /></div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4 right"><label for="color">Color</label></div>
+            <div class="ui-g-8"><input pInputText id="color" [(ngModel)]="car.color" /></div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-g">
+          <div class="ui-g-12 right">
+              <button type="button" pButton icon="fa-close" class="ui-button-secondary" (click)="car = {};displayDialog = false;" label="取消"></button>
+              <button type="button" pButton icon="fa-check" (click)="save()" label="确定"></button>
+          </div>
+        </div>
+    </p-footer>
+  </p-dialog>
+  <p-tabPanel header="表格结构" [closable]="true">
+  <!-- <div class="ui-g ui-g-nopad"> -->
+      <!-- <div class="ui-g-8 ui-g-nopad"> -->
+          <div class="ui-g">
+                <div class="ui-g-12">
+                  <!-- <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none; width: 900px">
+                      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                      <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+                  </div> -->
+                  <p-dataTable [value]="cars"
+                    [paginator]="true"
+                    [rows]="10" 
+                    [pageLinks]="3"
+                    [rowsPerPageOptions]="[5,10,20]"
+                    
+                    [scrollable]="true"
+                    scrollHeight="350px"
+                    frozenWidth="200px"
+                    unfrozenWidth="933px"
+
+                    [(selection)]="selectedCars3"
+                    dataKey="vin"
+                    [headerCheckboxToggleAllPages]="true"
+                    
+                    [globalFilter]="gb" #dt>
+                    <p-header>
+                      <div style="text-align:left; width: 100%">
+                        <button type="button" pButton icon="fa-plus"
+                          (click)="showDialogToAdd()" class="ui-button-success"
+                          label="增加"></button>
+                        <button type="button" pButton icon="fa-trash"
+                          (click)="showDialogToDelete()" class="ui-button-danger"
+                          label="删除"></button>
+                        <button type="button" pButton icon="fa-edit"
+                          (click)="onRowSelect()" 
+                          [disabled]="!selectedCars3 || selectedCars3.length != 1"  label="编辑"></button>
+
+                        <div style="float: right">
+                          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                          <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+                        </div>
+                      </div>
+                    </p-header>
+                    <p-column [style]="{'width':'38px'}" selectionMode="multiple"  [frozen]="true"></p-column>
+                    <p-column field="vin" header="Vin" [style]="{'width':'80px'}" [sortable]="true"  [frozen]="true"></p-column>
+                    <p-column field="year" header="Year"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="brand" header="Brand"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="color" header="Color"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="color" header="Color"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="color" header="Color"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="color" header="Color"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="color" header="Color"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="color" header="Color"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                    <p-column field="color" header="Color"[style]="{'width':'120px'}" [sortable]="true"></p-column>
+                  </p-dataTable>
+                </div>
+          </div>
+
+
+  </p-tabPanel>
+  <p-tabPanel header="树状结构" [closable]="true">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <button pButton type="button" icon="fa-plus" (click)="expandAll()"></button>
+        <button pButton type="button" icon="fa-minus" (click)="collapseAll()"></button>
+      </div>
+      <div class="ui-g-6">
+        <p-tree [value]="filesTree1"></p-tree>
+      </div>
+      <div class="ui-g-6">
+        <p-tree [value]="filesTree2" selectionMode="checkbox" [(selection)]="selectedFiles1"></p-tree>
+        <div>Selected Nodes: 
+          <span *ngFor="let file of selectedFiles1">{{file.label}} </span>
+        </div> 
+      </div>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel header="菜单结构" [closable]="true">
+    <p-panelMenu [model]="items"></p-panelMenu>
+  </p-tabPanel>
+</p-tabView>

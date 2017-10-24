@@ -1,0 +1,1 @@
+export { DatascrollerWidgetModule } from './datascroller-widget.module';

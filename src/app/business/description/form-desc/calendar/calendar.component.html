@@ -1,0 +1,227 @@
+<h3 class="component-title icon_resource"><span>日历</span></h3>
+<p class="margin-10">日历是选择日期的输入组件。</p>
+<p-tabView>
+    <p-tabPanel header="效果示例" leftIcon="icon_example">
+        <section>
+            <h2>日期（无具体时间、无时间图标）</h2>
+            <div class="example">
+                <p-calendar [(ngModel)]="date1" [showTime]="true"></p-calendar> <span style="margin-left:35px">{{date1|date}}</span>
+            </div>
+        </section>
+        <section>
+            <h2>日期（无具体时间、有时间图标）</h2>
+            <div class="example">               
+                <p-calendar [(ngModel)]="date2"  [showIcon]="true"></p-calendar> {{date2}}
+            </div>
+        </section>
+        <section>
+            <h2>日期（支持下拉选择年月）</h2>
+            <div class="example"> 
+                <p-calendar [(ngModel)]="date3" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"></p-calendar> {{date3|date}}
+            </div>
+        </section>
+        <section>
+            <h2>设置可选的最小和最大日期</h2>
+            <div class="example">
+                <p-calendar [(ngModel)]="date4" [minDate]="minDate" [maxDate]="maxDate" [readonlyInput]="true"></p-calendar> {{date4|date}}
+            </div>
+        </section>
+        <section>
+            <h2>设置禁用日期</h2>
+            <div class="example">
+                <p-calendar [(ngModel)]="date5" tabindex="0" [disabledDates]="invalidDates" [disabledDays]="[0,6]" readonlyInput="readonlyInput"></p-calendar> {{date5|date}}
+            </div>
+        </section>
+    </p-tabPanel>
+    <p-tabPanel header="组件源码" leftIcon="icon_code">
+        <section>
+            <h2>日期（有具体时间、无时间图标）</h2>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="date1" [showTime]="true"&gt;&lt;/p-calendar&gt; &lt;span style="margin-left:35px"&gt;&#123;&#123;date1|date&#125;&#125;&lt;/span&gt;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
+</pre>
+        </section>
+        <section>
+            <h2>日期（无具体时间、有时间图标）</h2>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="date2"  [showIcon]="true"&gt;&lt;/p-calendar&gt; &#123;&#123;date2&#125;&#125;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo2"></code>
+</pre>
+        </section>
+        <section>
+            <h2>日期（支持下拉选择年月）</h2>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="date3" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"&gt;&lt;/p-calendar&gt; &#123;&#123;date3|date&#125;&#125;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo3"></code>
+</pre>
+        </section>
+        <section>
+            <h2>设置可选的最小和最大日期</h2>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="date4" [minDate]="minDate" [maxDate]="maxDate" [readonlyInput]="true"&gt;&lt;/p-calendar&gt; &#123;&#123;date4|date&#125;&#125;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo4"></code>
+</pre>
+        </section>
+        <section>
+            <h2>设置禁用日期</h2>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="date5" tabindex="0" [disabledDates]="invalidDates" [disabledDays]="[0,6]" readonlyInput="readonlyInput"&gt;&lt;/p-calendar&gt; &#123;&#123;date5|date&#125;&#125;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo5"></code>
+</pre>
+        </section>
+    </p-tabPanel>
+    <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+        <section>
+            <h2>资源文件引入</h2>
+      <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+import &#123;FormWidgetsModule&#125; from '../../../widgets';
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>使用</h2>
+            <h3>1. 双向绑定</h3>
+            <p>双向值绑定使用标准ngModel指令引用的日期属性定义</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="value"&gt;&lt;/p-calendar&gt;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+export class MyModel &#123;
+    value: Date;  
+&#125;
+</code>
+</pre>
+            <h3 class="margin-t-40">2. 模型驱动形式</h3>
+            <p>日历也可以在模型驱动的形式中使用</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar formControlName="date"&gt;&lt;/p-calendar&gt;
+</code>
+</pre>
+            <h3 class="margin-t-40">3. inline属性</h3>
+            <p>默认情况下，日历显示在弹出窗口中，需要为内联模式时，启用内联属性inline</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="value" [inline]="true"&gt;&lt;/p-calendar&gt;
+</code>
+</pre>
+            <h3 class="margin-t-40">4. dateFormat属性</h3>
+            <p>默认日期格式为mm / dd / yy，可以使用dateFormat属性设置日期自定义格式</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="dateValue" dateFormat="dd.mm.yy"&gt;&lt;/p-calendar&gt;
+</code>
+</pre>
+            <p>自定义格式说明：</p>
+            <p-dataTable [value]="formatList">
+                <p-column field="type" header="格式"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+            <h3 class="margin-t-40">5. time属性</h3>
+            <p>TimePicker启用了showTime属性，24（默认）或12小时模式是使用hourFormat选项配置</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="value" showTime="showTime" hourFormat="12"&gt;&lt;/p-calendar&gt;
+&lt;p-calendar [(ngModel)]="value" showTime="showTime" hourFormat="24"&gt;&lt;/p-calendar&gt;
+</code>
+</pre>
+            <h3 class="margin-t-40">6. 日期限制</h3>
+            <p>通过设置readonlyInput属性为true禁用手动输入日期，限制可选日期使用minDate和maxDate选项</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="dateValue" [minDate]="minDateValue" [maxDate]="maxDateValue" readonlyInput="readonlyInput"&gt;&gt;&lt;/p-calendar&gt;
+</code>
+</pre>
+            <h3 class="margin-t-40">7. 禁用特定日期</h3>
+            <p>要禁用特定日期或日期，请将readonlyInput设置为true并使用disabledDates和/或disabledDays选项限制可选日期</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="dateValue" [disabledDates]="invalidDates" [disabledDays]="[0,6}" readonlyInput="readonlyInput"&gt;&gt;&lt;/p-calendar&gt;
+</code>
+</pre>
+            <h3 class="margin-t-40">8. 日期本地化</h3>
+            <p>通过将区域设置对象绑定到区域设置属性来定义不同语言和格式的本地化。</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-calendar [(ngModel)]="dateValue" [locale]="en"&gt;&lt;/p-calendar&gt;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="localizationTsDemo"></code>
+</pre>
+        </section>
+        <section>
+            <h2>属性</h2>
+            <p-dataTable [value]="attributes">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="type" header="类型"></p-column>
+                <p-column field="default" header="默认值"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>事件</h2>
+            <p-dataTable [value]="eventsList">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="parameters" header="参数"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>样式</h2>
+            <p>以下是结构样式类的列表，是针对主题类访问它们页面的样式</p>
+            <p-dataTable [value]="styleList">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="element" header="元素"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>依赖</h2>
+            <p>无</p>
+        </section>
+    </p-tabPanel>
+</p-tabView>

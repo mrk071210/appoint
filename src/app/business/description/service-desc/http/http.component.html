@@ -1,0 +1,62 @@
+<h3 class="component-title icon_resource"><span>HttpService</span></h3>
+<p>【说明】HttpService用于处理http请求。</p>
+<section>
+  <div>HttpService提供接口方法包括：get()、post()、postFormData()</div>
+  <div>详情如下：</div>
+  <h2>get()</h2>
+  <p>用于提交get请求。方法入参如下：</p>
+<pre>
+<code class="language-typescript" ngNonBindable kyeeCodeHighLight>
+get(
+    url: string,
+    paramMap: any = null,
+    success: Function = (data) => &#123; &#125;,
+    error: Function = (msg) => &#123; &#125;
+): Subscription
+</code>
+</pre>
+  <p-dataTable [value]="getParams">
+    <p-column field="name" header="参数" [style]="{'width': '20%'}"></p-column>
+    <p-column field="type" header="类型" [style]="{'width': '20%'}"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+  <div>返回值为请求的Subscription对象，可通过unsubscribe()方法取消订阅，终止请求回调函数。</div>
+
+  <h2>post()</h2>
+  <p>用于提交post请求。方法入参如下：</p>
+<pre>
+<code class="language-typescript" ngNonBindable kyeeCodeHighLight>
+post(
+    url: string,
+    paramMap: any = null,
+    success: Function = (data) => &#123; &#125;,
+    error: Function = (msg) => &#123; &#125;
+): Subscription
+</code>
+</pre>
+  <p-dataTable [value]="postParams">
+    <p-column field="name" header="参数" [style]="{'width': '20%'}"></p-column>
+    <p-column field="type" header="类型" [style]="{'width': '20%'}"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+  <div>返回值为请求的Subscription对象，可通过unsubscribe()方法取消订阅，终止请求回调函数。</div>
+
+  <h2>postFormData()</h2>
+  <p>用于表单验证请求提交。方法入参如下：</p>
+<pre>
+<code class="language-typescript" ngNonBindable kyeeCodeHighLight>
+postFormData(
+    url: string,
+    paramMap: any = null,
+    success: Function = (data) => &#123; &#125;,
+    error: Function = (msg) => &#123; &#125;
+): Subscription
+</code>
+</pre>
+  <p-dataTable [value]="postFormParams">
+    <p-column field="name" header="参数" [style]="{'width': '20%'}"></p-column>
+    <p-column field="type" header="类型" [style]="{'width': '20%'}"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+  <div>返回值为请求的Subscription对象，可通过unsubscribe()方法取消订阅，终止请求回调函数。</div>
+</section>

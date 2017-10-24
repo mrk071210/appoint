@@ -1,0 +1,145 @@
+<section>
+  <h2>树</h2>
+  <div>该组件用于显示分层数据。</div>
+  <pre>
+<code class="language-typescript" ngNonBindable kyeeCodeHighLight>
+import &#123; TreeModule,TreeNode &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+</code>
+</pre>
+</section>
+<section>
+  <h2>使用</h2>
+  <p>树组件需要一个TreeNode对象数组作为节点内容。我们从TreeNode API开始了解树组件的使用详情。请注意，下面表格的所有属性都是可选的。</p>
+  <p-dataTable [value]="treeOptionS">
+    <p-column field="name" header="名称"></p-column>
+    <p-column field="type" header="类型"></p-column>
+    <p-column field="default" header="默认值"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+</section>
+<section>
+  <h2>通过服务从json文件获取节点数据</h2>
+  <div>大多数情况下，节点将从远程数据源加载，这里是一个从json文件中获取数据的NodeService示例。</div>
+  <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="html1"></code>
+</pre>
+  <div>这个.json文件由示例数据组成，在实际的应用程序中，应该是来自远程动态响应的。</div>
+  <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="html2"></code>
+</pre>
+  <div>使用该服务调用getfile()函数，并将内容分配给绑定到树的文件。</div>
+  <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="html3"></code>
+</pre>
+  <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-tree [value]="files"&gt;&lt;/p-tree&gt;
+</code>
+</pre>
+</section>
+<section>
+  <h2>选择</h2>
+  <div>树组件支持3种选择方法：单选、多选和复选框。选择类型是通过设置selectionMode属性设置，并提供单个TreeNode或TreeNode数组来绑定已选中的节点。</div>
+  <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="html4"></code>
+</pre>
+  <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-tree [value]="files" selectionMode="single" [(selection)]="selectedFile"&gt;&lt;/p-tree&gt;
+</code>
+</pre>
+  <div>在多选模式或复选框模式下，selection属性值应该是一个数组。</div>
+  <div>在多选模式下，可以使用metaKey或者根据默认情况下值为true的metaKeySelection属性单独切换项目。启用触摸功能的设备将会自动关闭metaKeySelection。</div>  
+  <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="html5"></code>
+</pre>
+  <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-tree [value]="files" selectionMode="multiple" [(selection)]="selectedFiles"&gt;&lt;/p-tree&gt;
+</code>
+</pre>
+  <div>在复选框模式下，可以通过propapageSelectionDown和propagateSelectionUp属性设置是否需要上下传播选择状态。</div>
+  <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-tree [value]="files" selectionMode="checkbox" [(selection)]="selectedFiles" [propagateSelectionUp]="false" [propagateSelectionDown]="false"&gt;&lt;/p-tree&gt;
+</code>
+</pre>
+  <div>树组件提供onNodeSelect和onNodeUnselect两个方法作为选择状态的回调。</div>
+  <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-tree [value]="files" selectionMode="single" [(selection)]="selectedFiles" (onNodeSelect)="nodeSelect($event)"&gt;&lt;/p-tree&gt;
+</code>
+</pre>
+  <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="html6"></code>
+</pre>
+  <div>通过将节点的selectable属性设置为false，可以禁用特定节点的选择。</div>
+</section>
+<section>
+  <h2>图标</h2>
+  <div>树节点的图标是使用图标属性定义的，如果您需要一个扩展或折叠状态的图标，则使用扩展图标名和折叠图标名。</div>
+</section>
+<!--<section>
+  <h2>模板</h2>
+  <div>默认情况下，treenode的标签显示在树节点中。如果需要将定制的内容定义为一个pTemplate，它将treenode作为一个隐式变量。下面的示例放置一个输入框来创建可编辑的treenode。</div>
+  <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;h3&gt;ng-template&lt;/h3&gt;
+&lt;p-tree [value]="files"&gt;
+    &lt;ng-template let-node  pTemplate="default"&gt;
+        &lt;input [(ngModel)]="node.label" type="text" style="width:100%"&gt;
+    &lt;/ng-template&gt;
+&lt;/p-tree&gt;
+</code>
+</pre>
+  <div>通过将TreeNode的type属性与pTemplate的类型进行匹配来支持多个模板。 如果节点为无类型，则使用默认的ng-template。</div>
+  <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;h3&gt;ng-template&lt;/h3&gt;
+&lt;p-tree [value]="files"&gt;
+    &lt;ng-template let-node  pTemplate="picture"&gt;
+        &lt;img [attrs.src]="picture.path"&gt;
+    &lt;/ng-template&gt;
+    &lt;ng-template let-node  pTemplate="default"&gt;
+        &lt;input [(ngModel)]="node.label" type="text" style="width:100%"&gt;
+    &lt;/ng-template&gt;
+&lt;/p-tree&gt;
+</code>
+</pre>
+</section>-->
+<section>
+  <h2>ContextMenu</h2>
+  <div>通过将菜单实例绑定到树，树具有与ContextMenu的唯一集成。</div>
+  <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-tree [value]="files" selectionMode="single" [(selection)]="selectedFile" [contextMenu]="cm"&gt;&lt;/p-tree&gt;
+
+&lt;p-contextMenu #cm [model]="items"&gt;&lt;/p-contextMenu&gt;
+</code>
+</pre>
+</section>
+<section>
+  <h2>属性</h2>
+  <p-dataTable [value]="treeProperties">
+    <p-column field="name" header="名称"></p-column>
+    <p-column field="type" header="类型"></p-column>
+    <p-column field="default" header="默认值"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+</section>
+<section>
+  <h2>事件</h2>
+  <p-dataTable [value]="treeEvents">
+    <p-column field="name" header="名称"></p-column>
+    <p-column field="parameters" header="参数"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+</section>
+<section>
+  <h2>样式</h2>
+  <p>以下是结构样式类的列表，对于主题类访问它们的页面。</p>
+  <p-dataTable [value]="treeStyles">
+    <p-column field="name" header="名称"></p-column>
+    <p-column field="element" header="元素"></p-column>
+  </p-dataTable>
+</section>

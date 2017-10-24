@@ -1,0 +1,64 @@
+<h3 class="component-title icon_resource"><span>雷达图</span></h3>
+<p class="margin-10">
+    雷达图是显示多个数据点及其变化的方式,它们通常用于比较两个或多个不同数据集的点。
+</p>
+<p-tabView>
+    <p-tabPanel header="效果示例" leftIcon="icon_example">
+         <div class="chart-demo-pie margin-t-40">
+            <p-chart type="radar" [data]="radarData" ></p-chart>
+         </div>
+    </p-tabPanel>
+    <p-tabPanel header="组件源码" leftIcon="icon_code">
+        <section>
+          <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="radar" [data]="radarData" &gt; &lt;/p-chart&gt;
+</code>
+</pre>
+          <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="radarDemoCode" ></code>
+</pre>
+        </section>
+    </p-tabPanel>
+    <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+        <section>        
+            <h4>Step 1  TS文件中引入组件所需资源，如下: </h4>    
+<pre>
+<code class="language-javascript" kyeeCodeHighLight>
+import &#123; ChartsWidgetsModule &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+</code>
+</pre>
+            <h4>Step 2  HTML文件中使用图表指令<span class="padding-lr-10 high-light">p-chart</span>，
+                设置类型 type 为<span class="padding-lr-10 high-light">radar</span>如下: 
+            </h4>    
+<pre>
+<code class="language-javascript" kyeeCodeHighLight>
+&lt;p-chart type="radar" [data]="radarData" &gt;&lt;/p-chart&gt;
+</code>
+</pre>
+            <table class="tableStyle" border="1">
+                <thead>
+                    <tr><th width="25%">属性</th><th width="25%">值</th><th>说明</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>data</td><td>radarData</td><td>图表数据</td>
+                    </tr>                   
+                </tbody>
+            </table>
+             <h4>Step 3  <span class="padding-lr-10 high-light">TS</span>文件中设置图表展示数据。</h4>       
+        </section>
+        
+        <section class="border-t margin-t-40">
+            <p class="padding-t-40">配置<span class="padding-lr-10 high-light">options</span>列表</p>
+            <p>雷达图表允许为每个数据集指定多个属性,所有点*属性都可以指定为数组。如果这些值设置为数组值，则第一个值适用于第一个点，第二个值应用于第二个点，依此类推。</p>
+            <p-dataTable [value]="radarChartOptions">
+                <p-column field="name" header="名称" [style]="{'width': '25%'}"></p-column>
+                <p-column field="type" header="类型" [style]="{'width': '25%'}"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+    </p-tabPanel>
+</p-tabView>

@@ -1,0 +1,19 @@
+<section>
+  <h2>公共服务介绍</h2>
+  <div>【说明】 公共服务包括框架基础的底层服务。</div>
+  <div class="margin-b-15">【用法】 底层服务在app.module.ts中进行依赖注入，使用时如下使用： </div>
+<pre>
+<code class="language-javascript" kyeeCodeHighLight>
+import &#123; HttpService, ... &#125; from 'general'; // general 为根目录general文件夹
+</code>
+</pre>
+
+<div>【特别说明】 Service服务需要在constructor中引用，Util公共方法则可直接通过类名进行方法调用。 </div>
+</section>
+<section>
+  <h2>服务种类</h2>
+  <p-dataTable [value]="properties">
+    <p-column field="name" header="名称" [style]="{'width': '30%'}"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+</section>

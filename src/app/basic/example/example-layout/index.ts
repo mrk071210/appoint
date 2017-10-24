@@ -1,0 +1,1 @@
+export { ExampleLayoutComponent } from './example-layout.component';

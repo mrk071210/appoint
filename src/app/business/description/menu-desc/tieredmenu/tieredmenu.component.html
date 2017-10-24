@@ -1,0 +1,69 @@
+<h3 class="component-title icon_resource"><span>分层菜单</span></h3>
+<p class="margin-10">分层菜单在菜单中嵌套子菜单，在默认情况下是内联的，弹出模式也支持弹出属性和调用切换方法，通过将事件从锚元素中传递。</p>
+<p-tabView>
+  <p-tabPanel header="效果示例" leftIcon="icon_example">
+    <!--默认模式-->
+    <section>
+      <h2>默认模式</h2>
+      <div class="menu-demo">
+        <p-tieredMenu [model]="tieredmenuData"></p-tieredMenu>
+      </div>
+    </section>
+    <!--弹出模式-->
+    <section>
+      <h2>弹出模式</h2>
+      <div class="menu-demo">
+        <p-tieredMenu #menu [model]="tieredmenuData" [popup]="true"></p-tieredMenu>
+        <button #btn type="button" pButton icon="fa fa-list" label="Show" (click)="menu.toggle($event)"></button>
+      </div>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <h5>默认模式HTML代码示例</h5>
+      <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-tieredMenu&nbsp;[model]="tieredmenuData"&gt;&lt;/p-tieredMenu&gt;
+</code>
+</pre>
+      <h5>弹出模式HTML代码示例</h5>
+      <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-tieredMenu #menu [model]="tieredmenuData" [popup]="true"&gt;&lt;/p-tieredMenu&gt;
+&lt;button #btn type="button" pButton icon="fa fa-list" label="Show" (click)="menu.toggle($event)"&gt;&lt;/button&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+      <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tieredmenuDemoCode"></code>
+</pre>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+    <section>
+      <h2>属性</h2>
+      <p-dataTable [value]="tieredmenuProperties">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="type" header="类型"></p-column>
+        <p-column field="default" header="默认值"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>方法</h2>
+      <p-dataTable [value]="tieredmenuMethods">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="parameters" header="参数"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>样式</h2>
+      <p>以下是结构样式类的列表，对于主题类访问它们的页面。</p>
+      <p-dataTable [value]="tieredmenuStyles">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="element" header="元素"></p-column>
+      </p-dataTable>
+    </section>
+  </p-tabPanel>
+</p-tabView>

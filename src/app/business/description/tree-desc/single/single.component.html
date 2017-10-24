@@ -1,0 +1,46 @@
+<h3 class="component-title icon_resource"><span>单选节点</span></h3>
+<p class="margin-10">该组件的树节点可以被单个选中。</p>
+<p-tabView>
+  <p-tabPanel header="效果示例" leftIcon="icon_example">
+    <div class="tree-demo margin-t-40">
+      <p-tree [value]="singleTree" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"></p-tree>
+      <div class="margin-t-15">Selected Node: {{selectedFile ? selectedFile.label : 'none'}}</div>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <h5>HTML代码示例</h5>
+      <pre>
+<code class="language-markup" ngNonBindable kyeeCodeHighLight>
+&lt;p-tree [value]="singleTree" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="nodeSelect($event)"
+(onNodeUnselect)="nodeUnselect($event)"&gt;&lt;/p-tree&gt;
+&lt;div&gt;Selected Node: &#123;&#123;selectedFile ? selectedFile.label : 'none'&#125;&#125;&lt;/div&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+      <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="singleDemoCode" ></code>
+</pre>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+    <section>
+      <h4>Step 1 TS文件中引入组件所需资源，如下: </h4>
+      <pre>
+<code class="language-javascript" kyeeCodeHighLight>
+import &#123; TreeWidgetModule, TreeNode &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+</code>
+</pre>
+      <h4>Step 2 HTML文件中使用基础树指令<span class="padding-lr-10 high-light">p-tree</span>，属性<span class="padding-lr-10 high-light">value</span>的值<span class="padding-lr-10 high-light">singleTree</span>作为本示例的树节点，如下:
+      </h4>
+      <pre>
+<code class="language-markup" ngNonBindable kyeeCodeHighLight>
+&lt;p-tree [value]="singleTree" selectionMode="single" [(selection)]="selectedFile" (onNodeSelect)="nodeSelect($event)"
+(onNodeUnselect)="nodeUnselect($event)"&gt;&lt;/p-tree&gt;
+&lt;div style="margin-top:8px"&gt;Selected Node:&#123;&#123;selectedFile ? selectedFile.label : 'none'&#125;&#125;&lt;/div&gt;
+</code>
+</pre>
+      <h4>Step 3 具体数据见<span class="padding-lr-10 high-light">TS</span>示例文件。其中具体属性以及方法说明见简介部分。</h4>
+    </section>
+  </p-tabPanel>
+</p-tabView>

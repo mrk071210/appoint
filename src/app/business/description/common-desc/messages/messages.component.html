@@ -1,0 +1,118 @@
+<h3 class="component-title icon_resource"><span>内联消息</span></h3>
+<p class="margin-10">内联消息用于内联显示消息。</p>
+
+<p-tabView>
+    <p-tabPanel header="效果示例" leftIcon="icon_example">
+        <p-messages [(value)]="msgs"></p-messages>
+        <div class="common-demo margin-t-40">
+            <div>
+                <button type="button" pButton (click)="showSuccess()" label="Success" class="ui-button-success"></button>
+                <button type="button" pButton (click)="showInfo()" label="Info" class="ui-button-info"></button>
+                <button type="button" pButton (click)="showWarn()" label="Warn" class="ui-button-warning"></button>
+                <button type="button" pButton (click)="showError()" label="Error" class="ui-button-danger"></button>
+                <button type="button" pButton (click)="showMultiple()" label="多条"></button>
+                <button type="button" pButton (click)="clear()" icon="fa-close" style="float:right" label="清空"></button>
+            </div>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="组件源码" leftIcon="icon_code">
+        <section>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-messages [(value)]="msgs"&gt;&lt;/p-messages&gt;
+
+&lt;div&gt;
+    &lt;button type="button" pButton (click)="showSuccess()" label="Success" class="ui-button-success"&gt;&lt;/button&gt;
+    &lt;button type="button" pButton (click)="showInfo()" label="Info" class="ui-button-info"&gt;&lt;/button&gt;
+    &lt;button type="button" pButton (click)="showWarn()" label="Warn" class="ui-button-warning"&gt;&lt;/button&gt;
+    &lt;button type="button" pButton (click)="showError()" label="Error" class="ui-button-danger"&gt;&lt;/button&gt;
+    &lt;button type="button" pButton (click)="showMultiple()" label="多条"&gt;&lt;/button&gt;
+    &lt;button type="button" pButton (click)="clear()" icon="fa-close" style="float:right" label="清空"&gt;&lt;/button&gt;
+&lt;/div&gt;
+</code>
+</pre>
+        </section>
+    </p-tabPanel>
+    <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+        <section>
+            <h2>使用</h2>
+            <p>
+                Message接口指定单条消息，将id，severity，summary和detail作为属性定义。 在内联消息上显示的消息是使用应该是一个Message实例数组的value属性定义的。
+            </p>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-messages [(value)]="msgs"&gt;&lt;/p-messages&gt;
+</code>
+</pre>
+
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-typescript" kyeeCodeHighLight ngNonBindable>
+import &#123;Message&#125; from 'widgets'; // widgets 指定根目录widgets文件夹
+
+export class MyModel &#123;
+
+    msgs: Message[] = [];
+
+&#125;
+</code>
+</pre>
+
+            <h2>程度级别</h2>
+            <p>以下是消息级别的可选值。</p>
+            <ul>
+                <li>success</li>
+                <li>info</li>
+                <li>warn</li>
+                <li>error</li>
+            </ul>
+
+            <h2>显示消息</h2>
+            <p>将消息添加到数组足以通过内联消息显示它们。 通过内联消息也可以通过从数组中删除消息的方法删除消息。</p>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-messages [(value)]="msgs"&gt;&lt;/p-messages&gt;
+
+&lt;button type="button" (click)="show()"&gt;Show&lt;/button&gt;
+&lt;button type="button" (click)="clear()"&gt;Hide&lt;/button&gt;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-typescript" kyeeCodeHighLight ngNonBindable>
+show() &#123;
+    this.msgs.push(&#123;severity:'info', summary:'Info Message', detail:'PrimeNG rocks'&#125;);
+&#125;
+
+clear() &#123;
+    this.msgs = [];
+&#125;
+</code>
+</pre>
+            <h2>可关闭性</h2>
+            <p>内联消息默认可关闭，右上角显示一个关闭图标。</p>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-messages [(value)]="msgs"&gt;&lt;/p-messages&gt;
+</code>
+</pre>
+            <p>为了禁用可关闭的消息，将closable设置为false。 在这种情况下，双向绑定不是必需的，因为组件不需要更新其值。
+            </p>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-messages [value]="msgs" [closable]="false"&gt;&lt;/p-messages&gt;
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>属性</h2>
+            <p-dataTable [value]="properties">
+                <p-column field="name" header="名称" [style]="{'width': '20%'}"></p-column>
+                <p-column field="type" header="类型" [style]="{'width': '20%'}"></p-column>
+                <p-column field="default" header="默认值" [style]="{'width': '20%'}"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+    </p-tabPanel>

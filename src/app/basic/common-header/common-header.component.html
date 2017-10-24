@@ -1,0 +1,26 @@
+<div id="layout-topbar">
+    <a href="#" class="menu-button" (click)="onMenuButtonClick($event)">
+      <i class="fa fa-bars"></i>
+    </a>
+
+    <a href="#" class="logo" [routerLink]="['/']">
+      <img alt="logo" src="assets/frame/images/logo.png" />
+    </a>
+    
+    <ul class="topbar-menu">
+        <li>
+            <a href="javascript:;" routerLinkActive="active" [routerLink]="['/home']">首页</a>
+        </li>
+        <li>
+            <a href="javascript:;" routerLinkActive="active" [routerLink]="['/business/description']">API</a>
+        </li>
+        <li class="topbar-menu-themes">
+            <a href="javascript:;" routerLinkActive="active" [routerLink]="['/example']">DEMO</a>
+            <!--<ul style="display:none">
+                <li class="topbar-submenu-header">THEMING</li>
+                <li><a [routerLink]="['./theming']">Guide</a></li>
+                <li class="topbar-submenu-header" style="margin-top:16px">FREE</li>
+            </ul>-->
+        </li>        
+    </ul>
+</div>

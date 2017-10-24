@@ -1,0 +1,159 @@
+<h3 class="component-title icon_resource"><span>输入自动补全</span></h3>
+<p class="margin-10">AutoComplete是一个输入组件，可在输入时提供实时建议。</p>
+<p-tabView>
+  <p-tabPanel header="效果示例" leftIcon="icon_example">
+    <section>
+      <h2>基础输入检索</h2>
+      <div class="example">
+        <p-autoComplete [(ngModel)]="country" [suggestions]="filteredCountriesSingle" (completeMethod)="filterCountrySingle($event)"
+          field="name" [size]="30" placeholder="Countries" [minLength]="1"></p-autoComplete>
+        <span style="margin-left:10px">Country: {{country ? country.name||country : 'none'}}</span>
+      </div>
+    </section>
+    <section>
+      <h2>输入（下拉选择）检索</h2>
+      <div class="example">  
+        <p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="30" [minLength]="1"
+          placeholder="Hint: type 'v' or 'f'" [dropdown]="true" (onDropdownClick)="handleDropdownClick()">
+          <ng-template let-brand pTemplate="item">
+            <div class="ui-helper-clearfix">
+              <img class="ui-img" src="assets/dummy-data/car/{{brand}}.png" />
+              <div class="ui-label">{{brand}}</div>
+            </div>
+          </ng-template>
+        </p-autoComplete>
+        <span class="margin-l-50">Brand: {{brand||'none'}}</span>
+      </div>
+    </section>
+    <section>
+      <h2>多选输入检索</h2>
+      <div class="example">
+        <p-autoComplete [(ngModel)]="countries" [suggestions]="filteredCountriesMultiple" (completeMethod)="filterCountryMultiple($event)"
+          styleClass="wid100" [minLength]="1" placeholder="Countries" field="name" [multiple]="true">
+        </p-autoComplete>
+        <ul>
+          <li *ngFor="let c of countries">{{c.name}}</li>
+        </ul>
+      </div>  
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <h2>基础输入检索</h2>
+      <h5>HTML代码示例</h5>
+    <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="country" [suggestions]="filteredCountriesSingle" (completeMethod)="filterCountrySingle($event)" field="name" [size]="30"
+placeholder="Countries" [minLength]="1"&gt;&lt;/p-autoComplete&gt;
+&lt;span style="margin-left:10px"&gt;Country: &#123;&#123;country ? country.name||country : 'none'&#125;&#125;&lt;/span&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo1"></code>
+</pre>
+    </section>
+    <section>
+      <h2>输入（下拉选择）检索</h2>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="30" [minLength]="1"
+  placeholder="Hint: type 'v' or 'f'" [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)"&gt;
+  &lt;ng-template let-brand pTemplate="item"&gt;
+	&lt;div class="ui-helper-clearfix"&gt;
+	  &lt;img class="ui-img" src="assets/dummy-data/car/&#123;&#123;brand&#125;&#125;.png" /&gt;
+	  &lt;div class="ui-label"&gt;&#123;&#123;brand&#125;&#125;&lt;/div&gt;
+	&lt;/div&gt;
+  &lt;/ng-template&gt;
+&lt;/p-autoComplete&gt;
+&lt;span class="margin-l-50"&gt;Brand: &#123;&#123;brand||'none'&#125;&#125;&lt;/span&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo2"></code>
+</pre>
+    </section>
+    <section>
+      <h2>多选输入检索</h2>
+      <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="countries" [suggestions]="filteredCountriesMultiple" (completeMethod)="filterCountryMultiple($event)" styleClass="wid100"
+    [minLength]="1" placeholder="Countries" field="name" [multiple]="true"&gt;
+&lt;/p-autoComplete&gt;
+&lt;ul&gt;
+    &lt;li *ngFor="let c of countries"&gt;&#123;&#123;c.name&#125;&#125;&lt;/li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo3"></code>
+</pre>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+    <section>
+      <h2>资源文件引入</h2>
+      <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+import &#123;FormWidgetsModule&#125; from '../../../widgets';
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>使用</h2>
+      <h3>1. 双向绑定</h3>
+      <p>AutoComplete使用ngModel进行双向绑定，由一个数据列表和一个自动检索方法来查询结果。 completeMethod获取查询文本作为event.query属性，并使用搜索结果更新到对应变量值</p>
+      <h5>HTML代码示例</h5>
+    <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"&gt;&lt;/p-autoComplete&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="explainTSDemo1"></code>
+</pre>
+      <h3 class="margin-t-40">2. 模型驱动形式</h3>
+      <p>AutoComplete也可以用于模型驱动的形式</p>
+      <h5>HTML代码示例</h5>
+    <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-autoComplete formControlName="city" [suggestions]="results" (completeMethod)="search($event)"&gt;&lt;/p-autoComplete&gt;
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>属性</h2>
+      <p-dataTable [value]="attributes">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="type" header="类型"></p-column>
+        <p-column field="default" header="默认值"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>事件</h2>
+      <p-dataTable [value]="eventsList">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="parameters" header="参数"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>样式</h2>
+      <p-dataTable [value]="styleList">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="element" header="元素"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>依赖</h2>
+      <p>无</p>
+    </section>
+  </p-tabPanel>
+</p-tabView>
+

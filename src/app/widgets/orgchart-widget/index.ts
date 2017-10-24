@@ -1,0 +1,1 @@
+export { OrgchartWidgetModule } from './orgchart-widget.module';

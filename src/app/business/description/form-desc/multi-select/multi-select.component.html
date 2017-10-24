@@ -1,0 +1,92 @@
+<h3 class="component-title icon_resource"><span>下拉列表多选框</span></h3>
+<p class="margin-10">MultiSelect用于从集合中选择多个项。</p>
+<p-tabView>
+    <p-tabPanel header="效果示例" leftIcon="icon_example">
+        <section>
+            <h2>默认下拉列表（多选可检索）</h2>
+            <div class="example">
+                <p-multiSelect [options]="cars" [(ngModel)]="selectedCars"></p-multiSelect>
+                <p>Selected Cars: {{selectedCars}}</p>
+            </div>
+        </section>   
+    </p-tabPanel>
+    <p-tabPanel header="组件源码" leftIcon="icon_code">
+        <section>
+            <h2>默认下拉列表（多选可检索）</h2>
+            <h5>HTML代码示例</h5>
+            <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-multiSelect [options]="cars" [(ngModel)]="selectedCars"&gt;&lt;/p-multiSelect&gt;
+&lt;p&gt;Selected Cars: &#123;&#123;selectedCars&#125;&#125;&lt;/p&gt;
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+            <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo"></code>
+</pre>
+        </section>
+
+    </p-tabPanel>
+    <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+        <section>
+            <h2>资源文件引入</h2>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight>
+import &#123;FormWidgetsModule&#125; from '../../../widgets';
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>使用</h2>
+            <h3>1. 双向绑定</h3>
+            <p>使用ng Model定义双向值绑定，多选择需要一组选项，每个选项应遵循示例中的cities定义标签值属性。</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-multiSelect [options]="cities" [(ngModel)]="selectedCities"&gt;&lt;/p-multiSelect&gt;
+</code>
+</pre>
+        <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="tsDemo"></code> 
+</pre>
+            <h2 class="margin-t-40">2. 模型驱动形式</h2>
+            <p>MultiSelect也可以用于模型驱动形式。</p>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-multiSelect [options]="cities" formControlName="selectedCities"&gt;&lt;/p-multiSelect&gt;
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>属性</h2>
+            <p-dataTable [value]="attributes">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="type" header="类型"></p-column>
+                <p-column field="default" header="默认值"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>事件</h2>
+            <p-dataTable [value]="eventsList">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="parameters" header="参数"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>样式</h2>
+            <p>以下是结构样式类的列表，针对主题样式的样式类</p>
+            <p-dataTable [value]="styleList">
+                <p-column field="name" header="名称"></p-column>
+                <p-column field="element" header="元素"></p-column>
+            </p-dataTable>
+        </section>
+        <section>
+            <h2>依赖</h2>
+            <p>无</p>
+        </section>
+    </p-tabPanel>
+</p-tabView>

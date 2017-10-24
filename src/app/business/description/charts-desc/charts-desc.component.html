@@ -1,0 +1,110 @@
+<section>
+  <h2>图表介绍</h2>
+  <div>【解释】 图表组件基于Charts.js 2.1.x，一个开源的基于HTML5的图表库。</div>
+  <div>【说明】 用于在页面上显示图表。 类名是UIChart，元素标签是p-chart。</div>
+  <div class="margin-b-15">【用法】 需要在使用图表组件的模块引入图表资源。 </div>
+<pre>
+<code class="language-javascript" kyeeCodeHighLight>
+import &#123; ChartsWidgetsModule &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+</code>
+</pre>
+</section>
+
+<section>
+  <h2>变更检测</h2>
+  <span>
+   【说明】刷新图表，需要创建一个新的数据对象。 在不创建新的数组实例的情况下更改数组内容不会触发更改检测。
+  </span>
+  <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="pie" [data]="data"&gt;&lt;/p-chart&gt;
+&lt;button type="button" pButton (click)="update($event)"&gt;&lt;/button&gt;
+</code>
+</pre>
+  <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" kyeeCodeHighLight>
+update(event: Event) &#123;
+  this.data = //create new data
+&#125;
+</code>
+</pre>
+</section>
+
+<section>
+  <h2>图表组件属性</h2>
+  <p-dataTable [value]="chartsOptionS">
+    <p-column field="name" header="名称"></p-column>
+    <p-column field="type" header="类型"></p-column>
+    <p-column field="defaultValue" header="默认值"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+</section>
+
+<section>
+  <h2>图表方法</h2>
+  <p-dataTable [value]="chartsMethodS">
+    <p-column field="name" header="名称"></p-column>
+    <p-column field="params" header="参数"></p-column>
+    <p-column field="description" header="描述"></p-column>
+  </p-dataTable>
+</section>
+
+<section>
+  <h2>图表类型</h2>
+  <span>【说明】使用type属性定义图表类型。 框架目前支持3个选项： bar、line、pie。</span>
+</section>
+
+<section>
+  <h2>Data</h2>
+  <span>【说明】图表的数据由绑定的data属性提供，每种类型都有自己的数据格式。 </span>
+  <div>【示例】折线图</div>
+  <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="line" [data]="data"&gt;&lt;/p-chart&gt;
+</code>
+</pre>
+  <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="lineChartDemoCode"></code>
+</pre>
+</section>
+
+<section>
+  <h2>Options</h2>
+  <span>【说明】虽然可以为每个数据集定制一个系列，但通用图表选项是用options属性定义的。 下面的示例添加了一个标题，并自定义图表的图例位置。 对于所有可用的选项，请参考charts.js文档。</span>
+  <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="line" [data]="data" [options]="options"&gt; &lt;/p-chart&gt;
+</code>
+</pre>
+  <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="optionDemoCode"></code>
+</pre>
+</section>
+
+<section>
+  <h2>Events</h2>
+  <span>【说明】当通过点击事件选择数据时，图表组件提供onDataSelect回调来处理所选数据。</span>
+  <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="line" [data]="data" &gt; &lt;/p-chart&gt;
+</code>
+</pre>
+  <h5>TS代码示例</h5>
+<pre>
+<code class="language-typescript" kyeeCodeHighLight>
+selectData(event) &#123;
+  //event.dataset = Selected dataset
+  //event.element = Selected element
+  //event.element._datasetIndex = Index of the dataset in data
+  //event.element._index = Index of the data in dataset
+&#125;
+</code>
+</pre>
+</section>

@@ -1,0 +1,11 @@
+export { WidgetsModule } from './widgets.module';
+export { EchartWidgetsModule } from './echart-widgets';
+export { ChartsWidgetsModule } from './charts-widgets';
+export { CommonWidgetsModule, Message } from './common-widgets';
+export { DatalistWidgetModule } from './datalist-widget';
+export { DatascrollerWidgetModule } from './datascroller-widget';
+export { DatatableWidgetModule, LazyLoadEvent } from './datatable-widget';
+export { FormWidgetsModule } from './form-widgets';
+export { MenuWidgetsModule, MenuItem } from './menu-widgets';
+export { OrgchartWidgetModule } from './orgchart-widget';
+export { TreeWidgetModule, TreeNode, Tree } from './tree-widget';

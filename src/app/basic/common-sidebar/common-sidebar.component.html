@@ -1,0 +1,20 @@
+<div id="layout-sidebar" class="sidebar">
+  <ul class="ul-parent">
+    <li *ngFor="let item of items;let index = index" [ngStyle]="{'border-left-color':item.expanded?'#3b55e7':'transparent'}">
+      <div class="sidebar-title text-overflow" [ngStyle]="{'color':item.expanded || item.visible ?'#3b55e7':'#3c4144'}" (click)="handleClick($event,item,index)" >
+        <i class="fa" [ngClass]="item.icon"></i> {{item.label}}
+      </div>
+      <ul *ngIf="item.items && item.items.length>0" [ngClass]="{'submenu-show':item.expanded,'submenu-hide':!item.expanded}" class = "ul-child">
+        <li *ngFor="let childLevelItem of item.items;let childIndex = index">
+          <div class="text-overflow" [ngStyle]="{'color':childLevelItem.expanded || childLevelItem.visible ?'#3b55e7':'#3c4144'}" (click)="handleClick($event,childLevelItem,index,childIndex)">
+            <i class="fa" [ngClass]="childLevelItem.expanded?'fa-minus':'fa-plus'" [ngStyle]="{'visibility':childLevelItem.items && childLevelItem.items.length>0 ? 'visible' : 'hidden' }"></i>{{childLevelItem.label}}
+          </div>
+          <ul *ngIf="childLevelItem.items && childLevelItem.items.length>0" [ngClass]="{'submenu-show':childLevelItem.expanded,'submenu-hide':!childLevelItem.expanded}"
+            class="ul-grandchild">
+            <li *ngFor="let grandchildLevelItem of childLevelItem.items;let grandchildIndex = index" [ngStyle]="{'color':grandchildLevelItem.visible ?'#3b55e7':'#3c4144'}" class="text-overflow" (click)="handleClick($event,grandchildLevelItem,index,childIndex,grandchildIndex)">{{grandchildLevelItem.label}}</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

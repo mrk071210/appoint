@@ -1,0 +1,67 @@
+<h3 class="component-title icon_resource"><span>内联消息</span></h3>
+<p class="margin-10">内联消息用于内联显示消息。</p>
+
+<p-tabView>
+  <p-tabPanel header="效果示例" leftIcon="icon_example">
+    <p-growl [(value)]="msgs"></p-growl>
+
+    <section>
+      <h2>动态</h2>
+      <div class="common-demo">
+        <p-progressBar [value]="value"></p-progressBar>
+      </div>
+    </section>
+
+    <section>
+      <h2>静态</h2>
+      <div class="common-demo">
+        <p-progressBar [value]="50"></p-progressBar>
+      </div>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-growl [(value)]="msgs"&gt;&lt;/p-growl&gt;
+
+&lt;h3 class="first"&gt;动态&lt;/h3&gt;
+&lt;p-progressBar [value]="value"&gt;&lt;/p-progressBar&gt;
+
+&lt;h3&gt;静态&lt;/h3&gt;
+&lt;p-progressBar [value]="50"&gt;&lt;/p-progressBar&gt;
+</code>
+</pre>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+    <section>
+      <h2>使用</h2>
+      <p>进度条需要0到100之间的值来显示进度。</p>
+      <h5>HTML代码示例</h5>
+      <pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;p-progressBar [value]="value"&gt;&lt;/p-progressBar&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+      <pre>
+<code class="language-typescript" kyeeCodeHighLight ngNonBindable>
+export class ModelComponent &#123;
+
+    value: number = 0;
+
+&#125;
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>属性</h2>
+      <p-dataTable [value]="properties">
+        <p-column field="name" header="名称" [style]="{'width': '20%'}"></p-column>
+        <p-column field="type" header="类型" [style]="{'width': '20%'}"></p-column>
+        <p-column field="default" header="默认值" [style]="{'width': '20%'}"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+  </p-tabPanel>

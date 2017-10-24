@@ -1,0 +1,1 @@
+export { MegamenuComponent } from './megamenu.component';

@@ -1,0 +1,122 @@
+<h3 class="component-title icon_resource"><span>按钮</span></h3>
+<p class="margin-10">按钮是带有图标和主题的标准输入元素的扩展。</p>
+<p-tabView>
+    <p-tabPanel header="效果示例" leftIcon="icon_example">
+        <div class="common-demo margin-t-40">
+            <button pButton type="button" (click)="count()" label="Click"></button>
+            <button pButton type="button" (click)="count()" icon="fa-check" label="Click"></button>
+            <button pButton type="button" (click)="count()" icon="fa-check" iconPos="right" label="Click"></button>
+            <button pButton type="button" (click)="count()" icon="fa-close"></button>
+            <button pButton type="button" (click)="count()" icon="fa-check" [disabled]="true" label="Disabled"></button>
+
+            <br /><br />
+            <button pButton type="button" (click)="count()" label="Primary"></button>
+            <button pButton type="button" (click)="count()" label="Secondary" class="ui-button-secondary"></button>
+            <button pButton type="button" (click)="count()" label="Success" class="ui-button-success"></button>
+            <button pButton type="button" (click)="count()" label="Info" class="ui-button-info"></button>
+            <button pButton type="button" (click)="count()" label="Warning" class="ui-button-warning"></button>
+            <button pButton type="button" (click)="count()" label="Danger" class="ui-button-danger"></button>
+            <br /><br /> 点击次数: {{clicks}}
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="组件源码" leftIcon="icon_code">
+        <section>
+            <h5>HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;button pButton type="button" (click)="count()" label="Click"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" icon="fa-check" label="Click"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" icon="fa-check" iconPos="right" label="Click"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" icon="fa-check"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" icon="fa-check" [disabled]="true" label="Disabled"&gt;&lt;/button&gt;
+
+&lt;button pButton type="button" (click)="count()" label="Primary"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" label="Secondary" class="ui-button-secondary"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" label="Success" class="ui-button-success"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" label="Info"  class="ui-button-info"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" label="Warning"  class="ui-button-warning"&gt;&lt;/button&gt;
+&lt;button pButton type="button" (click)="count()" label="Danger"  class="ui-button-danger"&gt;&lt;/button&gt;
+
+点击次数: {{clicks}}
+</code>
+</pre>
+            <h5>TS代码示例</h5>
+<pre>
+<code class="language-typescript" kyeeCodeHighLight ngNonBindable>
+export class ButtonDemo &#123;
+
+    clicks: number = 0;
+
+    count() &#123;
+        this.clicks++;
+    &#125;
+&#125;
+</code>
+</pre>
+        </section>
+    </p-tabPanel>
+    <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+        <section>
+            <h2>使用</h2>
+            <p>按钮被应用到具有Button指令的按钮元素。 按钮的文本使用标签属性定义。</p>
+
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;button pButton type="button" label="Click"&gt;&lt;/button&gt;
+</code>
+</pre>
+
+            <h2>事件</h2>
+            <p>事件是使用标准符号“(click)”定义的.</p>
+
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;button pButton type="button" (click)="onclick()" label="Click"&gt;&lt;/button&gt;
+</code>
+</pre>
+
+<pre>
+<code class="language-typescript" kyeeCodeHighLight ngNonBindable>
+export class Model &#123;
+
+    onclick() &#123;
+        //execute action
+    &#125;
+
+&#125;
+</code>
+</pre>
+
+            <h2>字体图标</h2>
+            <p>使用"icon"属性指定按钮上的图标，并使用"iconPos"属性定制位置。 默认图标位置留下。 要仅显示图标，请将标签留下未定义。</p>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;button pButton type="button" icon="fa-check" iconPos="left"&gt;&lt;/button&gt;
+</code>
+</pre>
+
+            <h2>高级</h2>
+            <p>可以使用不同的颜色选项来定义按键级别。</p>
+
+            <ul>
+                <li>.ui-button-secondary</li>
+                <li>.ui-button-success</li>
+                <li>.ui-button-info</li>
+                <li>.ui-button-warning</li>
+                <li>.ui-button-danger</li>
+            </ul>
+<pre>
+<code class="language-markup" kyeeCodeHighLight ngNonBindable>
+&lt;button pButton type="button" class="ui-button-info"&gt;&lt;/button&gt;
+</code>
+</pre>
+            <h2>属性</h2>
+            <p-dataTable [value]="properties">
+                <p-column field="name" header="名称" [style]="{'width': '20%'}"></p-column>
+                <p-column field="type" header="类型" [style]="{'width': '20%'}"></p-column>
+                <p-column field="default" header="默认值" [style]="{'width': '20%'}"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+    </p-tabPanel>
+</p-tabView>

@@ -1,0 +1,71 @@
+<h3 class="component-title icon_resource"><span>Mega菜单</span></h3>
+<p class="margin-10">Mega菜单显示根菜单的各个选项，其中根菜单选项可以水平显示和竖直显示，同时在水平显示模型中可以添加自定义内容，例如搜索框。</p>
+<p-tabView>
+  <p-tabPanel header="效果示例" leftIcon="icon_example">
+    <!--垂直-->
+    <section>
+      <h2>竖直显示根菜单选项</h2>
+      <div class="menu-demo">
+        <p-megaMenu [model]="megamenuData" orientation="vertical"></p-megaMenu>
+      </div>
+    </section>
+    <!--水平-->
+    <section>
+      <h2>水平显示根菜单选项</h2>
+      <div class="menu-demo">
+        <p-megaMenu [model]="megamenuData"></p-megaMenu>
+      </div>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="组件源码" leftIcon="icon_code">
+    <section>
+      <h5>竖直显示效果HTML代码示例</h5>
+      <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-megaMenu&nbsp;[model]="megamenuData" orientation="vertical"&gt;&lt;/p-megaMenu&gt;
+</code>
+</pre>
+      <h5>水平显示效果HTML代码示例</h5>
+      <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-megaMenu&nbsp;[model]="megamenuData"&gt;&lt;/p-megaMenu&gt;
+</code>
+</pre>
+      <h5>TS代码示例</h5>
+      <pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="megamenuDemoCode"></code>
+</pre>
+    </section>
+  </p-tabPanel>
+  <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+    <section>
+      <h2>自定义内容</h2>
+      <div>自定义内容可以放在p-megamenu标签之间。对于自定义内容，与Mega菜单应该是水平的。</div>
+      <pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-megaMenu  [model]="breadcrumbData"&gt;
+  &lt;input type="text" pInputText placeholder="Search"&gt;
+  &lt;button pButton label="Logout" icon="fa-sign-out"&gt;&lt;/button&gt;
+&lt;/p-megaMenu&gt;
+</code>
+</pre>
+    </section>
+    <section>
+      <h2>属性</h2>
+      <p-dataTable [value]="megamenuProperties">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="type" header="类型"></p-column>
+        <p-column field="default" header="默认值"></p-column>
+        <p-column field="description" header="描述"></p-column>
+      </p-dataTable>
+    </section>
+    <section>
+      <h2>样式</h2>
+      <p>以下是结构样式类的列表，对于主题类访问它们的页面。</p>
+      <p-dataTable [value]="megamenuStyles">
+        <p-column field="name" header="名称"></p-column>
+        <p-column field="element" header="元素"></p-column>
+      </p-dataTable>
+    </section>
+  </p-tabPanel>
+</p-tabView>

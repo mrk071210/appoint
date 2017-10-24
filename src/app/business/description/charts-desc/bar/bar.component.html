@@ -1,0 +1,86 @@
+<h3 class="component-title icon_resource"><span>柱状图</span></h3>
+<p class="margin-10">柱状图或条形图是一种将数据进行分组并以长条形进行展示的图，这些长条的长度与需要展示的数据值成比例。</p>
+<p-tabView>
+    <p-tabPanel header="效果示例" leftIcon="icon_example">
+        <section>
+            <h2>常规柱状图</h2>
+            <div class="chart-demo">
+                <p-chart type="bar" [data]="barData"></p-chart>
+            </div>
+        </section>
+         
+        <section>
+          <h2>横向柱状图</h2>
+          <div class="chart-demo">
+            <p-chart type="horizontalBar" [data]="barData"></p-chart>
+          </div>
+        </section>
+    </p-tabPanel>
+    <p-tabPanel header="组件源码" leftIcon="icon_code">
+        <section>
+          <h5>常规柱状图HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="bar" [data]="barData" &gt; &lt;/p-chart&gt;
+</code>
+</pre>
+          <h5>横向柱状图HTML代码示例</h5>
+<pre>
+<code class="language-markup" kyeeCodeHighLight>
+&lt;p-chart type="horizontalBar" [data]="barData" &gt; &lt;/p-chart&gt;
+</code>
+</pre>
+          <h5>TS代码示例</h5>
+<pre>
+<code class="language-javascript" ngNonBindable kyeeCodeHighLight [innerHtml]="barDemoCode" ></code>
+</pre>
+        </section>
+    </p-tabPanel>
+    <p-tabPanel header="使用说明" leftIcon="icon_explorer">
+        <section>        
+            <h4>Step 1  TS文件中引入组件所需资源，如下: </h4>    
+<pre>
+<code class="language-javascript" kyeeCodeHighLight>
+import &#123; ChartsWidgetsModule &#125; from 'widgets'; // widgets 为根目录widgets文件夹
+</code>
+</pre>
+            <h4>Step 2  HTML文件中使用图表指令<span class="padding-lr-10 high-light">p-chart</span>，如下:</h4>   
+            <p> 【常规柱状图】设置类型 type 为<span class="padding-lr-10 high-light">bar</span> </p> 
+<pre>
+<code class="language-javascript" kyeeCodeHighLight>
+&lt;p-chart type="bar" [data]="barData" &gt;&lt;/p-chart&gt;
+</code>
+</pre>
+            <p>【横向柱状图】设置类型 type 为<span class="padding-lr-10 high-light">horizontalBar</span></p>
+<pre>
+<code class="language-javascript" kyeeCodeHighLight>
+&lt;p-chart type="horizontalBar" [data]="barData" &gt;&lt;/p-chart&gt;
+</code>
+</pre>
+
+            <table class="tableStyle" border="1">
+                <thead>
+                    <tr><th width="25%">属性</th><th width="25%">值</th><th>说明</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>data</td><td>barData</td><td>图表数据</td>
+                    </tr>                    
+                </tbody>
+            </table>
+            <h4>Step 3  <span class="padding-lr-10 high-light">TS</span>文件中设置图表展示数据,详见组件源码。</h4>       
+        </section>
+
+        <section class="border-t margin-t-40">
+            <p class="padding-t-40">图表参数<span class="padding-lr-10 high-light">options</span>列表</p>
+            <p>
+                条形图允许为每个数据集指定多个属性,一些属性可以指定为数组。如果这些值设置为数组值，则第一个值适用于第一个条，第二个值应用于第二个条，等等。
+            </p>            
+            <p-dataTable [value]="barChartOptions">
+                <p-column field="name" header="名称" [style]="{'width': '25%'}"></p-column>
+                <p-column field="type" header="类型" [style]="{'width': '25%'}"></p-column>
+                <p-column field="description" header="描述"></p-column>
+            </p-dataTable>
+        </section>
+    </p-tabPanel>
+</p-tabView>
