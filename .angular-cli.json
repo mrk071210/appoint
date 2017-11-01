@@ -9,8 +9,7 @@
       "outDir": "kyee_nextframework_portalface_quickstart",
       "assets": [
         "assets",
-        "favicon.ico",
-        "upload.php"
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,10 +18,10 @@
       "prefix": "kyee",
       "styles": [
         "../node_modules/font-awesome/css/font-awesome.min.css",
-        "assets/font-icon/font-icon.css"
+        "../node_modules/portalface/styles/theme.scss"
       ],
       "scripts": [
-        "../node_modules/chart.js/dist/Chart.js"
+        
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

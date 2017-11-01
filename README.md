@@ -1,6 +1,11 @@
-# Kyee Nextframework Portalface Quickstart
+# Kyee Nextframework Portalface Quickstart（ portalface 纯净版基础框架）
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.X.
+
+## Dependencies Install
+
+Run `npm set registry http://139.129.204.228:4873/` to set npm orgin, then
+run `npm install` to install dependented packages.
 
 ## Development server
 
@@ -13,8 +18,4 @@ Run `npm run create component component-name` to generate a new component. You c
 ## Production build and server
 
 Run `npm run build:prod` to build for production. 
-Run `npm run server` for start a server with `dist` files.
-
-## 使用规范
-
-组件以及指令的 `selector` 属性，`component`以中划线分割，`directive`以驼峰命名。
+Run `npm run server` for start a server with `kyee_nextframework_portalface_ins` files.
