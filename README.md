@@ -18,4 +18,4 @@ Run `npm run create component component-name` to generate a new component. You c
 ## Production build and server
 
 Run `npm run build:prod` to build for production. 
-Run `npm run server` for start a server with `kyee_nextframework_portalface_ins` files.
+Run `npm run server` for start a server with `kyee_nextframework_portalface_quickstart` files.
