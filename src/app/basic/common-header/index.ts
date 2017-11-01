@@ -1,1 +1,0 @@
-export { CommonHeaderComponent } from './common-header.component';

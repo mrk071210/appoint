@@ -1,25 +1,17 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { LoginComponent } from './basic/login';
-import { PageNotFoundComponent } from './basic/page-not-found';
-import { HomeComponent } from './basic/home';
-
-import { MainComponent } from './basic/main/main.component';
+import { LoginComponent } from './basic/login/login.component';
+import { PageNotFoundComponent } from './basic/page-not-found/page-not-found.component';
+import { HomeComponent } from './basic/home/home.component';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
+            { path: '', redirectTo: 'login', pathMatch: 'full' },
             { path: 'login', component: LoginComponent },
-            { path: '', component: MainComponent,
-                children: [
-                    { path: '', redirectTo: 'home', pathMatch: 'full' },
-                    { path: 'home', component: HomeComponent },
-                    { path: 'example', loadChildren: './basic/example/example.module#ExampleModule' },
-                    { path: 'business', loadChildren: './business/business.module#BusinessModule' },
-                    { path: '**', component: PageNotFoundComponent }
-                ]
-            }
+            { path: 'home', component: HomeComponent },
+            { path: '**', component: PageNotFoundComponent }
         ])
     ],
     exports: [RouterModule]

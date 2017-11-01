@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  msgs = [{}];
   constructor() { }
 
   ngOnInit() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info Message', detail:'PrimeNG rocks'});
   }
 
+
+  onClick() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info Message', detail:'PrimeNG rocks'});
+
+  }
 }

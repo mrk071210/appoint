@@ -10,12 +10,11 @@ export const DeploymentConfig = {
     /**
      * 服务端地址注册表
      */
-    SERVER_URL: 'http://223.255.14.183:8492/rhcms_server/',
+    SERVER_URL: '',
 
     /**
      * ECharts地图数据
      */
     ECHARTS_MAPS: [
-        {name: 'china', url: 'assets/echarts-map/china.json'}
     ]
 };
