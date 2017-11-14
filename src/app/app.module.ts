@@ -12,6 +12,7 @@ import { LoginComponent } from './basic/login/login.component';
 import { SidebarComponent } from './basic/sidebar/sidebar.component';
 import { HeaderComponent } from './basic/header/header.component';
 import { PageNotFoundComponent } from './basic/page-not-found/page-not-found.component';
+import { LoadingComponent } from './basic/loading/loading.component';
 
 import { DeploymentConfig } from './config';
 
@@ -23,7 +24,8 @@ import { DeploymentConfig } from './config';
         LoginComponent,
         HomeComponent,
         HeaderComponent,
-        SidebarComponent
+        SidebarComponent,
+        LoadingComponent
     ],
     imports: [
         KyeeModule,
