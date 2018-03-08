@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './basic/page-not-found/page-not-found.com
 import { LoadingComponent } from './basic/loading/loading.component';
 
 import { DeploymentConfig } from './config';
+import { AppointComponent } from './business/appoint/appoint.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DeploymentConfig } from './config';
         HomeComponent,
         HeaderComponent,
         SidebarComponent,
-        LoadingComponent
+        LoadingComponent,
+        AppointComponent
     ],
     imports: [
         KyeeModule,
